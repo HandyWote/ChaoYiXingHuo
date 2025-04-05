@@ -1,0 +1,60 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view class="container">
+  <!-- 地图组件 -->
+  <map 
+    id="myMap" 
+    style="width: 100%; height: 100vh;" 
+    latitude="{{latitude}}" 
+    longitude="{{longitude}}" 
+    markers="{{markers}}" 
+    show-location
+    bindmarkertap="markertap"
+    bindtap="bindTouchMap"
+    scale="14"
+    class="{{mapLoadComplete ? 'map-loaded' : ''}}"
+  ></map>
+  
+  <!-- 右下角控制按钮 -->
+  <view class="map-controls {{mapLoadComplete ? 'controls-visible' : ''}} {{controlsHidden ? 'list-active' : ''}}">
+    <view class="control-btn location-btn" bindtap="getCurrentLocation">
+      <image src="/assets/icons/location.svg" mode="aspectFit"></image>
+    </view>
+    <view class="control-btn scale-btn" bindtap="randomHeritage">
+      <image src="/assets/icons/dice.svg" mode="aspectFit"></image>
+    </view>
+    <view class="control-btn list-btn" bindtap="showHeritageList">
+      <image src="/assets/icons/list.svg" mode="aspectFit"></image>
+    </view>
+  </view>
+  
+  <!-- 底部显示当前选中的非遗信息 -->
+  <view class="heritage-info {{showInfo ? 'show' : ''}}">
+    <view class="heritage-card">
+      <view class="heritage-name">{{selectedHeritage.name}}</view>
+      <view class="heritage-desc">{{selectedHeritage.description}}</view>
+      <view class="check-detail" bindtap="goToDetail" data-id="{{selectedHeritage.id}}">
+        查看详情
+      </view>
+    </view>
+  </view>
+
+  <!-- 右侧非遗列表 -->
+  <view class="heritage-list {{showList ? 'show' : ''}}">
+    <view class="list-header">
+      <image class="back-icon" src="/assets/icons/back.svg" mode="aspectFit" bindtap="hideHeritageList"></image>
+      <text class="list-title">非遗列表</text>
+      <image class="search-icon" src="/assets/icons/search.svg" mode="aspectFit" bindtap="toggleSearch"></image>
+    </view>
+    <view class="search-box {{showSearch ? 'show' : ''}}">
+      <input class="search-input" type="text" placeholder="搜索非遗地点" bindinput="onSearchInput" value="{{searchKeyword}}"></input>
+    </view>
+    <view class="list-content">
+      <block wx:for="{{filteredHeritageList}}" wx:key="id">
+        <view class="heritage-card" bindtap="selectHeritage" data-id="{{item.id}}">
+          <view class="heritage-name">{{item.name}}</view>
+          <view class="heritage-desc">{{item.description}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

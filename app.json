@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "潮艺星火",
+    "navigationBarBackgroundColor": "#a85418",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f8f8f8",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于定位潮汕非遗文化地点"
+    }
+  }
+}

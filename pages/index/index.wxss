@@ -1,0 +1,312 @@
+/* 主色调使用#8B4513棕色 */
+page {
+  background-color: #F5F5DC; /* 米色背景 */
+  color: #333;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* 标题样式 */
+.title {
+  color: #8B4513;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid #a85418;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* 传统纹样边框 */
+.border-pattern {
+  border: 2px solid #8B4513;
+  background-image: linear-gradient(45deg, #8B4513 25%, transparent 25%, transparent 50%, #8B4513 50%, #8B4513 75%, transparent 75%, transparent);
+  background-size: 10px 10px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+/* 页面容器 */
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* 地图加载动画 */
+map {
+  opacity: 0.7;
+  transform: scale(0.98);
+  transition: all 0.8s ease-in-out;
+}
+
+.map-loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 地图控制按钮区域 */
+.map-controls {
+  position: fixed; /* 改用fixed定位，确保始终显示 */
+  right: 15px;
+  bottom: 180px; /* 提高位置，避免被卡片遮挡 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.6s ease-out;
+  z-index: 999; /* 使用极高的z-index确保在最上层 */
+  pointer-events: auto; /* 确保可点击 */
+}
+
+/* 控制按钮的列表显示/隐藏动画 */
+.map-controls.list-active {
+  opacity: 0;
+  transform: translateX(50px);
+  pointer-events: none;
+}
+
+.controls-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 强化按钮样式，增加可见性 */
+.control-btn {
+  width: 42px;
+  height: 42px;
+  background-color: #fff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* 更明显的阴影 */
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.1); /* 添加边框增强可见性 */
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+  background-color: #f8f8f8;
+}
+
+.control-btn image {
+  width: 26px;
+  height: 26px;
+}
+
+/* 底部非遗信息卡片 */
+.heritage-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -150px; /* 默认隐藏在屏幕底部外 */
+  padding: 15px;
+  transition: bottom 0.4s ease-out;
+  z-index: 90; /* z-index低于控制按钮 */
+}
+
+.heritage-info.show {
+  bottom: 0; /* 显示时上移到屏幕内 */
+}
+
+/* 右侧滑入的列表样式 */
+.heritage-list {
+  position: fixed;
+  right: -300px; /* 默认隐藏在屏幕右侧外 */
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #F5F5DC;
+  z-index: 100;
+  transition: right 0.4s ease-out;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  border-left: 2px solid #8B4513;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 列表标题栏 */
+.list-header {
+  padding: 15px;
+  background-color: #8B4513;
+  color: #F5F5DC;
+  display: flex;
+  justify-content: flex-start; /* 改为左对齐 */
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.list-title {
+  font-size: 18px;
+  font-weight: bold;
+  flex: 1; /* 让标题占据中间空间 */
+  text-align: center; /* 标题居中 */
+}
+
+/* 返回按钮样式 */
+.back-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.back-icon:active {
+  transform: scale(0.9);
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.search-icon:active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* 搜索框 */
+.search-box {
+  padding: 10px 15px;
+  background-color: rgba(139,69,19,0.1);
+  display: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.search-box.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.search-input {
+  width: 90%;
+  height: 36px;
+  padding: 0 15px;
+  border-radius: 18px;
+  border: 1px solid rgba(139,69,19,0.2);
+  background-color: #fff;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* 列表内容区域 */
+.list-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.heritage-list.show {
+  right: 0; /* 显示时滑入到屏幕内 */
+}
+
+.heritage-card {
+  padding: 10px;
+  background: white
+}
+
+.heritage-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #a85418;
+  margin-bottom: 5px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.heritage-name:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  background-color: #a85418;
+  opacity: 0.5;
+}
+
+.heritage-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0;
+  transition: padding-left 0.3s ease;
+}
+
+.show .heritage-desc {
+  padding-left: 5px;
+}
+
+.check-detail {
+  text-align: center;
+  background-color: #a85418;
+  color: #fff;
+  padding: 8px 0;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.check-detail:active {
+  transform: scale(0.98);
+  background-color: #964913;
+}
+
+/* 按钮波纹效果 */
+.check-detail:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10,10);
+  opacity: 0;
+  transition: transform .3s, opacity .5s;
+}
+
+.check-detail:active:after {
+  transform: scale(0,0);
+  opacity: .2;
+  transition: 0s;
+}
+/* 返回按钮样式 */
+.back-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.back-icon:active {
+  transform: scale(0.9);
+}
+
+/* 调整列表标题样式，使其与返回按钮对齐 */
+.list-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+}

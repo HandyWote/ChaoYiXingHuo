@@ -1,0 +1,232 @@
+/* 主色调使用#a85418 */
+page {
+  background-color: #fff;
+  color: #333;
+}
+
+/* 标题样式 */
+.title {
+  color: #a85418;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid #a85418;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* 传统纹样边框 */
+.border-pattern {
+  border: 2px solid #a85418;
+  background-image: linear-gradient(45deg, #a85418 25%, transparent 25%, transparent 50%, #a85418 50%, #a85418 75%, transparent 75%, transparent);
+  background-size: 10px 10px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.container {
+  padding: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.6s ease-out;
+}
+
+.animation-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 非遗图片 */
+.heritage-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.heritage-image:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  background: linear-gradient(to top, #fff, transparent);
+  z-index: 1;
+}
+
+.heritage-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 12s ease-in-out;
+}
+
+.animation-ready .heritage-img {
+  transform: scale(1.05);
+}
+
+/* 非遗内容区域 */
+.heritage-content {
+  padding: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 添加古典风格底纹效果 */
+.heritage-content:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(45deg, rgba(168, 84, 24, 0.03) 0px, rgba(168, 84, 24, 0.03) 1px, transparent 1px, transparent 11px), 
+                    repeating-linear-gradient(135deg, rgba(168, 84, 24, 0.03) 0px, rgba(168, 84, 24, 0.03) 1px, transparent 1px, transparent 11px);
+  z-index: -1;
+}
+
+/* 非遗标题 */
+.heritage-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #a85418;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease 0.1s;
+}
+
+.animation-ready .heritage-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heritage-title:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 60px;
+  height: 2px;
+  background-color: #a85418;
+  transform: translateX(-50%);
+}
+
+/* 非遗描述 */
+.heritage-desc {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(168, 84, 24, 0.05);
+  border-radius: 8px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease 0.2s;
+}
+
+.animation-ready .heritage-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 部分内容 */
+.section {
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s ease;
+}
+
+.section-1 {
+  transition-delay: 0.3s;
+}
+
+.section-2 {
+  transition-delay: 0.4s;
+}
+
+.section-3 {
+  transition-delay: 0.5s;
+}
+
+.animation-ready .section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #a85418;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.section-title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #a85418;
+  border-radius: 2px;
+}
+
+.section-content {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  padding-left: 12px;
+  position: relative;
+}
+
+/* 传统纹理装饰 */
+.section-content:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-image: linear-gradient(to bottom, #a85418 50%, transparent 50%);
+  background-size: 2px 8px;
+  opacity: 0.5;
+}
+
+/* 加载提示 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #999;
+  position: relative;
+}
+
+.loading:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(168, 84, 24, 0.2);
+  border-top-color: #a85418;
+  animation: loading-spin 0.8s linear infinite;
+  position: absolute;
+  top: 50%;
+  margin-top: -40px;
+}
+
+@keyframes loading-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -15,6 +15,19 @@ yarn-error.log*
 
 # 微信开发者工具本地配置文件
 project.private.config.json
+project.config.json.bak
+
+# 微信小程序编译产物
+**/*.wxss
+!app.wxss
+!pages/**/*.wxss
+**/*.js
+!app.js
+!pages/**/*.js
+**/*.json
+!app.json
+!project.config.json
+!pages/**/*.json
 
 # 编译生成的临时文件
 *.wxss.map

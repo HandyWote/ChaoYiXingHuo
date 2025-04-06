@@ -1,0 +1,11 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 图片占位符图标，调整位置使其更加舒展 -->
+  <g transform="translate(60,40)">
+    <path d="M80 20 v73 h-80 v-73 h80 M72 28 h-64 v57 h64 v-57" fill="#8B4513" opacity="0.8"/>
+    <circle cx="30" cy="47" r="8" fill="#8B4513" opacity="0.8"/>
+    <path d="M11 85 l17 -17 l13 13 l20 -20 l10 10 v13 h-60 v-0" fill="#8B4513" opacity="0.8"/>
+  </g>
+  
+  <!-- 文字提示 -->
+  <text x="100" y="170" text-anchor="middle" fill="#8B4513" font-size="16" font-family="sans-serif">图片加载失败</text>
+</svg>

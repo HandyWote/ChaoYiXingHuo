@@ -122,5 +122,16 @@ Page({
                 urls
             })
         }
+    },
+
+    // 处理图片加载错误
+    handleImageError(e) {
+        const heritage = this.data.heritage
+        if (heritage) {
+            heritage.images[0] = '/assets/icons/default.svg'
+            this.setData({
+                heritage: heritage
+            })
+        }
     }
 })

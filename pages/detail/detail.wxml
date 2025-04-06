@@ -3,9 +3,10 @@
   <!-- 非遗图片 -->
   <view class="heritage-image">
     <image 
-      src="{{heritage.images[0] || '/icons/default.png'}}" 
+      src="{{heritage.images[0]}}" 
       mode="aspectFit"
       bindtap="previewImage"
+      binderror="handleImageError"
       data-src="{{heritage.images[0]}}"
       class="heritage-img"
     ></image>

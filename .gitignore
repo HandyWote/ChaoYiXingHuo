@@ -1,61 +1,61 @@
-# Dependencies
+# 依赖目录
 node_modules/
+miniprogram_npm/
 
-# IDE - VSCode
-.vscode/
-.idea/
+# 编译输出
+dist/
 
-# System Files
+# 微信小程序特有文件
 .DS_Store
 Thumbs.db
-
-# WeChat Mini Program
-/frontend/miniprogram_npm/
-/frontend/node_modules/
-/frontend/dist/
-
-# Backend
-/backend/node_modules/
-/backend/dist/
-.env
-
-# npm
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Runtime data
+# 微信开发者工具本地配置文件
+project.private.config.json
+
+# 编译生成的临时文件
+*.wxss.map
+*.js.map
+*.wxml.map
+*.wxs.map
+
+# IDE配置文件
+.vscode/
+.idea/
+
+# 运行时数据
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Optional npm cache directory
+# npm缓存目录
 .npm
 
-# Optional eslint cache
+# eslint缓存
 .eslintcache
 
-# Optional REPL history
+# REPL历史记录
 .node_repl_history
 
-# Output of 'npm pack'
+# npm打包输出
 *.tgz
 
-# Yarn Integrity file
+# Yarn完整性文件
 .yarn-integrity
 
-# dotenv environment variables file
+# 环境变量文件
 .env
 .env.test
 .env.production
 
-# Logs
-logs
-*.log
-
-# Coverage directory used by tools like istanbul
+# 测试覆盖率目录
 coverage/
-
-# nyc test coverage
 .nyc_output/
+
+# 临时文件
+.tmp/
+temp/

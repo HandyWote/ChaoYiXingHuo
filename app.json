@@ -21,5 +21,6 @@
     "scope.userLocation": {
       "desc": "您的位置信息将用于定位潮汕非遗文化地点"
     }
-  }
+  },
+  "requiredPrivateInfos": ["getLocation"]
 }

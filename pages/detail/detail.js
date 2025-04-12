@@ -1,19 +1,24 @@
 // miniprogram/pages/detail/detail.js
+// 获取全局应用实例
 const app = getApp()
 
 Page({
 
     /**
      * 页面的初始数据
+     * @heritage {Object} 当前显示的非遗项目详情
+     * @loading {Boolean} 页面加载状态
+     * @animationReady {Boolean} 页面动画准备状态
      */
     data: {
         heritage: null,
         loading: true,
-        animationReady: false  // 控制动画状态
+        animationReady: false
     },
 
     /**
      * 生命周期函数--监听页面加载
+     * 根据传入的非遗ID加载详细信息
      */
     onLoad(options) {
         const id = parseInt(options.id)
@@ -22,9 +27,9 @@ Page({
 
     /**
      * 生命周期函数--监听页面初次渲染完成
+     * 延迟启动页面过渡动画
      */
     onReady() {
-        // 页面渲染完成后启动动画
         setTimeout(() => {
             this.setData({
                 animationReady: true
@@ -33,42 +38,8 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
      * 用户点击右上角分享
+     * 自定义分享标题和路径
      */
     onShareAppMessage() {
         const heritage = this.data.heritage
@@ -78,13 +49,17 @@ Page({
         }
     },
 
-    // 加载非遗详情
+    /**
+     * 加载非遗详情信息
+     * @param {Number} id 非遗项目ID
+     * 从全局数据中查找对应的非遗信息
+     * 设置页面标题并更新数据
+     */
     loadHeritageDetail(id) {
         const heritagePoints = app.globalData.heritagePoints || []
         const heritage = heritagePoints.find(item => item.id === id)
         
         if (heritage) {
-            // 设置页面标题
             wx.setNavigationBarTitle({
                 title: heritage.name
             })
@@ -99,19 +74,25 @@ Page({
                 icon: 'none'
             })
             
-            // 延迟返回
             setTimeout(() => {
                 wx.navigateBack()
             }, 1500)
         }
     },
     
-    // 返回上一页
+    /**
+     * 返回上一页
+     * 处理返回按钮点击事件
+     */
     goBack() {
         wx.navigateBack()
     },
     
-    // 图片预览
+    /**
+     * 图片预览功能
+     * @param {Object} e 事件对象
+     * 支持查看非遗项目的图片集
+     */
     previewImage(e) {
         const current = e.currentTarget.dataset.src
         const urls = this.data.heritage.images
@@ -124,7 +105,11 @@ Page({
         }
     },
 
-    // 处理图片加载错误
+    /**
+     * 处理图片加载错误
+     * @param {Object} e 事件对象
+     * 当图片加载失败时显示默认图片
+     */
     handleImageError(e) {
         const heritage = this.data.heritage
         if (heritage) {

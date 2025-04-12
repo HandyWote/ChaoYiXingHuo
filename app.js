@@ -1,12 +1,10 @@
 // app.js
 App({
   globalData: {
-    mapKey: '7KUBZ-NZD6J-AKNF3-X4YJ5-UML6T-DEBES',
     heritagePoints: []
   },
 
   onLaunch() {
-    // 使用内置数据而不是尝试从文件加载
     this.loadDefaultHeritageData();
     
     // 获取用户位置权限

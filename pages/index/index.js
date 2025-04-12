@@ -1,27 +1,39 @@
 // miniprogram/pages/index/index.js
+// 获取全局应用实例
 const app = getApp()
 
 Page({
-
     /**
      * 页面的初始数据
+     * @markers {Array} 地图标记点数组
+     * @latitude {Number} 地图中心纬度
+     * @longitude {Number} 地图中心经度
+     * @selectedHeritage {Object} 当前选中的非遗项目
+     * @showInfo {Boolean} 控制底部信息卡片的显示状态
+     * @mapLoadComplete {Boolean} 地图是否加载完成
+     * @showList {Boolean} 控制右侧列表的显示状态
+     * @showSearch {Boolean} 控制搜索框的显示状态
+     * @searchKeyword {String} 搜索关键词
+     * @filteredHeritageList {Array} 经过筛选的非遗列表
+     * @controlsHidden {Boolean} 控制地图按钮的显示状态
      */
     data: {
       markers: [],
       latitude: 23.661800,  // 潮州市中心坐标
       longitude: 116.622900,
       selectedHeritage: null,
-      showInfo: false,  // 控制底部信息卡片动画
-      mapLoadComplete: false,  // 地图加载完成状态
-      showList: false,  // 控制右侧列表显示
-      showSearch: false,  // 控制搜索框显示
-      searchKeyword: '',  // 搜索关键词
-      filteredHeritageList: [],  // 经过筛选的非遗列表
-      controlsHidden: false  // 控制按钮是否隐藏
+      showInfo: false,  
+      mapLoadComplete: false,  
+      showList: false,  
+      showSearch: false,  
+      searchKeyword: '',  
+      filteredHeritageList: [],  
+      controlsHidden: false  
     },
 
     /**
      * 生命周期函数--监听页面加载
+     * 初始化地图数据、获取用户位置并设置地图上下文
      */
     onLoad(options) {
       this.loadHeritagePoints()
@@ -40,9 +52,9 @@ Page({
 
     /**
      * 生命周期函数--监听页面初次渲染完成
+     * 地图组件初始化后重新加载标记点
      */
     onReady() {
-      // 地图组件初始化完成后重新加载标记
       setTimeout(() => {
         this.loadHeritagePoints()
       }, 300)
@@ -50,9 +62,9 @@ Page({
 
     /**
      * 生命周期函数--监听页面显示
+     * 每次页面显示时重新加载非遗数据
      */
     onShow() {
-      // 每次显示页面时重新加载数据
       this.loadHeritagePoints()
     },
 
@@ -91,21 +103,24 @@ Page({
 
     },
 
-    // 加载非遗点位数据
+    /**
+     * 加载非遗点位数据
+     * 将全局数据转换为地图标记点格式
+     * 包含标记的样式、大小、位置等配置
+     */
     loadHeritagePoints() {
       const heritagePoints = app.globalData.heritagePoints || []
       
-      // 将非遗点转换为地图标记，优化SVG使用
       const markers = heritagePoints.map(point => ({
         id: point.id,
         latitude: point.latitude,
         longitude: point.longitude,
         name: point.name,
-        iconPath: '/assets/icons/marker.svg',  // 保留使用SVG
-        width: 35,  // 增大尺寸以确保可见
+        iconPath: '/assets/icons/marker.svg',  
+        width: 35,  
         height: 35,
-        anchor: {x: 0.5, y: 0.9}, // 锚点位于图标底部中心偏上
-        zIndex: 1, // 确保标记有适当的层级
+        anchor: {x: 0.5, y: 0.9}, 
+        zIndex: 1, 
         callout: {
           content: point.name,
           color: '#a85418',
@@ -118,26 +133,29 @@ Page({
         }
       }))
       
-      // 使用nextTick确保地图加载完成后再设置标记
       setTimeout(() => {
         this.setData({ markers })
       }, 200)
     },
     
-    // 获取用户当前位置
+    /**
+     * 获取用户当前位置
+     * 判断用户是否在潮汕地区范围内
+     * 如果在范围内则移动地图到用户位置
+     * 否则保持地图在潮州市中心
+     */
     getCurrentLocation() {
       wx.getLocation({
         type: 'gcj02',
         success: (res) => {
-          // 定义潮汕地区的经纬度范围（潮州、汕头、揭阳大致范围）
+          // 定义潮汕地区的经纬度范围
           const chaoShanRegion = {
-            minLat: 23.0, // 潮汕地区最南端纬度
-            maxLat: 24.0, // 潮汕地区最北端纬度
-            minLng: 116.0, // 潮汕地区最西端经度
-            maxLng: 117.2  // 潮汕地区最东端经度
+            minLat: 23.0, 
+            maxLat: 24.0, 
+            minLng: 116.0, 
+            maxLng: 117.2  
           }
           
-          // 判断用户是否在潮汕地区
           const isInChaoShanRegion = 
             res.latitude >= chaoShanRegion.minLat && 
             res.latitude <= chaoShanRegion.maxLat && 
@@ -145,16 +163,13 @@ Page({
             res.longitude <= chaoShanRegion.maxLng
           
           if (isInChaoShanRegion) {
-            // 用户在潮汕地区，更新地图位置到用户当前位置
             this.setData({
               latitude: res.latitude,
               longitude: res.longitude
             })
-            // 移动地图到用户位置
             this.mapCtx = this.mapCtx || wx.createMapContext('myMap')
             this.mapCtx.moveToLocation()
           } else {
-            // 用户不在潮汕地区，显示提示并保持地图在潮州市中心
             wx.showToast({
               title: '您当前不在潮汕地区',
               icon: 'none',
@@ -163,7 +178,6 @@ Page({
           }
         },
         fail: () => {
-          // 默认显示潮州市区位置
           wx.showToast({
             title: '无法获取位置，显示默认位置',
             icon: 'none'
@@ -172,31 +186,31 @@ Page({
       })
     },
     
-    // 点击地图标记
+    /**
+     * 点击地图标记的事件处理
+     * 查找并显示对应的非遗信息
+     * 移动地图视图到选中的标记位置
+     */
     markertap(e) {
       const markerId = e.markerId
       const heritagePoints = app.globalData.heritagePoints
       const heritage = heritagePoints.find(item => item.id === markerId)
       
       if (heritage) {
-        // 添加动画效果，先隐藏再显示
         this.setData({
           showInfo: false
         })
         
-        // 确保地图上下文存在
         this.mapCtx = this.mapCtx || wx.createMapContext('myMap')
         
-        // 地图中心移动到所选标记位置
         this.mapCtx.includePoints({
           points: [{
             latitude: heritage.latitude,
             longitude: heritage.longitude
           }],
-          padding: [60, 60, 200, 60] // 上右下左内边距，预留底部信息卡片空间
+          padding: [60, 60, 200, 60] 
         })
         
-        // 短暂延迟后显示信息
         setTimeout(() => {
           this.setData({
             selectedHeritage: heritage,

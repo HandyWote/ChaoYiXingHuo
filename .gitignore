@@ -65,6 +65,11 @@ pids
 .env.test
 .env.production
 
+# 技术路线图文档
+TECH_ROADMAP.md
+TECH_ROADMAP_*.mermaid
+TECH_ROADMAP_WORD.md
+
 # 测试覆盖率目录
 coverage/
 .nyc_output/

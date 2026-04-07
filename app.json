@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/detail/detail"
+    "pages/articles/articles",
+    "pages/detail/detail",
+    "pages/webview/webview"
   ],
   "window": {
     "navigationBarTitleText": "潮艺星火",
@@ -11,12 +13,33 @@
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
   },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#a85418",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/tab-home.svg",
+        "selectedIconPath": "assets/icons/tab-home-active.svg"
+      },
+      {
+        "pagePath": "pages/articles/articles",
+        "text": "文章",
+        "iconPath": "assets/icons/tab-article.svg",
+        "selectedIconPath": "assets/icons/tab-article-active.svg"
+      }
+    ]
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "useExtendedLib": {
     "weui": true
   },
+  "cloud": true,
   "permission": {
     "scope.userLocation": {
       "desc": "您的位置信息将用于定位潮汕非遗文化地点"

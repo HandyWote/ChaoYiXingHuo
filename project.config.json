@@ -21,6 +21,7 @@
             "outputPath": ""
         }
     },
+    "cloudfunctionRoot": "cloudfunctions/",
     "condition": {},
     "editorSetting": {
         "tabIndent": "insertSpaces",

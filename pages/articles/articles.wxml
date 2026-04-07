@@ -1,0 +1,30 @@
+<view class="articles-page">
+  <view class="page-header">
+    <text class="page-title">潮艺文章</text>
+    <text class="page-subtitle">探寻潮汕非遗文化之美</text>
+  </view>
+
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text>加载中...</text>
+  </view>
+
+  <view class="empty-state" wx:elif="{{articles.length === 0}}">
+    <text class="empty-text">暂无文章</text>
+  </view>
+
+  <view class="article-list" wx:else>
+    <view class="article-card" wx:for="{{articles}}" wx:key="_id" bindtap="openArticle" data-url="{{item.articleUrl}}">
+      <view class="card-image">
+        <image src="{{item.coverUrl}}" mode="aspectFill" class="cover-img"></image>
+        <view class="card-overlay">
+          <text class="card-title">{{item.title}}</text>
+        </view>
+      </view>
+      <view class="card-footer">
+        <text class="card-summary">{{item.summary}}</text>
+        <text class="card-date">{{item.publishTime}}</text>
+      </view>
+    </view>
+  </view>
+</view>

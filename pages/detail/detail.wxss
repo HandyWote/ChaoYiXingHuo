@@ -1,26 +1,6 @@
-/* 主色调使用#a85418 */
 page {
   background-color: #fff;
   color: #333;
-}
-
-/* 标题样式 */
-.title {
-  color: #a85418;
-  font-size: 18px;
-  font-weight: bold;
-  border-bottom: 1px solid #a85418;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-/* 传统纹样边框 */
-.border-pattern {
-  border: 2px solid #a85418;
-  background-image: linear-gradient(45deg, #a85418 25%, transparent 25%, transparent 50%, #a85418 50%, #a85418 75%, transparent 75%, transparent);
-  background-size: 10px 10px;
-  padding: 15px;
-  margin: 10px 0;
 }
 
 .container {
@@ -36,15 +16,15 @@ page {
   transform: translateY(0);
 }
 
-/* 非遗图片 */
-.heritage-image {
+/* 地点图片 */
+.location-image {
   width: 100%;
   height: 250px;
   overflow: hidden;
   position: relative;
 }
 
-.heritage-image:after {
+.location-image:after {
   content: "";
   position: absolute;
   left: 0;
@@ -55,38 +35,50 @@ page {
   z-index: 1;
 }
 
-.heritage-img {
+.location-img {
   width: 100%;
   height: 100%;
   transition: transform 12s ease-in-out;
 }
 
-.animation-ready .heritage-img {
+.animation-ready .location-img {
   transform: scale(1.05);
 }
 
-/* 非遗内容区域 */
-.heritage-content {
+/* 占位图 */
+.placeholder-img {
+  background: linear-gradient(135deg, #a85418, #c47a3a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 地点内容 */
+.location-content {
   padding: 15px;
   position: relative;
   z-index: 2;
 }
 
-/* 添加古典风格底纹效果 */
-.heritage-content:before {
+.location-content:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: repeating-linear-gradient(45deg, rgba(168, 84, 24, 0.03) 0px, rgba(168, 84, 24, 0.03) 1px, transparent 1px, transparent 11px), 
+  background-image: repeating-linear-gradient(45deg, rgba(168, 84, 24, 0.03) 0px, rgba(168, 84, 24, 0.03) 1px, transparent 1px, transparent 11px),
                     repeating-linear-gradient(135deg, rgba(168, 84, 24, 0.03) 0px, rgba(168, 84, 24, 0.03) 1px, transparent 1px, transparent 11px);
   z-index: -1;
 }
 
-/* 非遗标题 */
-.heritage-title {
+.location-title {
   font-size: 20px;
   font-weight: bold;
   color: #a85418;
@@ -100,12 +92,12 @@ page {
   transition: all 0.5s ease 0.1s;
 }
 
-.animation-ready .heritage-title {
+.animation-ready .location-title {
   opacity: 1;
   transform: translateY(0);
 }
 
-.heritage-title:after {
+.location-title:after {
   content: "";
   position: absolute;
   left: 50%;
@@ -116,8 +108,37 @@ page {
   transform: translateX(-50%);
 }
 
-/* 非遗描述 */
-.heritage-desc {
+/* 元信息 */
+.location-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease 0.15s;
+}
+
+.animation-ready .location-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.meta-category {
+  font-size: 12px;
+  color: #fff;
+  background-color: #a85418;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+.meta-address {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 地点描述 */
+.location-desc {
   font-size: 14px;
   color: #333;
   line-height: 1.6;
@@ -125,35 +146,22 @@ page {
   padding: 10px;
   background-color: rgba(168, 84, 24, 0.05);
   border-radius: 8px;
-  position: relative;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.5s ease 0.2s;
 }
 
-.animation-ready .heritage-desc {
+.animation-ready .location-desc {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 部分内容 */
+/* 非遗项目区块 */
 .section {
   margin-bottom: 20px;
   opacity: 0;
   transform: translateY(15px);
-  transition: all 0.5s ease;
-}
-
-.section-1 {
-  transition-delay: 0.3s;
-}
-
-.section-2 {
-  transition-delay: 0.4s;
-}
-
-.section-3 {
-  transition-delay: 0.5s;
+  transition: all 0.5s ease 0.3s;
 }
 
 .animation-ready .section {
@@ -165,7 +173,7 @@ page {
   font-size: 16px;
   font-weight: bold;
   color: #a85418;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   position: relative;
   padding-left: 12px;
 }
@@ -181,28 +189,55 @@ page {
   border-radius: 2px;
 }
 
-.section-content {
-  font-size: 14px;
+.heritage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heritage-item {
+  background-color: rgba(168, 84, 24, 0.03);
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 3px solid #a85418;
+}
+
+.heritage-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.heritage-item-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.heritage-item-status {
+  font-size: 11px;
+  color: #a85418;
+  background-color: rgba(168, 84, 24, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.heritage-item-type {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.heritage-item-content {
+  display: block;
+  font-size: 13px;
   color: #666;
-  line-height: 1.5;
-  padding-left: 12px;
-  position: relative;
+  line-height: 1.6;
 }
 
-/* 传统纹理装饰 */
-.section-content:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background-image: linear-gradient(to bottom, #a85418 50%, transparent 50%);
-  background-size: 2px 8px;
-  opacity: 0.5;
-}
-
-/* 加载提示 */
+/* 加载 */
 .loading {
   display: flex;
   justify-content: center;

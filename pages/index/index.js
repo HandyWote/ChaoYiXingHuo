@@ -110,21 +110,21 @@ Page({
      */
     loadHeritagePoints() {
       const heritagePoints = app.globalData.heritagePoints || []
-      
+
       const markers = heritagePoints.map(point => ({
         id: point.id,
         latitude: point.latitude,
         longitude: point.longitude,
         name: point.name,
-        iconPath: '/assets/icons/marker.svg',  
-        width: 35,  
+        iconPath: '/assets/icons/marker.svg',
+        width: 35,
         height: 35,
-        anchor: {x: 0.5, y: 0.9}, 
-        zIndex: 1, 
+        anchor: { x: 0.5, y: 0.9 },
+        zIndex: 1,
         callout: {
-          content: point.name,
+          content: point.name + (point.heritageItems ? ' (' + point.heritageItems.length + '项非遗)' : ''),
           color: '#a85418',
-          fontSize: 14,
+          fontSize: 13,
           borderWidth: 1,
           borderColor: '#a85418',
           borderRadius: 5,
@@ -132,7 +132,7 @@ Page({
           display: 'BYCLICK'
         }
       }))
-      
+
       setTimeout(() => {
         this.setData({ markers })
       }, 200)
@@ -349,7 +349,15 @@ Page({
           )
           return { ...point, distance: parseFloat(distance.toFixed(1)) }
         })
-        .filter(item => item.name.toLowerCase().includes(keyword))
+        .filter(item => {
+          const nameMatch = item.name.toLowerCase().includes(keyword)
+          const heritageMatch = item.heritageItems && item.heritageItems.some(
+            h => h.name.toLowerCase().includes(keyword) || h.type.toLowerCase().includes(keyword)
+          )
+          const descMatch = item.description && item.description.toLowerCase().includes(keyword)
+          const addrMatch = item.address && item.address.toLowerCase().includes(keyword)
+          return nameMatch || heritageMatch || descMatch || addrMatch
+        })
         .sort((a, b) => a.distance - b.distance)
 
       this.setData({
@@ -394,16 +402,6 @@ Page({
       }
     },
 
-    // 地图触摸事件
-    bindTouchMap() {
-      // 如果有点击空白地图区域，则隐藏信息面板
-      if (this.data.showInfo) {
-        this.setData({
-          showInfo: false
-        })
-      }
-    },
-    
     // 随机选择一个非遗地点
     randomHeritage() {
       const heritagePoints = app.globalData.heritagePoints || []

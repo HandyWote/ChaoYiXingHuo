@@ -1,56 +1,52 @@
-<!--miniprogram/pages/detail/detail.wxml-->
 <view class="container {{animationReady ? 'animation-ready' : ''}}" wx:if="{{!loading}}">
-  <!-- 非遗图片 -->
-  <view class="heritage-image">
-    <image 
-      src="{{heritage.images[0]}}" 
-      mode="aspectFit"
+  <!-- 地点图片 -->
+  <view class="location-image" wx:if="{{location.images.length > 0}}">
+    <image
+      src="{{location.images[0]}}"
+      mode="aspectFill"
       bindtap="previewImage"
       binderror="handleImageError"
-      data-src="{{heritage.images[0]}}"
-      class="heritage-img"
+      data-src="{{location.images[0]}}"
+      class="location-img"
     ></image>
   </view>
-  
-  <!-- 非遗内容 -->
-  <view class="heritage-content">
-    <!-- 非遗标题 -->
-    <view class="heritage-title">
-      <text>{{heritage.name}}</text>
+
+  <!-- 默认占位图（无图片时） -->
+  <view class="location-image placeholder-img" wx:else>
+    <text class="placeholder-text">{{location.name}}</text>
+  </view>
+
+  <!-- 地点内容 -->
+  <view class="location-content">
+    <view class="location-title">
+      <text>{{location.name}}</text>
     </view>
-    
-    <!-- 非遗描述 -->
-    <view class="heritage-desc">
-      <text>{{heritage.description}}</text>
+
+    <view class="location-meta">
+      <text class="meta-category">{{location.category}}</text>
+      <text class="meta-address">{{location.address}}</text>
     </view>
-    
-    <!-- 历史背景 -->
-    <view class="section section-1">
-      <view class="section-title">历史背景</view>
-      <view class="section-content">
-        <text>{{heritage.history || '潮州非遗文化源远流长，历史可追溯至宋末元初时期，是中华文化的重要组成部分。'}}</text>
-      </view>
+
+    <view class="location-desc">
+      <text>{{location.description}}</text>
     </view>
-    
-    <!-- 传承现状 -->
-    <view class="section section-2">
-      <view class="section-title">传承现状</view>
-      <view class="section-content">
-        <text>目前已有多位非遗传承人致力于保护和传承这一珍贵的文化遗产，同时也面临着现代化冲击的挑战。</text>
-      </view>
-    </view>
-    
-    <!-- 保护措施 -->
-    <view class="section section-3">
-      <view class="section-title">保护措施</view>
-      <view class="section-content">
-        <text>{{heritage.protection || '国家和地方政府已将多项潮州非遗项目列入保护名录，并设立专项资金支持非遗传承与创新。'}}</text>
+
+    <view class="section" wx:if="{{location.heritageItems && location.heritageItems.length > 0}}">
+      <view class="section-title">关联非遗项目</view>
+      <view class="heritage-list">
+        <view class="heritage-item" wx:for="{{location.heritageItems}}" wx:key="name">
+          <view class="heritage-item-header">
+            <text class="heritage-item-name">{{item.name}}</text>
+            <text class="heritage-item-status">{{item.status}}</text>
+          </view>
+          <text class="heritage-item-type">{{item.type}}</text>
+          <text class="heritage-item-content">{{item.content}}</text>
+        </view>
       </view>
     </view>
   </view>
 </view>
 
-<!-- 加载中 -->
 <view class="loading" wx:else>
   <text>加载中...</text>
 </view>

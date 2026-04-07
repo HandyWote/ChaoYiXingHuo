@@ -250,6 +250,34 @@ map {
   padding-left: 5px;
 }
 
+/* 地点类别标签 */
+.heritage-category {
+  font-size: 12px;
+  color: #a85418;
+  background-color: rgba(168, 84, 24, 0.08);
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* 关联非遗标签列表 */
+.heritage-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.item-tag {
+  font-size: 11px;
+  color: #a85418;
+  background-color: rgba(168, 84, 24, 0.05);
+  border: 1px solid rgba(168, 84, 24, 0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
 .check-detail {
   text-align: center;
   background-color: #a85418;

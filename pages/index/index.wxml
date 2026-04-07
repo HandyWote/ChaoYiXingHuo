@@ -31,7 +31,13 @@
   <view class="heritage-info {{showInfo ? 'show' : ''}}">
     <view class="heritage-card">
       <view class="heritage-name">{{selectedHeritage.name}}</view>
+      <view class="heritage-category">{{selectedHeritage.category}} · {{selectedHeritage.address}}</view>
       <view class="heritage-desc">{{selectedHeritage.description}}</view>
+      <view class="heritage-items" wx:if="{{selectedHeritage.heritageItems && selectedHeritage.heritageItems.length > 0}}">
+        <view class="item-tag" wx:for="{{selectedHeritage.heritageItems}}" wx:for-item="hItem" wx:key="name">
+          {{hItem.name}}
+        </view>
+      </view>
       <view class="check-detail" bindtap="goToDetail" data-id="{{selectedHeritage.id}}">
         查看详情
       </view>
@@ -52,6 +58,7 @@
       <block wx:for="{{filteredHeritageList}}" wx:key="id">
         <view class="heritage-card" bindtap="selectHeritage" data-id="{{item.id}}">
           <view class="heritage-name">{{item.name}}</view>
+          <view class="heritage-category">{{item.category}}</view>
           <view class="heritage-desc">{{item.description}}</view>
         </view>
       </block>

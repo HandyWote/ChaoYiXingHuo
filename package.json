@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "潮艺星火小程序",
   "main": "app.js",
-  "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
 }

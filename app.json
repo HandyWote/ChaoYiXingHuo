@@ -22,14 +22,14 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "assets/icons/tab-home.svg",
-        "selectedIconPath": "assets/icons/tab-home-active.svg"
+        "iconPath": "assets/icons/tab-home.png",
+        "selectedIconPath": "assets/icons/tab-home-active.png"
       },
       {
         "pagePath": "pages/articles/articles",
         "text": "文章",
-        "iconPath": "assets/icons/tab-article.svg",
-        "selectedIconPath": "assets/icons/tab-article-active.svg"
+        "iconPath": "assets/icons/tab-article.png",
+        "selectedIconPath": "assets/icons/tab-article-active.png"
       }
     ]
   },

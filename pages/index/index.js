@@ -145,45 +145,8 @@ Page({
      * 否则保持地图在潮州市中心
      */
     getCurrentLocation() {
-      wx.getLocation({
-        type: 'gcj02',
-        success: (res) => {
-          // 定义潮汕地区的经纬度范围
-          const chaoShanRegion = {
-            minLat: 23.0, 
-            maxLat: 24.0, 
-            minLng: 116.0, 
-            maxLng: 117.2  
-          }
-          
-          const isInChaoShanRegion = 
-            res.latitude >= chaoShanRegion.minLat && 
-            res.latitude <= chaoShanRegion.maxLat && 
-            res.longitude >= chaoShanRegion.minLng && 
-            res.longitude <= chaoShanRegion.maxLng
-          
-          if (isInChaoShanRegion) {
-            this.setData({
-              latitude: res.latitude,
-              longitude: res.longitude
-            })
-            this.mapCtx = this.mapCtx || wx.createMapContext('myMap')
-            this.mapCtx.moveToLocation()
-          } else {
-            wx.showToast({
-              title: '您当前不在潮汕地区',
-              icon: 'none',
-              duration: 2000
-            })
-          }
-        },
-        fail: () => {
-          wx.showToast({
-            title: '无法获取位置，显示默认位置',
-            icon: 'none'
-          })
-        }
-      })
+      this.mapCtx = this.mapCtx || wx.createMapContext('myMap')
+      this.mapCtx.moveToLocation()
     },
     
     /**

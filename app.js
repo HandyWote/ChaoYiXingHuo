@@ -11,20 +11,6 @@ App({
     }
 
     this.loadDefaultHeritageData();
-
-    // 获取用户位置权限
-    wx.getSetting({
-      success: res => {
-        if (!res.authSetting['scope.userLocation']) {
-          wx.authorize({
-            scope: 'scope.userLocation',
-            success: () => {
-              // 用户已经同意小程序使用位置功能
-            }
-          })
-        }
-      }
-    })
   },
 
   onShow() {

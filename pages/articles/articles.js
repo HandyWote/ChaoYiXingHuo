@@ -47,18 +47,9 @@ Page({
   },
 
   openArticle(e) {
-    const url = e.currentTarget.dataset.url
-    // 使用 copyFile 方案：直接复制链接到剪贴板，提示用户在微信中打开
-    // 或者使用 web-view 打开（需配置业务域名）
-    wx.setClipboardData({
-      data: url,
-      success() {
-        wx.showToast({
-          title: '链接已复制，可在浏览器中打开',
-          icon: 'none',
-          duration: 2000
-        })
-      }
+    const url = encodeURIComponent(e.currentTarget.dataset.url)
+    wx.navigateTo({
+      url: `/pages/webview/webview?url=${url}`
     })
   }
 })

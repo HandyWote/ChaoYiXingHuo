@@ -1,6 +1,9 @@
 # 依赖目录
 node_modules/
 miniprogram_npm/
+__pycache__/
+.venv/
+
 
 # 编译输出
 dist/

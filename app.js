@@ -1,2941 +1,2912 @@
-// app.js
-App({
-  globalData: {
-    heritagePoints: []
-  },
-
-  onLaunch() {
-    // 初始化云开发
-    if (wx.cloud) {
-      wx.cloud.init({ traceUser: true })
+this.globalData.heritagePoints = [
+  {
+  "id": 1,
+  "name": "华夏历史博物馆",
+  "category": "博物馆",
+  "latitude": 23.576666,
+  "longitude": 116.59593,
+  "address": "广东省潮州市潮安区潮汕路浮阳路段西侧1号",
+  "description": "华夏历史博物馆位于潮州市潮安区，是一座综合性历史博物馆。其馆藏涵盖广泛的历史时期，旨在系统展示潮汕地区乃至华夏文明的发展脉络。博物馆通过文物陈列，为公众提供了一个了解历史文化的重要窗口。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 2,
+  "name": "潮州博物馆",
+  "category": "博物馆",
+  "latitude": 23.652752,
+  "longitude": 116.624581,
+  "address": "广东省潮州市湘桥区潮州市大道人民广场西南角",
+  "description": "潮州博物馆坐落于湘桥区人民广场旁，是潮州市重要的市级综合性博物馆。它承担着收藏、研究、展示潮州地方历史文物与文化遗产的职能。馆内常设展览系统介绍了潮州从古至今的社会发展与文化成就。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 3,
+  "name": "潮州市湘桥区博物馆",
+  "category": "博物馆",
+  "latitude": 23.668169,
+  "longitude": 116.650567,
+  "address": "广东省潮州市湘桥区太平路84号",
+  "description": "潮州市湘桥区博物馆位于古城区太平路，是一座聚焦本地文化的专题博物馆。该馆与国家级非遗项目“英歌舞”和“潮州工夫茶艺”紧密关联，通过展陈生动呈现了这些代表性文化遗产的历史渊源与艺术特色。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    },
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
     }
-
-    this.loadDefaultHeritageData();
-  },
-
-  onShow() {
-    // 小程序显示时的逻辑
-  },
-
-  onHide() {
-    // 小程序隐藏时的逻辑
-  },
-
-  // 加载默认的非遗数据
-  loadDefaultHeritageData() {
-    // 硬编码的非遗数据（地点为中心的数据模型）
-    this.globalData.heritagePoints = [
-  {
-    "id": 1,
-    "name": "华夏历史博物馆",
-    "category": "博物馆",
-    "latitude": 23.576666,
-    "longitude": 116.59593,
-    "address": "广东省潮州市潮安区潮汕路浮阳路段西侧1号",
-    "description": "华夏历史博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 2,
-    "name": "潮州博物馆",
-    "category": "博物馆",
-    "latitude": 23.652752,
-    "longitude": 116.624581,
-    "address": "广东省潮州市湘桥区潮州市大道人民广场西南角",
-    "description": "潮州博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 3,
-    "name": "潮州市湘桥区博物馆",
-    "category": "博物馆",
-    "latitude": 23.668169,
-    "longitude": 116.650567,
-    "address": "广东省潮州市湘桥区太平路84号",
-    "description": "潮州市湘桥区博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      },
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "大吴泥塑博物馆",
-    "category": "博物馆",
-    "latitude": 23.560082,
-    "longitude": 116.613952,
-    "address": "广东省潮州市潮安区潮汕环线高速松昌中学东北侧约180米",
-    "description": "大吴泥塑博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。涉及大吴泥塑等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "大吴泥塑",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "name": "潮府工夫茶文化博物馆",
-    "category": "博物馆",
-    "latitude": 23.666039,
-    "longitude": 116.647942,
-    "address": "广东省潮州市湘桥区义安路宰辅巷10号",
-    "description": "潮府工夫茶文化博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "name": "潮州嵌瓷博物馆",
-    "category": "博物馆",
-    "latitude": 23.53856,
-    "longitude": 116.602723,
-    "address": "广东省潮州市潮安区金石镇郑镜鸿路(湖美学校西侧约200米)",
-    "description": "潮州嵌瓷博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。涉及嵌瓷等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "嵌瓷",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "name": "潮州市杨坚平非遗传统工艺博物馆",
-    "category": "博物馆",
-    "latitude": 23.668084,
-    "longitude": 116.648365,
-    "address": "广东省潮州市湘桥区文星路五分之一号",
-    "description": "潮州市杨坚平非遗传统工艺博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 8,
-    "name": "淡浮院-砚峰尺八博物馆",
-    "category": "博物馆",
-    "latitude": 23.678677,
-    "longitude": 116.701277,
-    "address": "广东省潮州市湘桥区淡浮院",
-    "description": "淡浮院-砚峰尺八博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 9,
-    "name": "宋茶文化博物馆",
-    "category": "博物馆",
-    "latitude": 23.934885,
-    "longitude": 116.670256,
-    "address": "广东省潮州市潮安区凤凰镇乌岽佛石",
-    "description": "宋茶文化博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 10,
-    "name": "潮州市意空间文化艺术馆",
-    "category": "工坊",
-    "latitude": 23.666891,
-    "longitude": 116.650503,
-    "address": "广东省潮州市湘桥区昌黎路一号2-4层(牌坊街与昌黎路交叉路口)",
-    "description": "潮州市意空间文化艺术馆是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 11,
-    "name": "潮绣艺术馆",
-    "category": "工坊",
-    "latitude": 23.652484,
-    "longitude": 116.629508,
-    "address": "广东省潮州市湘桥区城新西路与新春路交叉口东北角名瑞楼21号",
-    "description": "潮绣艺术馆是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "name": "画哩艺术馆",
-    "category": "工坊",
-    "latitude": 23.63091,
-    "longitude": 116.577122,
-    "address": "广东省潮州市潮安区潮安康华医院(新兴路东)",
-    "description": "画哩艺术馆是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 13,
-    "name": "潮州市仰中美术馆·潮彩体验中心",
-    "category": "工坊",
-    "latitude": 23.676176,
-    "longitude": 116.598714,
-    "address": "广东省潮州市湘桥区凤新街道兴利路1号",
-    "description": "潮州市仰中美术馆·潮彩体验中心是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 14,
-    "name": "清晖楼艺术馆",
-    "category": "工坊",
-    "latitude": 23.487711,
-    "longitude": 116.635495,
-    "address": "广东省潮州市潮安区潮汕路与玉林路交叉口正东方向293米左右",
-    "description": "清晖楼艺术馆是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 15,
-    "name": "联合美术馆(城北校区)",
-    "category": "工坊",
-    "latitude": 23.677065,
-    "longitude": 117.005885,
-    "address": "广东省潮州市饶平县拥军路与敬贤路交叉口正南方向307米左右",
-    "description": "联合美术馆(城北校区)是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 16,
-    "name": "潮州市仰中美术馆(牌坊街分展馆)",
-    "category": "工坊",
-    "latitude": 23.665279,
-    "longitude": 116.65052,
-    "address": "广东省潮州市湘桥区太平路牌坊街270号-1",
-    "description": "潮州市仰中美术馆(牌坊街分展馆)是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 17,
-    "name": "东三文化中心",
-    "category": "文化馆",
-    "latitude": 23.541419,
-    "longitude": 116.680392,
-    "address": "广东省潮州市潮安区东凤镇东三广德路东二学校东北侧约280米",
-    "description": "东三文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 18,
-    "name": "金石镇文化中心",
-    "category": "文化馆",
-    "latitude": 23.524351,
-    "longitude": 116.619992,
-    "address": "广东省潮州市潮安区金石镇振兴街与金石大道交叉路口往东南约100米(翁厝美来小学北侧约150米)",
-    "description": "金石镇文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 19,
-    "name": "潮安区文化中心",
-    "category": "文化馆",
-    "latitude": 23.46065,
-    "longitude": 116.680146,
-    "address": "广东省潮州市潮安区廉泉街4号",
-    "description": "潮安区文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 20,
-    "name": "潮侨青文化中心",
-    "category": "文化馆",
-    "latitude": 23.652616,
-    "longitude": 116.66581,
-    "address": "广东省潮州市湘桥区桥东街道东山路慧如公园北门小门入口处左侧",
-    "description": "潮侨青文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 21,
-    "name": "高堂镇文化中心",
-    "category": "文化馆",
-    "latitude": 23.708609,
-    "longitude": 116.944181,
-    "address": "广东省潮州市饶平县高堂镇味缘蛋糕店东侧",
-    "description": "高堂镇文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 22,
-    "name": "潮州美术馆",
-    "category": "工坊",
-    "latitude": 23.664791,
-    "longitude": 116.613623,
-    "address": "广东省潮州市湘桥区潮州大道中段潮州市图书馆隔壁",
-    "description": "潮州美术馆是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 23,
-    "name": "雅藏展览馆",
-    "category": "文化馆",
-    "latitude": 24.081619,
-    "longitude": 116.876492,
-    "address": "广东省潮州市饶平县饶洋镇好运连连烟花爆竹销售中心南侧100米",
-    "description": "雅藏展览馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 24,
-    "name": "古城牌坊街",
-    "category": "景点",
-    "latitude": 23.655644,
-    "longitude": 116.647035,
-    "address": "广东省潮州市湘桥区太平街道太平路663号",
-    "description": "古城牌坊街是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 25,
-    "name": "潮州市广济桥文物旅游景区",
-    "category": "景点",
-    "latitude": 23.662873,
-    "longitude": 116.652731,
-    "address": "广东省潮州市湘桥区环城东路广济城门对面",
-    "description": "潮州市广济桥文物旅游景区是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 26,
-    "name": "广济桥-灯光秀",
-    "category": "景点",
-    "latitude": 23.662214,
-    "longitude": 116.657943,
-    "address": "广东省潮州市湘桥区东兴北路与东兴南路交叉口西南方向28米左右",
-    "description": "广济桥-灯光秀是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 27,
-    "name": "开元寺泰佛殿",
-    "category": "景点",
-    "latitude": 23.654099,
-    "longitude": 116.663452,
-    "address": "广东省潮州市湘桥区桥东街道东山路慧如公园公交站",
-    "description": "开元寺泰佛殿是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 28,
-    "name": "开元寺普同塔院",
-    "category": "景点",
-    "latitude": 23.651668,
-    "longitude": 116.639961,
-    "address": "广东省潮州市湘桥区永春南路金丽花园东侧",
-    "description": "开元寺普同塔院是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 29,
-    "name": "己略黄公祠",
-    "category": "景点",
-    "latitude": 23.665087,
-    "longitude": 116.648241,
-    "address": "广东省潮州市湘桥区义安路铁巷2号",
-    "description": "己略黄公祠是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 30,
-    "name": "潮州古城",
-    "category": "景点",
-    "latitude": 23.673741,
-    "longitude": 116.647942,
-    "address": "广东省潮州市湘桥区西马路18号",
-    "description": "潮州古城是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 31,
-    "name": "潮州古城南",
-    "category": "景点",
-    "latitude": 23.656512,
-    "longitude": 116.645622,
-    "address": "广东省潮州市湘桥区下西平路与环城南路交叉口东南方向128米左右",
-    "description": "潮州古城南是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 32,
-    "name": "韩文公祠",
-    "category": "景点",
-    "latitude": 23.663596,
-    "longitude": 116.659073,
-    "address": "广东省潮州市湘桥区东兴北路笔架山麓",
-    "description": "韩文公祠是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 33,
-    "name": "艺生木雕",
-    "category": "景点",
-    "latitude": 23.631929,
-    "longitude": 116.684375,
-    "address": "广东省潮州市湘桥区磷溪镇231省道仙田星光学校西350米",
-    "description": "艺生木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 34,
-    "name": "潮州木雕(牌坊街店)",
-    "category": "景点",
-    "latitude": 23.663096,
-    "longitude": 116.651214,
-    "address": "广东省潮州市湘桥区东门街60号",
-    "description": "潮州木雕(牌坊街店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      },
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 35,
-    "name": "聚缘木雕坊",
-    "category": "景点",
-    "latitude": 23.567718,
-    "longitude": 116.616467,
-    "address": "广东省潮州市潮安区龙湖镇后郭村文体广场招牌斜对面和金路口",
-    "description": "聚缘木雕坊是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 36,
-    "name": "潮州木雕(凤洲东路店)",
-    "category": "景点",
-    "latitude": 23.649691,
-    "longitude": 116.650453,
-    "address": "广东省潮州市湘桥区城西街道凤洲东路凤凰洲公园西南侧",
-    "description": "潮州木雕(凤洲东路店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 37,
-    "name": "潮州木雕(东山路店)",
-    "category": "景点",
-    "latitude": 23.659692,
-    "longitude": 116.673653,
-    "address": "广东省潮州市湘桥区桥东街道桥东东山路卧石瓷艺大厦A幢1号铺面",
-    "description": "潮州木雕(东山路店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 38,
-    "name": "木雕",
-    "category": "景点",
-    "latitude": 23.548601,
-    "longitude": 116.608739,
-    "address": "广东省潮州市潮安区古一大路与大宗祠路交叉口西北方向286米左右",
-    "description": "木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 39,
-    "name": "卢进文木雕展厅",
-    "category": "景点",
-    "latitude": 23.679505,
-    "longitude": 116.630772,
-    "address": "广东省潮州市湘桥区凤新街道永春北路花园工业小区3号2层",
-    "description": "卢进文木雕展厅是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 40,
-    "name": "黄兴左木雕工作室",
-    "category": "工坊",
-    "latitude": 23.675294,
-    "longitude": 116.642078,
-    "address": "广东省潮州市湘桥区北园路美裕园东侧约70米",
-    "description": "黄兴左木雕工作室是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 41,
-    "name": "潮州东潮木雕",
-    "category": "景点",
-    "latitude": 23.67679,
-    "longitude": 116.641179,
-    "address": "广东省潮州市湘桥区北园路与南岩街交叉口东北方向304米左右",
-    "description": "潮州东潮木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 42,
-    "name": "庆合木雕",
-    "category": "景点",
-    "latitude": 23.676189,
-    "longitude": 116.639792,
-    "address": "广东省潮州市湘桥区北美路与春荣东路交叉口东南方向197米左右",
-    "description": "庆合木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 43,
-    "name": "谢秀华潮绣馆(万达花园店)",
-    "category": "景点",
-    "latitude": 23.67102,
-    "longitude": 116.626308,
-    "address": "广东省潮州市湘桥区凤新街道新洋路万达花园35号铺",
-    "description": "谢秀华潮绣馆(万达花园店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 44,
-    "name": "长乐源潮绣",
-    "category": "景点",
-    "latitude": 23.661688,
-    "longitude": 116.648359,
-    "address": "广东省潮州市湘桥区开元广场西南(猷巷)",
-    "description": "长乐源潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      },
-      {
-        "name": "铁枝木偶戏",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 45,
-    "name": "孙庆先潮绣研究所",
-    "category": "景点",
-    "latitude": 23.662897,
-    "longitude": 116.645129,
-    "address": "广东省潮州市湘桥区潮州古城开元路183号",
-    "description": "孙庆先潮绣研究所是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 46,
-    "name": "潮州市艺成潮绣研究院",
-    "category": "景点",
-    "latitude": 23.668729,
-    "longitude": 116.630805,
-    "address": "广东省潮州市湘桥区绿榕北路春光三片下工业楼7楼",
-    "description": "潮州市艺成潮绣研究院是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 47,
-    "name": "中国潮绣艺术陈列馆",
-    "category": "景点",
-    "latitude": 23.680518,
-    "longitude": 116.636492,
-    "address": "广东省潮州市湘桥区城西街道兰花二街兴业花园东侧15号",
-    "description": "中国潮绣艺术陈列馆是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      },
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 48,
-    "name": "潮湟英歌舞体验馆",
-    "category": "景点",
-    "latitude": 23.669493,
-    "longitude": 116.652035,
-    "address": "广东省潮州市湘桥区府学旧地文创园",
-    "description": "潮湟英歌舞体验馆是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 49,
-    "name": "英歌舞主题文艺茶馆",
-    "category": "茶文化",
-    "latitude": 23.670801,
-    "longitude": 116.651773,
-    "address": "广东省潮州市湘桥区中山路23号",
-    "description": "英歌舞主题文艺茶馆是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 50,
-    "name": "广东潮州潮剧传承保护中心",
-    "category": "景点",
-    "latitude": 23.662744,
-    "longitude": 116.631865,
-    "address": "广东省潮州市湘桥区潮新巷十九号院西侧",
-    "description": "广东潮州潮剧传承保护中心是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 51,
-    "name": "潮州市潮剧团",
-    "category": "景点",
-    "latitude": 23.670226,
-    "longitude": 116.646898,
-    "address": "广东省潮州市湘桥区中山路46号",
-    "description": "潮州市潮剧团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 52,
-    "name": "春光蔡厝村老人活动中心",
-    "category": "景点",
-    "latitude": 23.666307,
-    "longitude": 116.633648,
-    "address": "广东省潮州市湘桥区城西街道仁里街与荔园路交叉口西北150米潮州市同德潮剧社附近",
-    "description": "春光蔡厝村老人活动中心是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 53,
-    "name": "饶平高堂潮剧团",
-    "category": "景点",
-    "latitude": 23.708323,
-    "longitude": 116.938576,
-    "address": "广东省潮州市饶平县站东路",
-    "description": "饶平高堂潮剧团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 54,
-    "name": "林悠扬-槚丛工夫茶",
-    "category": "茶文化",
-    "latitude": 23.679172,
-    "longitude": 116.645272,
-    "address": "广东省潮州市湘桥区北堤路停车场D区入口",
-    "description": "林悠扬-槚丛工夫茶是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 55,
-    "name": "向东·凤凰单丛茶·潮州工夫茶",
-    "category": "茶文化",
-    "latitude": 23.668214,
-    "longitude": 116.642431,
-    "address": "广东省潮州市湘桥区环城西路旧西门街54号",
-    "description": "向东·凤凰单丛茶·潮州工夫茶是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 56,
-    "name": "一线流·工夫茶",
-    "category": "茶文化",
-    "latitude": 23.662875,
-    "longitude": 116.607095,
-    "address": "广东省潮州市湘桥区绿榕西路199号",
-    "description": "一线流·工夫茶是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 57,
-    "name": "六顺茶馆·工夫茶体验馆(西湖店)",
-    "category": "茶文化",
-    "latitude": 23.672551,
-    "longitude": 116.643428,
-    "address": "广东省潮州市湘桥区西湖公园内",
-    "description": "六顺茶馆·工夫茶体验馆(西湖店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 58,
-    "name": "孟臣·凤凰单丛茶·潮汕功夫茶",
-    "category": "茶文化",
-    "latitude": 23.669584,
-    "longitude": 116.645552,
-    "address": "广东省潮州市湘桥区中山路68号",
-    "description": "孟臣·凤凰单丛茶·潮汕功夫茶是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 59,
-    "name": "孟若斋潮州工夫茶非遗体验馆",
-    "category": "茶文化",
-    "latitude": 23.670037,
-    "longitude": 116.644231,
-    "address": "广东省潮州市湘桥区中山路98号西湖对面",
-    "description": "孟若斋潮州工夫茶非遗体验馆是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      },
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 60,
-    "name": "明云嵌瓷",
-    "category": "景点",
-    "latitude": 23.591103,
-    "longitude": 116.626792,
-    "address": "广东省潮州市潮安区浮洋镇东巷村西和区",
-    "description": "明云嵌瓷是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及嵌瓷等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "嵌瓷",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 61,
-    "name": "潮州市抽纱公司",
-    "category": "景点",
-    "latitude": 23.669212,
-    "longitude": 116.643424,
-    "address": "广东省潮州市湘桥区环城西路104号",
-    "description": "潮州市抽纱公司是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 62,
-    "name": "内坑抽纱场-东南门",
-    "category": "景点",
-    "latitude": 23.613323,
-    "longitude": 116.705493,
-    "address": "广东省潮州市湘桥区内坑抽纱场",
-    "description": "内坑抽纱场-东南门是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 64,
-    "name": "砂锅粥(原小公园)",
-    "category": "美食",
-    "latitude": 23.674098,
-    "longitude": 117.002489,
-    "address": "广东省潮州市饶平县汕汾路278号之一",
-    "description": "砂锅粥(原小公园)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-
-  },
-  {
-    "id": 73,
-    "name": "非遗·爱西干面(小公园总店)",
-    "category": "美食",
-    "latitude": 23.353964,
-    "longitude": 116.674624,
-    "address": "广东省汕头市金平区小公园街道国平路1号(南粤大厦对面)",
-    "description": "非遗·爱西干面(小公园总店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 74,
-    "name": "臻宝博物馆",
-    "category": "博物馆",
-    "latitude": 23.321645,
-    "longitude": 116.714373,
-    "address": "广东省汕头市濠江区潮宏基广场(南滨路南150米)",
-    "description": "臻宝博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 75,
-    "name": "潮阳博物馆",
-    "category": "博物馆",
-    "latitude": 23.259949,
-    "longitude": 116.602503,
-    "address": "广东省汕头市潮阳区中华路87号文光塔旁",
-    "description": "潮阳博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 76,
-    "name": "汕头市博物馆",
-    "category": "博物馆",
-    "latitude": 23.362609,
-    "longitude": 116.681099,
-    "address": "广东省汕头市金平区中山公园西北角(联韩花园对面)",
-    "description": "汕头市博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 79,
-    "name": "潮汕华侨历史博物馆",
-    "category": "博物馆",
-    "latitude": 23.321545,
-    "longitude": 116.715636,
-    "address": "广东省汕头市濠江区礐石街道南滨路潮汕历史文化博览中心3-4层",
-    "description": "潮汕华侨历史博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 82,
-    "name": "澄海博物馆",
-    "category": "博物馆",
-    "latitude": 23.45923,
-    "longitude": 116.775127,
-    "address": "广东省汕头市澄海区东港路人民公园附近(北门)",
-    "description": "澄海博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 83,
-    "name": "汕头市濠江区博物馆",
-    "category": "博物馆",
-    "latitude": 23.286407,
-    "longitude": 116.730916,
-    "address": "广东省汕头市濠江区达濠街道濠洲路楠天酒店(汕头濠江店)北侧约160米",
-    "description": "汕头市濠江区博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 84,
-    "name": "汕头市文化馆",
-    "category": "文化馆",
-    "latitude": 23.355759,
-    "longitude": 116.682521,
-    "address": "广东省汕头市金平区外马路149号",
-    "description": "汕头市文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 85,
-    "name": "龙湖区文化馆",
-    "category": "文化馆",
-    "latitude": 23.373017,
-    "longitude": 116.715579,
-    "address": "广东省汕头市龙湖区金霞街道大北山路4号翰苑F1层",
-    "description": "龙湖区文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 86,
-    "name": "澄海区文化馆",
-    "category": "文化馆",
-    "latitude": 23.46545,
-    "longitude": 116.772596,
-    "address": "广东省汕头市澄海区文化路1号",
-    "description": "澄海区文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 87,
-    "name": "汕头市潮汕工夫茶文化展览馆",
-    "category": "文化馆",
-    "latitude": 23.362891,
-    "longitude": 116.683345,
-    "address": "广东省汕头市金平区展览馆路中山公园",
-    "description": "汕头市潮汕工夫茶文化展览馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 88,
-    "name": "金蛇非遗文化馆",
-    "category": "文化馆",
-    "latitude": 23.350936,
-    "longitude": 116.670558,
-    "address": "广东省汕头市金平区商平路58号",
-    "description": "金蛇非遗文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 89,
-    "name": "映霞苑文化馆",
-    "category": "文化馆",
-    "latitude": 23.369793,
-    "longitude": 116.722107,
-    "address": "广东省汕头市龙湖区环碧西街环碧金珠园7栋101",
-    "description": "映霞苑文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 90,
-    "name": "大沙沟传统民俗文化中心",
-    "category": "文化馆",
-    "latitude": 23.434778,
-    "longitude": 116.804235,
-    "address": "广东省汕头市澄海区凤翔街道莱美路",
-    "description": "大沙沟传统民俗文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 91,
-    "name": "清雅文化中心",
-    "category": "文化馆",
-    "latitude": 23.387835,
-    "longitude": 116.72993,
-    "address": "广东省汕头市龙湖区嵩山北路潮人创客创意园B幢7楼",
-    "description": "清雅文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 93,
-    "name": "侨批文化馆",
-    "category": "文化馆",
-    "latitude": 23.352831,
-    "longitude": 116.674441,
-    "address": "广东省汕头市金平区外马路18号",
-    "description": "侨批文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。涉及侨批档案等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "侨批档案",
-        "type": "民间文学",
-        "status": "世界记忆遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 94,
-    "name": "岭东美术馆",
-    "category": "工坊",
-    "latitude": 23.362532,
-    "longitude": 116.745802,
-    "address": "广东省汕头市龙湖区丰泽东街长城花园(黄山路)西侧约40米处艺苑大厦三楼",
-    "description": "岭东美术馆是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 95,
-    "name": "澄海韩文公祠",
-    "category": "景点",
-    "latitude": 23.576829,
-    "longitude": 116.83151,
-    "address": "广东省汕头市澄海区S335与樟林中山路交叉口东北方向247米左右",
-    "description": "澄海韩文公祠是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 96,
-    "name": "海江木雕",
-    "category": "景点",
-    "latitude": 23.366593,
-    "longitude": 116.711245,
-    "address": "广东省汕头市金平区金砂东路89号2栋104号",
-    "description": "海江木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      },
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 97,
-    "name": "新典雅装饰木雕",
-    "category": "景点",
-    "latitude": 23.366221,
-    "longitude": 116.723459,
-    "address": "广东省汕头市龙湖区金砂东路110号金讯大厦104铺",
-    "description": "新典雅装饰木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 98,
-    "name": "广泓木雕",
-    "category": "景点",
-    "latitude": 23.354817,
-    "longitude": 116.681269,
-    "address": "广东省汕头市金平区小公园街道同益路10号-102",
-    "description": "广泓木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 99,
-    "name": "德兴木雕",
-    "category": "景点",
-    "latitude": 23.467287,
-    "longitude": 116.77241,
-    "address": "广东省汕头市澄海区环城北路健儿乐幼儿园西侧约70米",
-    "description": "德兴木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 100,
-    "name": "阿彬木雕",
-    "category": "景点",
-    "latitude": 23.28833,
-    "longitude": 116.326956,
-    "address": "广东省汕头市潮南区陈店镇溪北村",
-    "description": "阿彬木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 101,
-    "name": "拓新木雕",
-    "category": "景点",
-    "latitude": 23.450752,
-    "longitude": 116.380616,
-    "address": "广东省汕头市潮阳区花园路",
-    "description": "拓新木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 102,
-    "name": "忠阳木雕(木雕金漆神佛像)",
-    "category": "景点",
-    "latitude": 23.20925,
-    "longitude": 116.476934,
-    "address": "广东省汕头市潮阳区和平镇S237和新石化加油站西北侧约90米",
-    "description": "忠阳木雕(木雕金漆神佛像)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 103,
-    "name": "细致木雕",
-    "category": "景点",
-    "latitude": 23.258428,
-    "longitude": 116.608255,
-    "address": "广东省汕头市潮阳区东山大道与严东中巷交叉口正西方向42米左右",
-    "description": "细致木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 104,
-    "name": "慈顺潮绣",
-    "category": "景点",
-    "latitude": 23.204157,
-    "longitude": 116.6347,
-    "address": "广东省汕头市潮阳区海门镇大埠圆临街铺面10号铺",
-    "description": "慈顺潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 105,
-    "name": "凤顺潮绣",
-    "category": "景点",
-    "latitude": 23.227011,
-    "longitude": 116.62429,
-    "address": "广东省汕头市潮阳区城南街道潮海路3巷",
-    "description": "凤顺潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 106,
-    "name": "华盛潮绣",
-    "category": "景点",
-    "latitude": 23.251233,
-    "longitude": 116.607575,
-    "address": "广东省汕头市潮阳区东山大道与新华路交叉口西南方向121米左右",
-    "description": "华盛潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 107,
-    "name": "濠兴潮绣",
-    "category": "景点",
-    "latitude": 23.267841,
-    "longitude": 116.721333,
-    "address": "广东省汕头市濠江区达南路95号恒大金碧御景湾影城36栋120商铺",
-    "description": "濠兴潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 108,
-    "name": "兴顺旺潮绣",
-    "category": "景点",
-    "latitude": 23.234451,
-    "longitude": 116.313578,
-    "address": "广东省汕头市潮南区仙城镇陈仙公路402号",
-    "description": "兴顺旺潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 109,
-    "name": "馨兴潮绣",
-    "category": "景点",
-    "latitude": 23.237739,
-    "longitude": 116.406531,
-    "address": "广东省汕头市潮南区峡山街道金光南路86号",
-    "description": "馨兴潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 110,
-    "name": "杨廷辉潮绣工艺社",
-    "category": "景点",
-    "latitude": 23.323189,
-    "longitude": 116.338089,
-    "address": "广东省汕头市潮阳区贵屿镇南安村南通路106-108号",
-    "description": "杨廷辉潮绣工艺社是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 111,
-    "name": "东艺潮绣",
-    "category": "景点",
-    "latitude": 23.255634,
-    "longitude": 116.525327,
-    "address": "广东省汕头市潮阳区金浦街道梅西村林八港路上伯公镇盛楼一楼1号",
-    "description": "东艺潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 112,
-    "name": "府城潮绣文化传媒有限公司",
-    "category": "景点",
-    "latitude": 23.266486,
-    "longitude": 116.605288,
-    "address": "广东省汕头市潮阳区城北一路235号",
-    "description": "府城潮绣文化传媒有限公司是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 113,
-    "name": "潮绣工艺",
-    "category": "景点",
-    "latitude": 23.437281,
-    "longitude": 116.460658,
-    "address": "广东省汕头市潮阳区关埠镇关金路港底路段109号附近",
-    "description": "潮绣工艺是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 114,
-    "name": "英歌舞",
-    "category": "景点",
-    "latitude": 23.2511,
-    "longitude": 116.529528,
-    "address": "广东省汕头市潮阳区林八港路与金梅路交叉口东南方向73米左右",
-    "description": "英歌舞是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 115,
-    "name": "潮汕英歌舞主题茶馆",
-    "category": "茶文化",
-    "latitude": 23.355408,
-    "longitude": 116.673337,
-    "address": "广东省汕头市金平区升平路与同平路交叉口正东方向53米左右",
-    "description": "潮汕英歌舞主题茶馆是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      },
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 116,
-    "name": "英歌舞展示长廊",
-    "category": "景点",
-    "latitude": 23.329314,
-    "longitude": 116.780952,
-    "address": "广东省汕头市龙湖区阿里山路明园广场·海湾壹号T2塔楼东北侧约270米",
-    "description": "英歌舞展示长廊是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 117,
-    "name": "上底村英歌舞训练基地",
-    "category": "景点",
-    "latitude": 23.460882,
-    "longitude": 116.446875,
-    "address": "广东省汕头市潮阳区关埠镇桥头小学西侧约240米",
-    "description": "上底村英歌舞训练基地是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 118,
-    "name": "东池英歌舞旅拍",
-    "category": "景点",
-    "latitude": 23.349925,
-    "longitude": 116.668666,
-    "address": "广东省汕头市金平区海平路12号二楼",
-    "description": "东池英歌舞旅拍是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 119,
-    "name": "旗韵潮汕特色英歌舞旅拍(小公园店)",
-    "category": "景点",
-    "latitude": 23.356559,
-    "longitude": 116.673211,
-    "address": "广东省汕头市金平区旧公园左巷3号",
-    "description": "旗韵潮汕特色英歌舞旅拍(小公园店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 120,
-    "name": "岗背乡众英歌舞训练基地",
-    "category": "景点",
-    "latitude": 23.266528,
-    "longitude": 116.686195,
-    "address": "广东省汕头市濠江区玉新街道岗背村",
-    "description": "岗背乡众英歌舞训练基地是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 121,
-    "name": "潮南英歌舞文化保护研习中心",
-    "category": "景点",
-    "latitude": 23.234283,
-    "longitude": 116.395014,
-    "address": "广东省汕头市潮南区长晖制衣北50米(金光南路北)",
-    "description": "潮南英歌舞文化保护研习中心是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 122,
-    "name": "玉一英歌舞总部基地",
-    "category": "景点",
-    "latitude": 23.427993,
-    "longitude": 116.497518,
-    "address": "广东省汕头市潮阳区关埠镇玉一村英歌舞训练基地888",
-    "description": "玉一英歌舞总部基地是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 123,
-    "name": "潮阳英歌舞服务区(揭惠高速惠来方向)",
-    "category": "景点",
-    "latitude": 23.304042,
-    "longitude": 116.381906,
-    "address": "广东省汕头市潮阳区",
-    "description": "潮阳英歌舞服务区(揭惠高速惠来方向)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 124,
-    "name": "潮剧艺术博物馆",
-    "category": "博物馆",
-    "latitude": 23.377646,
-    "longitude": 116.68328,
-    "address": "广东省汕头市金平区潮州路与金湖路交叉口正北方向199米左右",
-    "description": "潮剧艺术博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 125,
-    "name": "汕头市潮阳区潮剧保护研习中心",
-    "category": "景点",
-    "latitude": 23.256074,
-    "longitude": 116.588366,
-    "address": "广东省汕头市潮阳区城西三路双金园",
-    "description": "汕头市潮阳区潮剧保护研习中心是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 126,
-    "name": "澄海潮剧团",
-    "category": "景点",
-    "latitude": 23.469479,
-    "longitude": 116.777567,
-    "address": "广东省汕头市澄海区凤翔街道华兴路澄海北秀中学西南侧约40米",
-    "description": "澄海潮剧团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 127,
-    "name": "澄希艺术中心(潮剧)",
-    "category": "景点",
-    "latitude": 23.562666,
-    "longitude": 116.818159,
-    "address": "广东省汕头市澄海区文化路11栋",
-    "description": "澄希艺术中心(潮剧)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 128,
-    "name": "潮汕工夫茶",
-    "category": "茶文化",
-    "latitude": 23.359547,
-    "longitude": 116.692304,
-    "address": "广东省汕头市金平区春梅街与黄岗路交叉口正东方向11米左右",
-    "description": "潮汕工夫茶是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 129,
-    "name": "茶汕·新潮汕工夫茶(峡山店)",
-    "category": "茶文化",
-    "latitude": 23.255248,
-    "longitude": 116.417006,
-    "address": "广东省汕头市潮南区广祥路269号",
-    "description": "茶汕·新潮汕工夫茶(峡山店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 130,
-    "name": "茶汕·新潮汕工夫茶(润街店)",
-    "category": "茶文化",
-    "latitude": 23.363648,
-    "longitude": 116.718681,
-    "address": "广东省汕头市龙湖区万象城幸福里雅居6栋114号",
-    "description": "茶汕·新潮汕工夫茶(润街店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 131,
-    "name": "顺鲤·潮汕工夫茶店(万象城店)",
-    "category": "茶文化",
-    "latitude": 23.365471,
-    "longitude": 116.714619,
-    "address": "广东省汕头市金平区东方街道金环花园7栋104号",
-    "description": "顺鲤·潮汕工夫茶店(万象城店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 132,
-    "name": "和德元工夫茶体验馆(金叶店)",
-    "category": "茶文化",
-    "latitude": 23.258751,
-    "longitude": 116.594371,
-    "address": "广东省汕头市潮阳区文光街道棉西大道金叶大厦首层沿街商铺",
-    "description": "和德元工夫茶体验馆(金叶店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 133,
-    "name": "功夫茶",
-    "category": "茶文化",
-    "latitude": 23.359115,
-    "longitude": 116.694045,
-    "address": "广东省汕头市金平区中山中路与中山路交叉口东北方向45米左右",
-    "description": "功夫茶是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 134,
-    "name": "汕头市潮汕工夫茶研究所",
-    "category": "茶文化",
-    "latitude": 23.376525,
-    "longitude": 116.754603,
-    "address": "广东省汕头市龙湖区新津街道泰山南路南方商贸广场B区40号",
-    "description": "汕头市潮汕工夫茶研究所是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 135,
-    "name": "大寮嵌瓷工艺社",
-    "category": "景点",
-    "latitude": 23.199897,
-    "longitude": 116.500395,
-    "address": "广东省汕头市潮阳区滨河路大寮小学校东侧约60米",
-    "description": "大寮嵌瓷工艺社是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及嵌瓷等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "嵌瓷",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 136,
-    "name": "肖娟丽剪纸(府前庄店)",
-    "category": "景点",
-    "latitude": 23.262713,
-    "longitude": 116.601101,
-    "address": "广东省汕头市潮阳区文光街道府前庄南门旁",
-    "description": "肖娟丽剪纸(府前庄店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及剪纸（广东剪纸）等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "剪纸（广东剪纸）",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 137,
-    "name": "木偶人",
-    "category": "景点",
-    "latitude": 23.343764,
-    "longitude": 116.419868,
-    "address": "广东省汕头市潮阳区谷贵路与饶中路交叉口正东方向256米左右",
-    "description": "木偶人是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及铁枝木偶戏等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "铁枝木偶戏",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 138,
-    "name": "木偶士多店",
-    "category": "景点",
-    "latitude": 23.233271,
-    "longitude": 116.387427,
-    "address": "广东省汕头市潮南区峡山街道金光南路与宏裕路交叉口西北480米",
-    "description": "木偶士多店是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及铁枝木偶戏等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "铁枝木偶戏",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 139,
-    "name": "老玉春香木偶剧团",
-    "category": "景点",
-    "latitude": 23.568309,
-    "longitude": 116.738296,
-    "address": "广东省汕头市澄海区隆都镇河墘东片横巷五号",
-    "description": "老玉春香木偶剧团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及铁枝木偶戏等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "铁枝木偶戏",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 140,
-    "name": "老醉香园木偶团",
-    "category": "景点",
-    "latitude": 23.59341,
-    "longitude": 116.725303,
-    "address": "广东省汕头市澄海区侯邦华侨学校(潮汕环线高速南300米)",
-    "description": "老醉香园木偶团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及铁枝木偶戏等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "铁枝木偶戏",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 142,
-    "name": "汕头抽纱(大悦花园店)",
-    "category": "景点",
-    "latitude": 23.381694,
-    "longitude": 116.729916,
-    "address": "广东省汕头市龙湖区紫茵东街与衡山路交叉口东北方向235米左右",
-    "description": "汕头抽纱(大悦花园店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 144,
-    "name": "小公园街道",
-    "category": "景点",
-    "latitude": 23.357574,
-    "longitude": 116.68374,
-    "address": "广东省汕头市金平区",
-    "description": "小公园街道是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 145,
-    "name": "老妈宫戏台",
-    "category": "景点",
-    "latitude": 23.354618,
-    "longitude": 116.675303,
-    "address": "广东省汕头市金平区升平路与外马路交叉口正西方向59米左右",
-    "description": "老妈宫戏台是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 146,
-    "name": "珠浦老妈宫",
-    "category": "景点",
-    "latitude": 23.295228,
-    "longitude": 116.694432,
-    "address": "广东省汕头市濠江区文化广场路与联泰路交叉口正北方向360米左右",
-    "description": "珠浦老妈宫是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 147,
-    "name": "老妈宫",
-    "category": "景点",
-    "latitude": 23.408376,
-    "longitude": 116.708361,
-    "address": "广东省汕头市龙湖区南环东街与南环西街交叉口正南方向284米左右",
-    "description": "老妈宫是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 148,
-    "name": "西胪莲藕汤老妈宫粽球(亭脚路店)",
-    "category": "美食",
-    "latitude": 23.258854,
-    "longitude": 116.600736,
-    "address": "广东省汕头市潮阳区文光街道亭脚路罗汉松住宅区A2幢首层14号铺(工商银行隔壁)",
-    "description": "西胪莲藕汤老妈宫粽球(亭脚路店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 149,
-    "name": "陈慈黉故居",
-    "category": "景点",
-    "latitude": 23.567625,
-    "longitude": 116.746167,
-    "address": "广东省汕头市澄海区隆都镇前美村竹宅路",
-    "description": "陈慈黉故居是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 150,
-    "name": "林少潮非遗木雕馆",
-    "category": "景点",
-    "latitude": 23.536113,
-    "longitude": 116.353251,
-    "address": "广东省揭阳市榕城区思贤路27号林少潮木雕工作室",
-    "description": "林少潮非遗木雕馆是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 151,
-    "name": "揭阳博物馆",
-    "category": "博物馆",
-    "latitude": 23.497103,
-    "longitude": 116.434366,
-    "address": "广东省揭阳市榕城区渔湖京冈文化广场内",
-    "description": "揭阳博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 152,
-    "name": "百兰山馆-榕城区博物馆",
-    "category": "博物馆",
-    "latitude": 23.532761,
-    "longitude": 116.355257,
-    "address": "广东省揭阳市榕城区观音仔街百兰山馆内",
-    "description": "百兰山馆-榕城区博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 153,
-    "name": "普宁市博物馆",
-    "category": "博物馆",
-    "latitude": 23.294565,
-    "longitude": 116.157556,
-    "address": "广东省揭阳市普宁市流沙西街道培英园社区赵厝寮路",
-    "description": "普宁市博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 154,
-    "name": "普宁市庄世平博物馆",
-    "category": "博物馆",
-    "latitude": 23.296273,
-    "longitude": 116.140824,
-    "address": "广东省揭阳市普宁市流沙大道西普宁华侨中学内",
-    "description": "普宁市庄世平博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 155,
-    "name": "岐山学校艺术博物馆",
-    "category": "博物馆",
-    "latitude": 23.563662,
-    "longitude": 116.379495,
-    "address": "广东省揭阳市榕城区东升街道岐山学校附近",
-    "description": "岐山学校艺术博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 156,
-    "name": "广东省揭阳市钱坑木雕博物馆",
-    "category": "博物馆",
-    "latitude": 23.377592,
-    "longitude": 115.99641,
-    "address": "广东省揭阳市揭西县钱坑镇钱南小学东侧约40米",
-    "description": "广东省揭阳市钱坑木雕博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 157,
-    "name": "惠来县博物馆",
-    "category": "博物馆",
-    "latitude": 23.024675,
-    "longitude": 116.29736,
-    "address": "广东省揭阳市惠来县文化广场内综合楼四楼",
-    "description": "惠来县博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 159,
-    "name": "揭阳市揭东区博物馆",
-    "category": "博物馆",
-    "latitude": 23.579519,
-    "longitude": 116.428063,
-    "address": "广东省揭阳市揭东区丹凤路揭东区人民广场对面",
-    "description": "揭阳市揭东区博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 161,
-    "name": "利泰文化馆",
-    "category": "文化馆",
-    "latitude": 23.259529,
-    "longitude": 116.158187,
-    "address": "广东省揭阳市普宁市大南山街道利泰大道利泰飞鹅岭农业公园",
-    "description": "利泰文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 162,
-    "name": "孙畔风雨圣者文化中心",
-    "category": "文化馆",
-    "latitude": 23.543285,
-    "longitude": 116.519227,
-    "address": "广东省揭阳市榕城区登岗镇孙畔大道南侧1号(S20东)",
-    "description": "孙畔风雨圣者文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 163,
-    "name": "溪洋村文化宫",
-    "category": "文化馆",
-    "latitude": 23.004275,
-    "longitude": 116.299974,
-    "address": "广东省揭阳市惠来县华湖镇南门大街玩玩幼儿园东南侧约260米",
-    "description": "溪洋村文化宫是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 167,
-    "name": "上寮老人文化中心",
-    "category": "文化馆",
-    "latitude": 23.303221,
-    "longitude": 116.142972,
-    "address": "广东省揭阳市普宁市池尾街道福宁路与长春路交叉路口往东约50米(池尾街道美德幼儿园西北侧约50米)",
-    "description": "上寮老人文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 168,
-    "name": "员东文化中心",
-    "category": "文化馆",
-    "latitude": 23.406278,
-    "longitude": 115.898156,
-    "address": "广东省揭阳市揭西县坪上镇员埔大道",
-    "description": "员东文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 169,
-    "name": "埔田镇文化中心广场",
-    "category": "文化馆",
-    "latitude": 23.622809,
-    "longitude": 116.388636,
-    "address": "广东省揭阳市揭东区埔田镇埔田村党群服务中心西北",
-    "description": "埔田镇文化中心广场是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 170,
-    "name": "皇墩村文化中心",
-    "category": "文化馆",
-    "latitude": 23.460259,
-    "longitude": 115.829276,
-    "address": "广东省揭阳市揭西县河婆街道温泉北路与西门大坑路交叉口北60米",
-    "description": "皇墩村文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 171,
-    "name": "青潭岭文化中心",
-    "category": "文化馆",
-    "latitude": 23.453422,
-    "longitude": 116.025805,
-    "address": "广东省揭阳市揭西县文化路与环村路交叉口东南方向17米左右",
-    "description": "青潭岭文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 172,
-    "name": "揭阳市德宝斋展览馆",
-    "category": "文化馆",
-    "latitude": 23.534258,
-    "longitude": 116.355911,
-    "address": "广东省揭阳市榕城区中山街道学宫广场商铺东区前栋108、109、201-216号",
-    "description": "揭阳市德宝斋展览馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 173,
-    "name": "揭阳市文化馆",
-    "category": "文化馆",
-    "latitude": 23.494383,
-    "longitude": 116.433314,
-    "address": "广东省揭阳市榕城区吉祥路",
-    "description": "揭阳市文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 175,
-    "name": "港文化馆",
-    "category": "文化馆",
-    "latitude": 23.608969,
-    "longitude": 116.300527,
-    "address": "广东省揭阳市揭东区新亨镇电子商务园N区N3-N4",
-    "description": "港文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 176,
-    "name": "揭阳市西湖美术馆",
-    "category": "工坊",
-    "latitude": 23.533741,
-    "longitude": 116.344836,
-    "address": "广东省揭阳市榕城区西环城路1号榕江西湖(东南角)",
-    "description": "揭阳市西湖美术馆是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 177,
-    "name": "木雕茶具",
-    "category": "景点",
-    "latitude": 23.355268,
-    "longitude": 116.038234,
-    "address": "广东省揭阳市普宁市",
-    "description": "木雕茶具是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 178,
-    "name": "林业木雕",
-    "category": "景点",
-    "latitude": 23.379668,
-    "longitude": 115.996568,
-    "address": "广东省揭阳市揭西县钱池路198号",
-    "description": "林业木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 179,
-    "name": "木雕日记",
-    "category": "景点",
-    "latitude": 23.004122,
-    "longitude": 116.279347,
-    "address": "广东省揭阳市惠来县寨外一巷1号",
-    "description": "木雕日记是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 180,
-    "name": "华杰木雕",
-    "category": "景点",
-    "latitude": 23.028416,
-    "longitude": 116.343234,
-    "address": "广东省揭阳市惠来县华湖镇G228标业玻璃西侧约210米",
-    "description": "华杰木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 181,
-    "name": "旺盛木雕文玩店",
-    "category": "景点",
-    "latitude": 23.337941,
-    "longitude": 116.099284,
-    "address": "广东省揭阳市普宁市梅塘镇238国道",
-    "description": "旺盛木雕文玩店是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 182,
-    "name": "缘木雕工艺坊",
-    "category": "景点",
-    "latitude": 23.289053,
-    "longitude": 116.183042,
-    "address": "广东省揭阳市普宁市后坛村老人活动中心(文竹南路东)",
-    "description": "缘木雕工艺坊是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 183,
-    "name": "华丽美木雕工艺",
-    "category": "景点",
-    "latitude": 23.502445,
-    "longitude": 116.066103,
-    "address": "广东省揭阳市揭西县京溪园镇上陇京塔路中段",
-    "description": "华丽美木雕工艺是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 184,
-    "name": "洪艺木雕",
-    "category": "景点",
-    "latitude": 23.29202,
-    "longitude": 116.204275,
-    "address": "广东省揭阳市普宁市普宁现代医院对面",
-    "description": "洪艺木雕是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 185,
-    "name": "陈泽铭木雕工作室",
-    "category": "工坊",
-    "latitude": 23.243271,
-    "longitude": 116.257703,
-    "address": "广东省揭阳市普宁市军埠镇新厝村普宁大道南侧250米",
-    "description": "陈泽铭木雕工作室是非遗技艺传承的重要场所，见证着传统手工艺的薪火相传。涉及潮州木雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州木雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 186,
-    "name": "佳艺潮绣坊",
-    "category": "景点",
-    "latitude": 23.046866,
-    "longitude": 116.293163,
-    "address": "广东省揭阳市惠来县傍山路与坪新路交叉口正北方向125米左右",
-    "description": "佳艺潮绣坊是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 187,
-    "name": "金盛兴潮绣",
-    "category": "景点",
-    "latitude": 23.527591,
-    "longitude": 116.502359,
-    "address": "广东省揭阳市榕城区",
-    "description": "金盛兴潮绣是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮绣等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮绣",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 188,
-    "name": "石鸟头英歌室",
-    "category": "景点",
-    "latitude": 23.340316,
-    "longitude": 116.123401,
-    "address": "广东省揭阳市普宁市华德楼东北50米(侨光路北)",
-    "description": "石鸟头英歌室是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及英歌舞等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "英歌舞",
-        "type": "传统舞蹈",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 189,
-    "name": "武视相馆·潮剧曲谱联络点",
-    "category": "景点",
-    "latitude": 23.498676,
-    "longitude": 116.348496,
-    "address": "广东省揭阳市榕城区仙马路与篮兜商业街交叉口东340米",
-    "description": "武视相馆·潮剧曲谱联络点是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 190,
-    "name": "广东省揭阳市潮剧一团",
-    "category": "景点",
-    "latitude": 23.514938,
-    "longitude": 116.361456,
-    "address": "广东省揭阳市榕城区仙桥街道榕池路龙康桥9号",
-    "description": "广东省揭阳市潮剧一团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 191,
-    "name": "潮剧唱唸培训",
-    "category": "景点",
-    "latitude": 23.554462,
-    "longitude": 116.382489,
-    "address": "广东省揭阳市榕城区东升街道新河路东东雅园b区7栋61号",
-    "description": "潮剧唱唸培训是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 192,
-    "name": "揭阳市潮剧团",
-    "category": "景点",
-    "latitude": 23.536793,
-    "longitude": 116.360598,
-    "address": "广东省揭阳市榕城区榕华街道新兴北路榕江公园西侧约30米",
-    "description": "揭阳市潮剧团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 193,
-    "name": "广东小梨花潮剧团",
-    "category": "景点",
-    "latitude": 23.523682,
-    "longitude": 116.440185,
-    "address": "广东省揭阳市榕城区渔湖街道望江北路7号",
-    "description": "广东小梨花潮剧团是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 194,
-    "name": "揭阳市潮剧文化促进会",
-    "category": "景点",
-    "latitude": 23.536866,
-    "longitude": 116.398375,
-    "address": "广东省揭阳市榕城区进贤门大道南围十巷46号",
-    "description": "揭阳市潮剧文化促进会是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 195,
-    "name": "惠来县馨韵潮剧演出有限公司",
-    "category": "景点",
-    "latitude": 23.028427,
-    "longitude": 116.287834,
-    "address": "广东省揭阳市惠来县惠城镇南门西路156号(电器厂旁)",
-    "description": "惠来县馨韵潮剧演出有限公司是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮剧等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮剧",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 196,
-    "name": "茶榆·潮汕工夫茶驿站",
-    "category": "茶文化",
-    "latitude": 23.5388,
-    "longitude": 116.524417,
-    "address": "广东省揭阳市榕城区登岗镇登峰路桥头3号",
-    "description": "茶榆·潮汕工夫茶驿站是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 197,
-    "name": "潮汕工夫茶",
-    "category": "茶文化",
-    "latitude": 23.020316,
-    "longitude": 116.282504,
-    "address": "广东省揭阳市惠来县南环一路与庆平路交叉口正南方向143米左右",
-    "description": "潮汕工夫茶是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 198,
-    "name": "念茶记工夫茶(滨江尚都店)",
-    "category": "茶文化",
-    "latitude": 23.556408,
-    "longitude": 116.389224,
-    "address": "广东省揭阳市榕城区东升街道东升路与临江北路交叉口滨江尚都停车场出入口17号铺",
-    "description": "念茶记工夫茶(滨江尚都店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 199,
-    "name": "工夫茶行(惠来周田杭美乡综合市场店)",
-    "category": "茶文化",
-    "latitude": 22.980334,
-    "longitude": 116.471221,
-    "address": "广东省揭阳市惠来县周田镇杭美综合市场大门右侧",
-    "description": "工夫茶行(惠来周田杭美乡综合市场店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及潮州工夫茶艺等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "潮州工夫茶艺",
-        "type": "民俗",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 200,
-    "name": "赤华园嵌瓷艺术",
-    "category": "景点",
-    "latitude": 23.292677,
-    "longitude": 116.161287,
-    "address": "广东省揭阳市普宁市河滨南路与赤华南路交叉口正东方向134米左右",
-    "description": "赤华园嵌瓷艺术是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及嵌瓷等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "嵌瓷",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 201,
-    "name": "金艺木偶服饰工艺制作中心",
-    "category": "景点",
-    "latitude": 23.537979,
-    "longitude": 116.459865,
-    "address": "广东省揭阳市榕城区炮台镇揭东大道西南侧",
-    "description": "金艺木偶服饰工艺制作中心是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及铁枝木偶戏等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "铁枝木偶戏",
-        "type": "传统戏剧",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 211,
-    "name": "揭阳楼广场",
-    "category": "景点",
-    "latitude": 23.56591,
-    "longitude": 116.393011,
-    "address": "广东省揭阳市榕城区沿江中路193号正东方向190米",
-    "description": "揭阳楼广场是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 219,
-    "name": "阳美玉都",
-    "category": "景点",
-    "latitude": 23.558775,
-    "longitude": 116.318612,
-    "address": "广东省揭阳市揭东区阳美路",
-    "description": "阳美玉都是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "阳美翡翠玉雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 220,
-    "name": "镛汇·阳美玉都广场",
-    "category": "景点",
-    "latitude": 23.559215,
-    "longitude": 116.314556,
-    "address": "广东省揭阳市揭东区玉都广场路与玉龙街交叉口正西方向209米左右",
-    "description": "镛汇·阳美玉都广场是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "阳美翡翠玉雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 222,
-    "name": "阳美玉都老玉街",
-    "category": "景点",
-    "latitude": 23.560852,
-    "longitude": 116.318287,
-    "address": "广东省揭阳市揭东区普宁水果店(老玉街)",
-    "description": "阳美玉都老玉街是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "阳美翡翠玉雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 224,
-    "name": "阳美玉都-大门",
-    "category": "景点",
-    "latitude": 23.558396,
-    "longitude": 116.319624,
-    "address": "广东省揭阳市揭东区阳美玉都旅游景区",
-    "description": "阳美玉都-大门是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "阳美翡翠玉雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 226,
-    "name": "阳美玉都景区游客中心",
-    "category": "景点",
-    "latitude": 23.554394,
-    "longitude": 116.311176,
-    "address": "广东省揭阳市揭东区磐兴大道与西关路交叉口正北方向395米左右",
-    "description": "阳美玉都景区游客中心是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "阳美翡翠玉雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  }
+  ]
+},
+  {
+  "id": 4,
+  "name": "大吴泥塑博物馆",
+  "category": "博物馆",
+  "latitude": 23.560082,
+  "longitude": 116.613952,
+  "address": "广东省潮州市潮安区潮汕环线高速松昌中学东北侧约180米",
+  "description": "大吴泥塑博物馆是专门展示省级非物质文化遗产“大吴泥塑”的主题馆。它坐落于大吴泥塑的发源地潮安区，系统介绍了这项传统美术数百年的传承历史与精湛工艺。馆内藏品丰富，是了解潮汕民间雕塑艺术的重要场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "大吴泥塑",
+      "type": "传统美术",
+      "status": "省级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 5,
+  "name": "潮府工夫茶文化博物馆",
+  "category": "博物馆",
+  "latitude": 23.666039,
+  "longitude": 116.647942,
+  "address": "广东省潮州市湘桥区义安路宰辅巷10号",
+  "description": "潮府工夫茶文化博物馆位于湘桥区古巷之中，是专为国家级非遗“潮州工夫茶艺”设立的主题博物馆。它深入展示了工夫茶的历史、器具、冲泡技艺及深厚的哲学内涵。参观者可在此沉浸式体验潮汕茶文化的独特魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 6,
+  "name": "潮州嵌瓷博物馆",
+  "category": "博物馆",
+  "latitude": 23.53856,
+  "longitude": 116.602723,
+  "address": "广东省潮州市潮安区金石镇郑镜鸿路(湖美学校西侧约200米)",
+  "description": "潮州嵌瓷博物馆是展示国家级非遗项目“嵌瓷”艺术的专题博物馆。馆内陈列了众多精美的嵌瓷作品，展现了这项传统美术在潮汕地区建筑装饰上的独特魅力。它为公众了解和学习嵌瓷工艺的历史与技艺提供了重要场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "嵌瓷",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 7,
+  "name": "潮州市杨坚平非遗传统工艺博物馆",
+  "category": "博物馆",
+  "latitude": 23.668084,
+  "longitude": 116.648365,
+  "address": "广东省潮州市湘桥区文星路五分之一号",
+  "description": "潮州市杨坚平非遗传统工艺博物馆以收藏和展示潮汕地区的传统工艺精品为主。该馆致力于非遗工艺的保护与传承，但目前公开的详细馆藏信息有限。其具体展陈内容和特色有待进一步了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 8,
+  "name": "淡浮院-砚峰尺八博物馆",
+  "category": "博物馆",
+  "latitude": 23.678677,
+  "longitude": 116.701277,
+  "address": "广东省潮州市湘桥区淡浮院",
+  "description": "淡浮院-砚峰尺八博物馆位于潮州淡浮院内，是一处以收藏和展示中国传统乐器尺八为主题的专题博物馆。尺八是一种古老的吹奏乐器，该馆的设立为研究其历史与音乐文化提供了平台。其具体馆藏和展览内容需实地探访了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 9,
+  "name": "宋茶文化博物馆",
+  "category": "博物馆",
+  "latitude": 23.934885,
+  "longitude": 116.670256,
+  "address": "广东省潮州市潮安区凤凰镇乌岽佛石",
+  "description": "宋茶文化博物馆坐落于潮州凤凰山乌岽，以展示宋代茶文化为主题。凤凰山是著名的单丛茶产区，该馆的设立与当地深厚的茶文化背景密切相关。其具体展陈如何呈现宋茶历史与凤凰茶特色，有待进一步信息确认。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 10,
+  "name": "潮州市意空间文化艺术馆",
+  "category": "工坊",
+  "latitude": 23.666891,
+  "longitude": 116.650503,
+  "address": "广东省潮州市湘桥区昌黎路一号2-4层(牌坊街与昌黎路交叉路口)",
+  "description": "潮州市意空间文化艺术馆是一个位于牌坊街附近的文化艺术空间，兼具工坊功能。它致力于推动本地文化艺术创作与交流，但目前公开信息中未明确其与特定非遗项目的直接关联。其具体活动与特色需进一步了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 11,
+  "name": "潮绣艺术馆",
+  "category": "工坊",
+  "latitude": 23.652484,
+  "longitude": 116.629508,
+  "address": "广东省潮州市湘桥区城新西路与新春路交叉口东北角名瑞楼21号",
+  "description": "潮绣艺术馆是展示与传承国家级非遗项目“潮绣”的重要工坊。馆内陈列着精美的潮绣作品，展现了其金银线立体垫高、色彩富丽的独特技艺。这里不仅是欣赏传统美术的场所，也为公众提供了了解潮绣历史与工艺的窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 12,
+  "name": "画哩艺术馆",
+  "category": "工坊",
+  "latitude": 23.63091,
+  "longitude": 116.577122,
+  "address": "广东省潮州市潮安区潮安康华医院(新兴路东)",
+  "description": "画哩艺术馆是一处位于潮安区的艺术工坊。目前已知其具体地址信息，但暂无公开资料详细说明其与特定非遗项目的关联或主要展陈内容。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 13,
+  "name": "潮州市仰中美术馆·潮彩体验中心",
+  "category": "工坊",
+  "latitude": 23.676176,
+  "longitude": 116.598714,
+  "address": "广东省潮州市湘桥区凤新街道兴利路1号",
+  "description": "潮州市仰中美术馆·潮彩体验中心是一处结合展示与体验功能的艺术工坊。其名称中的“潮彩”指向潮州彩瓷这一传统工艺，该中心可能致力于相关艺术的推广与实践。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 14,
+  "name": "清晖楼艺术馆",
+  "category": "工坊",
+  "latitude": 23.487711,
+  "longitude": 116.635495,
+  "address": "广东省潮州市潮安区潮汕路与玉林路交叉口正东方向293米左右",
+  "description": "清晖楼艺术馆是位于潮安区的一处艺术工坊。根据现有信息，暂无其与特定非遗项目关联的详细资料，其具体展陈主题与活动内容有待进一步了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 15,
+  "name": "联合美术馆(城北校区)",
+  "category": "工坊",
+  "latitude": 23.677065,
+  "longitude": 117.005885,
+  "address": "广东省潮州市饶平县拥军路与敬贤路交叉口正南方向307米左右",
+  "description": "联合美术馆(城北校区)是饶平县的一处艺术工坊。目前信息显示其地址位于饶平，但暂无公开信息说明其具体的艺术定位或与非遗项目的直接关联。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 16,
+  "name": "潮州市仰中美术馆(牌坊街分展馆)",
+  "category": "工坊",
+  "latitude": 23.665279,
+  "longitude": 116.65052,
+  "address": "广东省潮州市湘桥区太平路牌坊街270号-1",
+  "description": "潮州市仰中美术馆（牌坊街分展馆）位于牌坊街核心区，是一处艺术工坊与展示空间。它依托于潮州古城深厚的历史文化底蕴，为艺术家和手工艺人提供了创作与交流的平台。目前，其具体展示内容与关联的非遗项目信息尚待进一步了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 17,
+  "name": "东三文化中心",
+  "category": "文化馆",
+  "latitude": 23.541419,
+  "longitude": 116.680392,
+  "address": "广东省潮州市潮安区东凤镇东三广德路东二学校东北侧约280米",
+  "description": "东三文化中心位于潮安区东凤镇，是服务于当地社区的重要公共文化设施。作为基层文化馆，它承担着组织群众文化活动、提供文化服务的功能。目前，其具体的常设展览或特色非遗项目信息尚待补充。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 18,
+  "name": "金石镇文化中心",
+  "category": "文化馆",
+  "latitude": 23.524351,
+  "longitude": 116.619992,
+  "address": "广东省潮州市潮安区金石镇振兴街与金石大道交叉路口往东南约100米(翁厝美来小学北侧约150米)",
+  "description": "金石镇文化中心坐落于潮安区金石镇，是镇级公共文化服务的重要场所。该中心旨在丰富当地居民的精神文化生活，可能开展各类文化培训、展览及演出活动。其具体的功能定位与特色项目信息有待进一步明确。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 19,
+  "name": "潮安区文化中心",
+  "category": "文化馆",
+  "latitude": 23.46065,
+  "longitude": 116.680146,
+  "address": "广东省潮州市潮安区廉泉街4号",
+  "description": "潮安区文化中心位于潮安城区，是区级综合性文化场馆。它通常集文化展示、艺术培训、图书阅览等功能于一体，是区域文化传播与交流的核心平台。目前，其内部具体的常设展览或非遗专题内容信息尚不明确。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 20,
+  "name": "潮侨青文化中心",
+  "category": "文化馆",
+  "latitude": 23.652616,
+  "longitude": 116.66581,
+  "address": "广东省潮州市湘桥区桥东街道东山路慧如公园北门小门入口处左侧",
+  "description": "潮侨青文化中心位于湘桥区慧如公园附近，其名称体现了与潮籍华侨青年的关联。作为一处文化馆，它可能侧重于青年文化交流、侨乡文化展示等方面。目前，关于其具体的活动内容与非遗关联项目，已知信息有限。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 21,
+  "name": "高堂镇文化中心",
+  "category": "文化馆",
+  "latitude": 23.708609,
+  "longitude": 116.944181,
+  "address": "广东省潮州市饶平县高堂镇味缘蛋糕店东侧",
+  "description": "高堂镇文化中心是饶平县高堂镇重要的公共文化服务场所。作为基层文化馆，它承担着组织群众文化活动、提供文化服务的功能。其具体展览与活动内容需实地探访或查询官方信息获取。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 22,
+  "name": "潮州美术馆",
+  "category": "工坊",
+  "latitude": 23.664791,
+  "longitude": 116.613623,
+  "address": "广东省潮州市湘桥区潮州大道中段潮州市图书馆隔壁",
+  "description": "潮州美术馆是潮州地区重要的艺术展示与创作空间，其类别标注为“工坊”可能存在偏差。它通常以举办各类美术展览、推动艺术交流为核心功能，是市民欣赏艺术、提升审美的重要场所。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 23,
+  "name": "雅藏展览馆",
+  "category": "文化馆",
+  "latitude": 24.081619,
+  "longitude": 116.876492,
+  "address": "广东省潮州市饶平县饶洋镇好运连连烟花爆竹销售中心南侧100米",
+  "description": "雅藏展览馆位于饶平县饶洋镇，是一家民间文化展览场所。作为文化馆类别，它可能用于展示地方特色藏品或举办文化展览。其具体的常设展览主题与内容有待进一步了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 24,
+  "name": "古城牌坊街",
+  "category": "景点",
+  "latitude": 23.655644,
+  "longitude": 116.647035,
+  "address": "广东省潮州市湘桥区太平街道太平路663号",
+  "description": "古城牌坊街是潮州古城的核心街区与标志性景点。街道上矗立着多座历史牌坊，串联起两侧的骑楼建筑与特色商铺，集中展现了潮州的历史风貌、建筑艺术与商业文化，是游客体验古城韵味必到之处。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 25,
+  "name": "潮州市广济桥文物旅游景区",
+  "category": "景点",
+  "latitude": 23.662873,
+  "longitude": 116.652731,
+  "address": "广东省潮州市湘桥区环城东路广济城门对面",
+  "description": "潮州市广济桥文物旅游景区以中国四大古桥之一的广济桥为核心。广济桥又称湘子桥，以其独特的“十八梭船廿四洲”启闭式结构和深厚的历史文化价值闻名。景区是领略古代桥梁建筑智慧与潮州历史文化的重要地标。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 26,
+  "name": "广济桥-灯光秀",
+  "category": "景点",
+  "latitude": 23.662214,
+  "longitude": 116.657943,
+  "address": "广东省潮州市湘桥区东兴北路与东兴南路交叉口西南方向28米左右",
+  "description": "广济桥灯光秀是潮州古城夜间旅游的亮点，以现代光影技术活化这座国家级文物。秀场常以潮州音乐为背景，营造出如梦似幻的意境。虽然关联项目为潮州工夫茶艺，但现场表演内容以灯光和桥梁建筑为核心。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 27,
+  "name": "开元寺泰佛殿",
+  "category": "景点",
+  "latitude": 23.654099,
+  "longitude": 116.663452,
+  "address": "广东省潮州市湘桥区桥东街道东山路慧如公园公交站",
+  "description": "开元寺泰佛殿是潮州开元寺内一座具有东南亚风格的佛教建筑。它体现了潮州作为历史文化名城在宗教建筑上的多元与包容。目前已知信息有限，其具体历史渊源与建筑特色有待进一步考证。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 28,
+  "name": "开元寺普同塔院",
+  "category": "景点",
+  "latitude": 23.651668,
+  "longitude": 116.639961,
+  "address": "广东省潮州市湘桥区永春南路金丽花园东侧",
+  "description": "开元寺普同塔院是潮州开元寺的重要组成部分，通常与寺院的历史及僧众纪念相关。此类塔院在佛教寺院中具有特定的宗教与文化功能。基于现有信息，其具体历史细节与建筑特点尚不明确。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 29,
+  "name": "己略黄公祠",
+  "category": "景点",
+  "latitude": 23.665087,
+  "longitude": 116.648241,
+  "address": "广东省潮州市湘桥区义安路铁巷2号",
+  "description": "己略黄公祠是潮州一处著名的传统祠堂建筑，以精美绝伦的木雕、石雕和嵌瓷工艺著称。它被誉为“潮州木雕第一绝”，是研究清代潮汕建筑艺术和宗族文化的珍贵实物。该建筑本身即是潮汕非遗技艺的集中展示。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 30,
+  "name": "潮州古城",
+  "category": "景点",
+  "latitude": 23.673741,
+  "longitude": 116.647942,
+  "address": "广东省潮州市湘桥区西马路18号",
+  "description": "潮州古城是潮汕文化的核心承载区，城内保存有大量明清时期的街巷格局、民居府第和文物古迹。这里是体验潮州工夫茶、潮州菜、潮绣等非物质文化遗产的活态空间。古城以其深厚的历史底蕴和浓郁的市井生活气息吸引着众多游客。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 31,
+  "name": "潮州古城南",
+  "category": "景点",
+  "latitude": 23.656512,
+  "longitude": 116.645622,
+  "address": "广东省潮州市湘桥区下西平路与环城南路交叉口东南方向128米左右",
+  "description": "潮州古城南是潮州历史文化名城的核心区域之一，位于湘桥区下西平路与环城南路交叉口附近。该区域保留了传统街巷格局与历史风貌，是体验潮州古城生活气息的重要窗口。游客可在此感受潮州深厚的历史文化底蕴与独特的城市肌理。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 32,
+  "name": "韩文公祠",
+  "category": "景点",
+  "latitude": 23.663596,
+  "longitude": 116.659073,
+  "address": "广东省潮州市湘桥区东兴北路笔架山麓",
+  "description": "韩文公祠是为纪念唐代文学家、潮州刺史韩愈而建的祠宇，坐落于湘桥区笔架山麓。该祠始建于宋代，是潮州重要的历史人文景点，体现了潮州人民对韩愈治潮功绩的深切缅怀。其建筑古朴庄重，承载着深厚的儒家文化与历史记忆。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 33,
+  "name": "艺生木雕",
+  "category": "景点",
+  "latitude": 23.631929,
+  "longitude": 116.684375,
+  "address": "广东省潮州市湘桥区磷溪镇231省道仙田星光学校西350米",
+  "description": "艺生木雕是位于磷溪镇的一处与国家级非遗‘潮州木雕’紧密相关的场所。潮州木雕以多层次镂空、金漆装饰和精美繁复的构图闻名。该地点为公众提供了近距离了解这一传统美术精湛技艺的窗口，是传承与展示潮州木雕文化的重要节点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 34,
+  "name": "潮州木雕(牌坊街店)",
+  "category": "景点",
+  "latitude": 23.663096,
+  "longitude": 116.651214,
+  "address": "广东省潮州市湘桥区东门街60号",
+  "description": "潮州木雕(牌坊街店)位于古城核心区东门街，是一处集中展示两项国家级非遗‘潮州木雕’与‘潮绣’的文化场所。游客在此不仅能欣赏到金碧辉煌、玲珑剔透的木雕佳作，也能领略潮绣的细腻针法与华丽色彩。它是体验潮州传统美术魅力的重要景点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    },
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 35,
+  "name": "聚缘木雕坊",
+  "category": "景点",
+  "latitude": 23.567718,
+  "longitude": 116.616467,
+  "address": "广东省潮州市潮安区龙湖镇后郭村文体广场招牌斜对面和金路口",
+  "description": "聚缘木雕坊位于潮安区龙湖镇，是一处致力于传承国家级非物质文化遗产‘潮州木雕’的工坊或展示点。潮州木雕技艺精湛，常用于建筑装饰、家具及神器制作。该场所为这一传统手工艺的活态传承与展示提供了实践空间。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 36,
+  "name": "潮州木雕(凤洲东路店)",
+  "category": "景点",
+  "latitude": 23.649691,
+  "longitude": 116.650453,
+  "address": "广东省潮州市湘桥区城西街道凤洲东路凤凰洲公园西南侧",
+  "description": "潮州木雕（凤洲东路店）是展示国家级非遗“潮州木雕”的场所。它位于凤凰洲公园西南侧，便于游客在游览公园时领略这项传统美术。此处主要展示和介绍潮州木雕精湛的镂空、通雕技艺及其在建筑装饰中的应用。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 37,
+  "name": "潮州木雕(东山路店)",
+  "category": "景点",
+  "latitude": 23.659692,
+  "longitude": 116.673653,
+  "address": "广东省潮州市湘桥区桥东街道桥东东山路卧石瓷艺大厦A幢1号铺面",
+  "description": "潮州木雕（东山路店）是位于桥东街道的一处展示点。它以国家级非遗“潮州木雕”为核心，向公众展示这一传统美术的独特魅力。游客可在此欣赏到木雕作品的细腻工艺与丰富题材。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 38,
+  "name": "木雕",
+  "category": "景点",
+  "latitude": 23.548601,
+  "longitude": 116.608739,
+  "address": "广东省潮州市潮安区古一大路与大宗祠路交叉口西北方向286米左右",
+  "description": "此“木雕”景点位于潮安区古一大路附近，与国家级非遗“潮州木雕”项目相关联。作为一处展示场所，它旨在让访客近距离接触潮州木雕艺术。具体的历史背景与展示内容需现场探访以获取详细信息。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 39,
+  "name": "卢进文木雕展厅",
+  "category": "景点",
+  "latitude": 23.679505,
+  "longitude": 116.630772,
+  "address": "广东省潮州市湘桥区凤新街道永春北路花园工业小区3号2层",
+  "description": "卢进文木雕展厅是潮州木雕艺术的一个专门展示空间。它以木雕艺人的名字命名，集中展示其创作的潮州木雕作品。作为国家级非遗的展示窗口，这里体现了潮州木雕在当代的传承与发展。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 40,
+  "name": "黄兴左木雕工作室",
+  "category": "工坊",
+  "latitude": 23.675294,
+  "longitude": 116.642078,
+  "address": "广东省潮州市湘桥区北园路美裕园东侧约70米",
+  "description": "黄兴左木雕工作室是一处传统手工艺工坊，专注于国家级非遗“潮州木雕”的创作。在这里，可以观察到木雕艺人运用刻刀进行设计、打坯、修光等完整工艺流程。工作室是潮州木雕活态传承与技艺实践的重要基地。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 41,
+  "name": "潮州东潮木雕",
+  "category": "景点",
+  "latitude": 23.67679,
+  "longitude": 116.641179,
+  "address": "广东省潮州市湘桥区北园路与南岩街交叉口东北方向304米左右",
+  "description": "潮州东潮木雕是展示国家级非遗‘潮州木雕’的重要场所。潮州木雕以多层次镂空、金漆装饰为特色，题材多取自民间故事与吉祥图案。此处为游客提供了近距离欣赏这一传统美术精湛技艺的窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 42,
+  "name": "庆合木雕",
+  "category": "景点",
+  "latitude": 23.676189,
+  "longitude": 116.639792,
+  "address": "广东省潮州市湘桥区北美路与春荣东路交叉口东南方向197米左右",
+  "description": "庆合木雕是潮州木雕艺术的展示点之一。潮州木雕作为国家级非物质文化遗产，以其立体镂空、贴金等复杂工艺闻名。该场所让公众得以领略这项传统美术的独特魅力与深厚底蕴。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 43,
+  "name": "谢秀华潮绣馆(万达花园店)",
+  "category": "景点",
+  "latitude": 23.67102,
+  "longitude": 116.626308,
+  "address": "广东省潮州市湘桥区凤新街道新洋路万达花园35号铺",
+  "description": "谢秀华潮绣馆是展示国家级非遗‘潮绣’的专门场所。潮绣以金碧辉煌、立体垫高和构图饱满著称，是中国四大名绣之一粤绣的重要流派。这里为参观者提供了了解潮绣技艺与文化的平台。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 44,
+  "name": "长乐源潮绣",
+  "category": "景点",
+  "latitude": 23.661688,
+  "longitude": 116.648359,
+  "address": "广东省潮州市湘桥区开元广场西南(猷巷)",
+  "description": "长乐源潮绣是集潮绣与铁枝木偶戏两项国家级非遗于一体的展示点。潮绣以华丽立体见长，而铁枝木偶戏则是潮汕地区独特的传统戏剧形式。该场所展现了潮汕传统美术与表演艺术的交融。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    },
+    {
+      "name": "铁枝木偶戏",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 45,
+  "name": "孙庆先潮绣研究所",
+  "category": "景点",
+  "latitude": 23.662897,
+  "longitude": 116.645129,
+  "address": "广东省潮州市湘桥区潮州古城开元路183号",
+  "description": "孙庆先潮绣研究所是致力于潮绣研究、传承与展示的机构。潮绣作为国家级非物质文化遗产，其金银线绣、垫高绣等技艺独树一帜。这里不仅是技艺传承的基地，也是公众了解潮绣艺术的重要窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 46,
+  "name": "潮州市艺成潮绣研究院",
+  "category": "景点",
+  "latitude": 23.668729,
+  "longitude": 116.630805,
+  "address": "广东省潮州市湘桥区绿榕北路春光三片下工业楼7楼",
+  "description": "潮州市艺成潮绣研究院是专注于潮绣技艺研究、传承与创新的重要机构。作为国家级非遗项目‘潮绣’的实践基地，这里不仅展示精美的潮绣作品，也为爱好者提供了深入了解这一传统美术的平台。其位于湘桥区绿榕北路的地址，是潮绣艺术活态传承的当代空间。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 47,
+  "name": "中国潮绣艺术陈列馆",
+  "category": "景点",
+  "latitude": 23.680518,
+  "longitude": 116.636492,
+  "address": "广东省潮州市湘桥区城西街道兰花二街兴业花园东侧15号",
+  "description": "中国潮绣艺术陈列馆是集中展示潮绣艺术精品的专题场馆。馆内陈列着众多国家级非遗‘潮绣’的代表性作品，同时巧妙融入了同为国家级非遗的‘潮州工夫茶艺’文化元素。游客在此可同时领略潮汕传统美术与生活美学的双重魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    },
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 48,
+  "name": "潮湟英歌舞体验馆",
+  "category": "景点",
+  "latitude": 23.669493,
+  "longitude": 116.652035,
+  "address": "广东省潮州市湘桥区府学旧地文创园",
+  "description": "潮湟英歌舞体验馆是让公众亲身体验英歌舞文化的动态空间。作为国家级非遗‘英歌舞’的体验基地，它通过互动教学和展示，让参观者感受这一传统舞蹈的阳刚之气与节奏韵律。其位于府学旧地文创园内，是传统文化与现代文旅结合的范例。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 49,
+  "name": "英歌舞主题文艺茶馆",
+  "category": "茶文化",
+  "latitude": 23.670801,
+  "longitude": 116.651773,
+  "address": "广东省潮州市湘桥区中山路23号",
+  "description": "英歌舞主题文艺茶馆是一处将英歌舞文化与潮汕茶饮休闲相结合的特色空间。茶馆以国家级非遗‘英歌舞’为主题进行装饰与氛围营造，为顾客在品茗之余，提供了接触和了解这一豪迈传统舞蹈的独特场景。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 50,
+  "name": "广东潮州潮剧传承保护中心",
+  "category": "景点",
+  "latitude": 23.662744,
+  "longitude": 116.631865,
+  "address": "广东省潮州市湘桥区潮新巷十九号院西侧",
+  "description": "广东潮州潮剧传承保护中心是潮剧艺术研究、教学与展演的核心机构。这里致力于国家级非物质文化遗产‘潮剧’的保护与传承工作，定期开展排练、演出和传习活动。作为潮剧艺术的守护地与推广站，它是戏迷和研究者探访潮剧源流的重要场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 51,
+  "name": "潮州市潮剧团",
+  "category": "景点",
+  "latitude": 23.670226,
+  "longitude": 116.646898,
+  "address": "广东省潮州市湘桥区中山路46号",
+  "description": "潮州市潮剧团是潮剧艺术的重要传承与演出机构，位于潮州市湘桥区。作为国家级非遗项目‘潮剧’的代表性团体，这里不仅是专业演员的排练与演出基地，也是公众了解和欣赏这一古老地方戏剧的窗口。剧团通过持续的创作与演出，为保护和传播潮汕传统戏剧文化发挥着核心作用。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 52,
+  "name": "春光蔡厝村老人活动中心",
+  "category": "景点",
+  "latitude": 23.666307,
+  "longitude": 116.633648,
+  "address": "广东省潮州市湘桥区城西街道仁里街与荔园路交叉口西北150米潮州市同德潮剧社附近",
+  "description": "春光蔡厝村老人活动中心是潮剧在基层社区传承与活动的场所，位于潮州市湘桥区。该中心与潮剧社相邻，为社区老年人提供了一个以国家级非遗‘潮剧’为纽带的文化交流与娱乐空间。它体现了潮剧艺术在民间深厚的群众基础和自发的传承活力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 53,
+  "name": "饶平高堂潮剧团",
+  "category": "景点",
+  "latitude": 23.708323,
+  "longitude": 116.938576,
+  "address": "广东省潮州市饶平县站东路",
+  "description": "饶平高堂潮剧团是潮州市饶平县重要的地方戏剧演出团体。作为国家级非物质文化遗产‘潮剧’在县域层面的传承力量，该剧团扎根当地，致力于潮剧的排练、演出与普及工作。它是饶平地区展示和传承潮汕传统戏剧文化的一个重要基地。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 54,
+  "name": "林悠扬-槚丛工夫茶",
+  "category": "茶文化",
+  "latitude": 23.679172,
+  "longitude": 116.645272,
+  "address": "广东省潮州市湘桥区北堤路停车场D区入口",
+  "description": "林悠扬-槚丛工夫茶是一处专注于潮州工夫茶文化的场所，位于潮州市湘桥区。这里与国家级非遗‘潮州工夫茶艺’紧密关联，致力于展示和传播工夫茶的冲泡技艺与品饮文化。它为茶文化爱好者提供了一个体验潮汕茶道精髓的实践空间。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 55,
+  "name": "向东·凤凰单丛茶·潮州工夫茶",
+  "category": "茶文化",
+  "latitude": 23.668214,
+  "longitude": 116.642431,
+  "address": "广东省潮州市湘桥区环城西路旧西门街54号",
+  "description": "向东·凤凰单丛茶·潮州工夫茶是融合了潮州名茶与茶艺的茶文化空间，坐落于潮州市湘桥区古城区。该场所以国家级非遗‘潮州工夫茶艺’为核心，专注于凤凰单丛茶的品鉴与工夫茶文化的展示。在此可以亲身感受潮汕茶道“和、敬、精、乐”的精神内涵。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 56,
+  "name": "一线流·工夫茶",
+  "category": "茶文化",
+  "latitude": 23.662875,
+  "longitude": 116.607095,
+  "address": "广东省潮州市湘桥区绿榕西路199号",
+  "description": "一线流·工夫茶是一家专注于潮州工夫茶文化的场所。其名称“一线流”形象地描绘了冲泡时水流如线的精湛技艺。这里不仅是品茗之处，更是体验国家级非遗项目“潮州工夫茶艺”的重要窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 57,
+  "name": "六顺茶馆·工夫茶体验馆(西湖店)",
+  "category": "茶文化",
+  "latitude": 23.672551,
+  "longitude": 116.643428,
+  "address": "广东省潮州市湘桥区西湖公园内",
+  "description": "六顺茶馆·工夫茶体验馆位于风景秀丽的西湖公园内，环境清幽。作为一家茶文化体验馆，它以推广国家级非遗“潮州工夫茶艺”为核心。游客在此可亲身感受潮汕工夫茶“关公巡城、韩信点兵”的冲泡仪式。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 58,
+  "name": "孟臣·凤凰单丛茶·潮汕功夫茶",
+  "category": "茶文化",
+  "latitude": 23.669584,
+  "longitude": 116.645552,
+  "address": "广东省潮州市湘桥区中山路68号",
+  "description": "孟臣是一家以潮汕功夫茶和凤凰单丛茶为特色的茶文化场所。其名“孟臣”源自工夫茶具中的经典小壶“孟臣壶”，体现了对传统茶文化的传承。这里致力于展示和传播国家级非物质文化遗产“潮州工夫茶艺”。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 59,
+  "name": "孟若斋潮州工夫茶非遗体验馆",
+  "category": "茶文化",
+  "latitude": 23.670037,
+  "longitude": 116.644231,
+  "address": "广东省潮州市湘桥区中山路98号西湖对面",
+  "description": "孟若斋潮州工夫茶非遗体验馆是一家综合性的非遗文化空间。它不仅提供国家级非遗“潮州工夫茶艺”的深度体验，还融合了省级非遗“抽纱”等传统美术项目。这种复合型体验让游客能更全面地感受潮汕文化的魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    },
+    {
+      "name": "抽纱",
+      "type": "传统美术",
+      "status": "省级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 60,
+  "name": "明云嵌瓷",
+  "category": "景点",
+  "latitude": 23.591103,
+  "longitude": 116.626792,
+  "address": "广东省潮州市潮安区浮洋镇东巷村西和区",
+  "description": "明云嵌瓷是位于潮安区浮洋镇的一处嵌瓷艺术景点。嵌瓷是潮汕地区独特的建筑装饰艺术，已被列为国家级非物质文化遗产。该地点是欣赏和学习这项将彩色瓷片镶嵌成精美图案的传统技艺的重要场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "嵌瓷",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 61,
+  "name": "潮州市抽纱公司",
+  "category": "景点",
+  "latitude": 23.669212,
+  "longitude": 116.643424,
+  "address": "广东省潮州市湘桥区环城西路104号",
+  "description": "潮州市抽纱公司是潮汕地区抽纱工艺的重要传承与展示场所。抽纱是潮汕传统美术的杰出代表，以精雕细琢的镂空技艺闻名，是省级非物质文化遗产。这里不仅是生产单位，也承载着保护和传播这一独特手工艺的文化使命。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "抽纱",
+      "type": "传统美术",
+      "status": "省级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 62,
+  "name": "内坑抽纱场-东南门",
+  "category": "景点",
+  "latitude": 23.613323,
+  "longitude": 116.705493,
+  "address": "广东省潮州市湘桥区内坑抽纱场",
+  "description": "内坑抽纱场是潮州一处与抽纱工艺紧密相关的历史场所。抽纱作为省级非物质文化遗产，其制作过程融合了潮绣的细腻与西方抽通技术。该场地见证了潮汕抽纱产业的历史发展，是了解这一传统美术的重要地点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "抽纱",
+      "type": "传统美术",
+      "status": "省级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 64,
+  "name": "砂锅粥(原小公园)",
+  "category": "美食",
+  "latitude": 23.674098,
+  "longitude": 117.002489,
+  "address": "广东省潮州市饶平县汕汾路278号之一",
+  "description": "砂锅粥是潮汕地区极具代表性的美食之一，以其鲜美的口感和丰富的配料深受喜爱。这家位于饶平的店铺，其具体历史渊源与特色有待进一步了解。潮汕砂锅粥通常讲究火候与食材的新鲜，是当地饮食文化的重要组成部分。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 73,
+  "name": "非遗·爱西干面(小公园总店)",
+  "category": "美食",
+  "latitude": 23.353964,
+  "longitude": 116.674624,
+  "address": "广东省汕头市金平区小公园街道国平路1号(南粤大厦对面)",
+  "description": "爱西干面是潮汕著名的传统小吃，这家总店位于汕头小公园历史文化街区。店内关联的国家级非遗项目“潮州工夫茶艺”，体现了潮汕美食与茶文化相辅相成的传统。在这里，可以品尝地道干面，同时感受浓厚的潮汕民俗氛围。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 74,
+  "name": "臻宝博物馆",
+  "category": "博物馆",
+  "latitude": 23.321645,
+  "longitude": 116.714373,
+  "address": "广东省汕头市濠江区潮宏基广场(南滨路南150米)",
+  "description": "臻宝博物馆是位于汕头濠江区的一座专题博物馆。虽然其具体馆藏主题与内容未在提供信息中明确，但博物馆通常是收藏、研究和展示文化遗产的重要机构。它坐落于潮宏基广场，为公众提供了一个接触文化艺术的空间。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 75,
+  "name": "潮阳博物馆",
+  "category": "博物馆",
+  "latitude": 23.259949,
+  "longitude": 116.602503,
+  "address": "广东省汕头市潮阳区中华路87号文光塔旁",
+  "description": "潮阳博物馆位于潮阳区中华路文光塔旁，是一座地方性综合博物馆。馆内收藏并展示了大量反映潮阳地区历史、文化和民俗的珍贵文物。其常设展览系统地介绍了潮阳从古至今的发展脉络，是了解当地历史文化的重要窗口。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 76,
+  "name": "汕头市博物馆",
+  "category": "博物馆",
+  "latitude": 23.362609,
+  "longitude": 116.681099,
+  "address": "广东省汕头市金平区中山公园西北角(联韩花园对面)",
+  "description": "汕头市博物馆坐落于中山公园西北角，是汕头市重要的市级综合性博物馆。馆藏文物丰富，涵盖陶瓷、书画、青铜器及潮汕地方文物等多个门类。该馆通过常设与专题展览，全面展示了汕头及潮汕地区深厚的历史文化底蕴。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 79,
+  "name": "潮汕华侨历史博物馆",
+  "category": "博物馆",
+  "latitude": 23.321545,
+  "longitude": 116.715636,
+  "address": "广东省汕头市濠江区礐石街道南滨路潮汕历史文化博览中心3-4层",
+  "description": "潮汕华侨历史博物馆位于潮汕历史文化博览中心内，是国内重要的华侨主题博物馆之一。它以丰富的史料和实物，系统讲述了潮汕籍华侨远渡重洋、艰苦创业的历史故事。博物馆生动展现了华侨对家乡和侨居地的巨大贡献，是连接海内外潮人的精神纽带。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 82,
+  "name": "澄海博物馆",
+  "category": "博物馆",
+  "latitude": 23.45923,
+  "longitude": 116.775127,
+  "address": "广东省汕头市澄海区东港路人民公园附近(北门)",
+  "description": "澄海博物馆地处澄海区人民公园附近，是展示澄海地方历史文化的专题博物馆。馆内陈列以本地出土文物、历史文献和民俗物品为主，勾勒出澄海作为著名侨乡和重要商埠的发展轨迹。它为研究潮汕区域历史，特别是澄海地方史提供了宝贵的实物资料。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 83,
+  "name": "汕头市濠江区博物馆",
+  "category": "博物馆",
+  "latitude": 23.286407,
+  "longitude": 116.730916,
+  "address": "广东省汕头市濠江区达濠街道濠洲路楠天酒店(汕头濠江店)北侧约160米",
+  "description": "汕头市濠江区博物馆位于达濠街道，是一座区级地方性博物馆。该馆致力于收藏、研究和展示濠江区（原达濠）的历史文化遗产。其展览内容聚焦于本地历史沿革、海洋文化、民俗风情等方面，是公众了解濠江独特地域文化的重要场所。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 84,
+  "name": "汕头市文化馆",
+  "category": "文化馆",
+  "latitude": 23.355759,
+  "longitude": 116.682521,
+  "address": "广东省汕头市金平区外马路149号",
+  "description": "汕头市文化馆位于金平区外马路，是汕头市重要的公共文化服务设施。作为市级文化馆，它承担着组织群众文化活动、开展艺术普及与培训的职能。其具体展览与非遗保护工作的详细内容，需参考其官方发布的最新信息。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 85,
+  "name": "龙湖区文化馆",
+  "category": "文化馆",
+  "latitude": 23.373017,
+  "longitude": 116.715579,
+  "address": "广东省汕头市龙湖区金霞街道大北山路4号翰苑F1层",
+  "description": "龙湖区文化馆坐落于龙湖区大北山路翰苑，是服务辖区居民的文化活动中心。该馆主要职能包括举办各类文艺展览、培训讲座及社区文化活动。关于其具体的非遗传承项目，目前公开的关联信息有限。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 86,
+  "name": "澄海区文化馆",
+  "category": "文化馆",
+  "latitude": 23.46545,
+  "longitude": 116.772596,
+  "address": "广东省汕头市澄海区文化路1号",
+  "description": "澄海区文化馆位于澄海区文化路，是区域性的重要文化阵地。该馆致力于组织本地群众文化创作、展演与交流活动。其具体的非遗保护与展示工作内容，有待进一步的信息披露。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 87,
+  "name": "汕头市潮汕工夫茶文化展览馆",
+  "category": "文化馆",
+  "latitude": 23.362891,
+  "longitude": 116.683345,
+  "address": "广东省汕头市金平区展览馆路中山公园",
+  "description": "汕头市潮汕工夫茶文化展览馆位于中山公园内，是集中展示潮汕工夫茶文化的专题场馆。其核心展示内容关联国家级非遗项目“潮州工夫茶艺”，系统呈现了茶具、茶礼、冲泡技艺等茶文化精髓。该馆是公众深入了解这一独特民俗的重要窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 88,
+  "name": "金蛇非遗文化馆",
+  "category": "文化馆",
+  "latitude": 23.350936,
+  "longitude": 116.670558,
+  "address": "广东省汕头市金平区商平路58号",
+  "description": "金蛇非遗文化馆位于金平区商平路，是一家以非遗展示为主题的文化场馆。其重点展示与传承的国家级非物质文化遗产是“潮剧”，通过服饰、道具、影音资料等展现这一古老剧种的艺术魅力。该馆为潮剧艺术的传播与普及提供了平台。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 89,
+  "name": "映霞苑文化馆",
+  "category": "文化馆",
+  "latitude": 23.369793,
+  "longitude": 116.722107,
+  "address": "广东省汕头市龙湖区环碧西街环碧金珠园7栋101",
+  "description": "映霞苑文化馆位于汕头市龙湖区环碧西街，是一处社区文化空间。它致力于为周边居民提供文化活动与交流的场所，是连接社区与本土文化的重要节点。目前暂无公开的特定非遗项目关联信息。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 90,
+  "name": "大沙沟传统民俗文化中心",
+  "category": "文化馆",
+  "latitude": 23.434778,
+  "longitude": 116.804235,
+  "address": "广东省汕头市澄海区凤翔街道莱美路",
+  "description": "大沙沟传统民俗文化中心坐落于汕头市澄海区凤翔街道，其名称体现了对传统民俗文化的关注。该中心旨在展示和传承澄海地区的民间风俗与文化记忆。目前暂无公开的特定非遗项目关联信息。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 91,
+  "name": "清雅文化中心",
+  "category": "文化馆",
+  "latitude": 23.387835,
+  "longitude": 116.72993,
+  "address": "广东省汕头市龙湖区嵩山北路潮人创客创意园B幢7楼",
+  "description": "清雅文化中心位于汕头市龙湖区潮人创客创意园内，是一个融合了文化与创意产业的现代空间。它可能为文化展示、艺术交流或创意孵化提供平台。目前暂无公开的特定非遗项目关联信息。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 93,
+  "name": "侨批文化馆",
+  "category": "文化馆",
+  "latitude": 23.352831,
+  "longitude": 116.674441,
+  "address": "广东省汕头市金平区外马路18号",
+  "description": "侨批文化馆位于汕头市金平区外马路，是展示与研究“侨批档案”这一世界记忆遗产的核心场馆。馆内收藏并展示了大量珍贵的侨批原件，系统讲述了潮汕华侨的移民史、创业史及其与家乡的金融、情感联系。这里是了解近代潮汕侨乡文化不可或缺的窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "侨批档案",
+      "type": "民间文学",
+      "status": "世界记忆遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 94,
+  "name": "岭东美术馆",
+  "category": "工坊",
+  "latitude": 23.362532,
+  "longitude": 116.745802,
+  "address": "广东省汕头市龙湖区丰泽东街长城花园(黄山路)西侧约40米处艺苑大厦三楼",
+  "description": "岭东美术馆位于汕头市龙湖区艺苑大厦，是一个专注于美术作品展示与创作交流的艺术空间。作为工坊类别场所，它可能定期举办艺术展览、工作坊或学术研讨活动。目前暂无公开的特定非遗项目关联信息。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 95,
+  "name": "澄海韩文公祠",
+  "category": "景点",
+  "latitude": 23.576829,
+  "longitude": 116.83151,
+  "address": "广东省汕头市澄海区S335与樟林中山路交叉口东北方向247米左右",
+  "description": "澄海韩文公祠是为纪念唐代文学家、潮州刺史韩愈而建的祠宇。该祠位于澄海区，是潮汕地区尊崇韩愈历史文化的重要场所之一。作为一处人文景点，它承载着地方对先贤的纪念与景仰。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 96,
+  "name": "海江木雕",
+  "category": "景点",
+  "latitude": 23.366593,
+  "longitude": 116.711245,
+  "address": "广东省汕头市金平区金砂东路89号2栋104号",
+  "description": "海江木雕是展示国家级非遗“潮州木雕”的景点，也关联“潮州工夫茶艺”。这里不仅陈列着以镂空、多层次著称的潮州金漆木雕精品，还融合了潮汕茶文化体验。游客可在此领略传统雕刻技艺与工夫茶道的双重魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    },
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 97,
+  "name": "新典雅装饰木雕",
+  "category": "景点",
+  "latitude": 23.366221,
+  "longitude": 116.723459,
+  "address": "广东省汕头市龙湖区金砂东路110号金讯大厦104铺",
+  "description": "新典雅装饰木雕是一处以展示和传承“潮州木雕”非遗项目为主的场所。这里集中体现了潮州木雕精细入微的雕刻技艺和富丽堂皇的艺术风格。作为文化景点，它为公众提供了近距离欣赏这一传统美术的平台。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 98,
+  "name": "广泓木雕",
+  "category": "景点",
+  "latitude": 23.354817,
+  "longitude": 116.681269,
+  "address": "广东省汕头市金平区小公园街道同益路10号-102",
+  "description": "广泓木雕位于汕头小公园历史文化街区附近，是专注于“潮州木雕”展示与传播的景点。其作品秉承了潮州木雕镂通雕、贴金等传统技法。该场所致力于让更多人了解这项国家级非物质文化遗产的艺术价值。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 99,
+  "name": "德兴木雕",
+  "category": "景点",
+  "latitude": 23.467287,
+  "longitude": 116.77241,
+  "address": "广东省汕头市澄海区环城北路健儿乐幼儿园西侧约70米",
+  "description": "德兴木雕是澄海区一处展示“潮州木雕”非遗技艺的景点。潮州木雕以构图饱满、精雕细刻、金碧辉煌著称。这里陈列的木雕作品，生动体现了这一传统美术的地方特色和工艺水平。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 100,
+  "name": "阿彬木雕",
+  "category": "景点",
+  "latitude": 23.28833,
+  "longitude": 116.326956,
+  "address": "广东省汕头市潮南区陈店镇溪北村",
+  "description": "阿彬木雕位于汕头市潮南区陈店镇溪北村，是一处展示潮州木雕技艺的场所。潮州木雕作为国家级非物质文化遗产，以多层次镂空和贴金技艺闻名。这里主要展示和传承这一传统美术的雕刻工艺与艺术特色。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 101,
+  "name": "拓新木雕",
+  "category": "景点",
+  "latitude": 23.450752,
+  "longitude": 116.380616,
+  "address": "广东省汕头市潮阳区花园路",
+  "description": "拓新木雕坐落于汕头市潮阳区花园路，是潮州木雕的重要展示点之一。潮州木雕是国家级非遗，以其精细繁复的雕刻和富丽堂皇的金漆装饰著称。该场所致力于呈现这一传统美术的当代实践与艺术风貌。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 102,
+  "name": "忠阳木雕(木雕金漆神佛像)",
+  "category": "景点",
+  "latitude": 23.20925,
+  "longitude": 116.476934,
+  "address": "广东省汕头市潮阳区和平镇S237和新石化加油站西北侧约90米",
+  "description": "忠阳木雕位于汕头市潮阳区和平镇，以制作木雕金漆神佛像为特色。其技艺根植于国家级非物质文化遗产——潮州木雕。该场所专注于神佛像雕刻，体现了潮汕地区深厚的民间信仰与精湛的传统工艺结合。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 103,
+  "name": "细致木雕",
+  "category": "景点",
+  "latitude": 23.258428,
+  "longitude": 116.608255,
+  "address": "广东省汕头市潮阳区东山大道与严东中巷交叉口正西方向42米左右",
+  "description": "细致木雕地处汕头市潮阳区东山大道附近，是潮州木雕的传承与展示场所。潮州木雕作为国家级非遗，以其构图饱满、雕工细腻、金碧辉煌的风格独树一帜。这里展现了该传统美术在当代的延续与发展。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 104,
+  "name": "慈顺潮绣",
+  "category": "景点",
+  "latitude": 23.204157,
+  "longitude": 116.6347,
+  "address": "广东省汕头市潮阳区海门镇大埠圆临街铺面10号铺",
+  "description": "慈顺潮绣位于汕头市潮阳区海门镇，是一处专注于潮绣技艺的场所。潮绣是国家级非物质文化遗产，以立体垫高、金银线绣和色彩绚丽为特色。该场所致力于展示和传承这一富有潮汕地方特色的传统刺绣艺术。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 105,
+  "name": "凤顺潮绣",
+  "category": "景点",
+  "latitude": 23.227011,
+  "longitude": 116.62429,
+  "address": "广东省汕头市潮阳区城南街道潮海路3巷",
+  "description": "凤顺潮绣是位于汕头市潮阳区的一处潮绣展示与传承场所。这里以国家级非遗项目潮绣为核心，展示了这一传统美术的独特针法与华丽风格。游客可在此近距离欣赏潮绣作品，感受其作为粤绣重要分支的艺术魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 106,
+  "name": "华盛潮绣",
+  "category": "景点",
+  "latitude": 23.251233,
+  "longitude": 116.607575,
+  "address": "广东省汕头市潮阳区东山大道与新华路交叉口西南方向121米左右",
+  "description": "华盛潮绣坐落于汕头市潮阳区，是潮绣文化的重要展示点。作为国家级非物质文化遗产，潮绣以其立体垫高、金碧辉煌的特点著称。该场所致力于呈现潮绣的传统技艺与当代创新，是了解潮汕工艺美术的窗口之一。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 107,
+  "name": "濠兴潮绣",
+  "category": "景点",
+  "latitude": 23.267841,
+  "longitude": 116.721333,
+  "address": "广东省汕头市濠江区达南路95号恒大金碧御景湾影城36栋120商铺",
+  "description": "濠兴潮绣位于汕头市濠江区，是展示国家级非遗潮绣的场所。潮绣以金银线绣和立体绣为特色，构图饱满，色彩艳丽。这里为公众提供了观赏和学习这一传统美术的平台，体现了潮绣在当代的传承活力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 108,
+  "name": "兴顺旺潮绣",
+  "category": "景点",
+  "latitude": 23.234451,
+  "longitude": 116.313578,
+  "address": "广东省汕头市潮南区仙城镇陈仙公路402号",
+  "description": "兴顺旺潮绣地处汕头市潮南区仙城镇，是潮绣艺术的传播点之一。潮绣作为国家级非物质文化遗产，其工艺精细、题材广泛，常用于传统服饰和庙宇装饰。该场所承载着展示与推广这一地方特色手工艺的职能。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 109,
+  "name": "馨兴潮绣",
+  "category": "景点",
+  "latitude": 23.237739,
+  "longitude": 116.406531,
+  "address": "广东省汕头市潮南区峡山街道金光南路86号",
+  "description": "馨兴潮绣位于汕头市潮南区峡山街道，是潮绣文化的展示场所。潮绣技艺历史悠久，以垫高绣法和丰富纹样闻名，是潮汕地区重要的传统美术形式。这里为访客提供了接触和了解这项国家级非遗项目的机会。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 110,
+  "name": "杨廷辉潮绣工艺社",
+  "category": "景点",
+  "latitude": 23.323189,
+  "longitude": 116.338089,
+  "address": "广东省汕头市潮阳区贵屿镇南安村南通路106-108号",
+  "description": "杨廷辉潮绣工艺社位于汕头市潮阳区贵屿镇，是潮绣技艺的重要传承与展示场所。这里专注于国家级非遗项目潮绣的创作与生产，其作品以构图饱满、色彩绚丽、针法多样而著称。游客可在此近距离观赏到这一传统美术的精湛工艺与独特魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 111,
+  "name": "东艺潮绣",
+  "category": "景点",
+  "latitude": 23.255634,
+  "longitude": 116.525327,
+  "address": "广东省汕头市潮阳区金浦街道梅西村林八港路上伯公镇盛楼一楼1号",
+  "description": "东艺潮绣坐落于汕头市潮阳区金浦街道，是潮绣艺术的实践与传播基地。该工坊致力于传承国家级非物质文化遗产潮绣，其绣品题材广泛，工艺精巧。它为公众提供了一个了解潮绣文化内涵与制作流程的窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 112,
+  "name": "府城潮绣文化传媒有限公司",
+  "category": "景点",
+  "latitude": 23.266486,
+  "longitude": 116.605288,
+  "address": "广东省汕头市潮阳区城北一路235号",
+  "description": "府城潮绣文化传媒有限公司位于汕头市潮阳区，是一家集潮绣创作、展示与文化推广于一体的机构。它依托国家级非遗项目潮绣，致力于通过现代传媒手段传承和发展这一传统美术。这里是探索潮绣艺术当代价值的重要场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 113,
+  "name": "潮绣工艺",
+  "category": "景点",
+  "latitude": 23.437281,
+  "longitude": 116.460658,
+  "address": "广东省汕头市潮阳区关埠镇关金路港底路段109号附近",
+  "description": "潮绣工艺位于汕头市潮阳区关埠镇，是当地潮绣技艺的传承点之一。该场所专注于国家级非物质文化遗产潮绣的制作与展示，体现了潮绣作为传统美术的深厚底蕴。游客可在此感受潮绣工艺的独特风格与地方特色。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 114,
+  "name": "英歌舞",
+  "category": "景点",
+  "latitude": 23.2511,
+  "longitude": 116.529528,
+  "address": "广东省汕头市潮阳区林八港路与金梅路交叉口东南方向73米左右",
+  "description": "此地点与国家级非物质文化遗产英歌舞相关联。英歌舞是潮汕地区一种气势磅礴的传统舞蹈，融汇了武术、戏剧和舞蹈元素。该地址可能为英歌舞的练习、表演或相关文化活动的场所，是体验这一独特民间艺术的重要地点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 115,
+  "name": "潮汕英歌舞主题茶馆",
+  "category": "茶文化",
+  "latitude": 23.355408,
+  "longitude": 116.673337,
+  "address": "广东省汕头市金平区升平路与同平路交叉口正东方向53米左右",
+  "description": "潮汕英歌舞主题茶馆是一处融合两项国家级非遗的文化体验空间。这里不仅提供正宗的潮州工夫茶艺品饮，更将英歌舞的雄浑气势融入茶馆氛围。游客可在品茗之余，感受传统舞蹈与茶文化交织的独特魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    },
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 116,
+  "name": "英歌舞展示长廊",
+  "category": "景点",
+  "latitude": 23.329314,
+  "longitude": 116.780952,
+  "address": "广东省汕头市龙湖区阿里山路明园广场·海湾壹号T2塔楼东北侧约270米",
+  "description": "英歌舞展示长廊是一处以展示国家级非遗英歌舞为主题的公共文化景点。长廊通过图文、雕塑或实物等形式，系统呈现英歌舞的历史渊源、角色扮相和舞蹈特点。它为市民和游客提供了一个了解这一雄健豪迈传统舞蹈的窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 117,
+  "name": "上底村英歌舞训练基地",
+  "category": "景点",
+  "latitude": 23.460882,
+  "longitude": 116.446875,
+  "address": "广东省汕头市潮阳区关埠镇桥头小学西侧约240米",
+  "description": "上底村英歌舞训练基地是潮阳区关埠镇传承英歌舞的重要场所。作为国家级非遗项目的实践基地，这里是当地英歌舞队日常排练、培养新秀的核心地点。它体现了英歌舞在乡村社区中活态传承的生命力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 118,
+  "name": "东池英歌舞旅拍",
+  "category": "景点",
+  "latitude": 23.349925,
+  "longitude": 116.668666,
+  "address": "广东省汕头市金平区海平路12号二楼",
+  "description": "东池英歌舞旅拍是一家提供特色文化摄影服务的场所。它依托国家级非遗项目英歌舞，为游客提供身着英歌舞服饰、体验相关造型的旅拍体验。该模式让游客能以沉浸式方式接触这一传统舞蹈文化。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 119,
+  "name": "旗韵潮汕特色英歌舞旅拍(小公园店)",
+  "category": "景点",
+  "latitude": 23.356559,
+  "longitude": 116.673211,
+  "address": "广东省汕头市金平区旧公园左巷3号",
+  "description": "旗韵潮汕特色英歌舞旅拍位于汕头小公园历史文化街区，是一家文化体验店。它以国家级非遗英歌舞为主题，提供特色服饰租赁与摄影服务，让游客在历史街区背景下记录与英歌舞互动的瞬间。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 120,
+  "name": "岗背乡众英歌舞训练基地",
+  "category": "景点",
+  "latitude": 23.266528,
+  "longitude": 116.686195,
+  "address": "广东省汕头市濠江区玉新街道岗背村",
+  "description": "岗背乡众英歌舞训练基地位于汕头市濠江区岗背村，是当地传承国家级非遗项目英歌舞的重要场所。这里为舞者提供了专业的训练空间，旨在保护和发扬这一充满阳刚之气的传统舞蹈。基地通过日常排练与节日表演，使英歌舞得以在社区中活态传承。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 121,
+  "name": "潮南英歌舞文化保护研习中心",
+  "category": "景点",
+  "latitude": 23.234283,
+  "longitude": 116.395014,
+  "address": "广东省汕头市潮南区长晖制衣北50米(金光南路北)",
+  "description": "潮南英歌舞文化保护研习中心是汕头潮南区一处致力于英歌舞研究与传习的机构。中心以国家级非物质文化遗产英歌舞为核心，开展相关的保护、教学与交流活动。它为爱好者与研究者提供了深入了解这一传统舞蹈文化的平台。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 122,
+  "name": "玉一英歌舞总部基地",
+  "category": "景点",
+  "latitude": 23.427993,
+  "longitude": 116.497518,
+  "address": "广东省汕头市潮阳区关埠镇玉一村英歌舞训练基地888",
+  "description": "玉一英歌舞总部基地坐落于潮阳区关埠镇玉一村，是英歌舞传承与训练的核心基地之一。这里专门用于国家级非遗英歌舞的排练、教学与队伍集结，承载着地方深厚的民俗文化传统。基地的活动有力推动了这一传统舞蹈在当代的延续与发展。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 123,
+  "name": "潮阳英歌舞服务区(揭惠高速惠来方向)",
+  "category": "景点",
+  "latitude": 23.304042,
+  "longitude": 116.381906,
+  "address": "广东省汕头市潮阳区",
+  "description": "潮阳英歌舞服务区是揭惠高速路上一个以英歌舞为主题的文化服务区。它将国家级非物质文化遗产英歌舞的元素融入公共服务空间，向过往旅客展示这一独特的潮汕传统舞蹈文化。这是非遗文化与现代交通设施结合的一次创新尝试。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 124,
+  "name": "潮剧艺术博物馆",
+  "category": "博物馆",
+  "latitude": 23.377646,
+  "longitude": 116.68328,
+  "address": "广东省汕头市金平区潮州路与金湖路交叉口正北方向199米左右",
+  "description": "潮剧艺术博物馆位于汕头市金平区，是一家专门展示潮剧艺术的博物馆。馆内系统陈列着与国家级非物质文化遗产潮剧相关的戏服、道具、剧本、音像资料等珍贵藏品。它通过实物与多媒体手段，向公众全面介绍潮剧的历史渊源、艺术特色与发展历程。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 125,
+  "name": "汕头市潮阳区潮剧保护研习中心",
+  "category": "景点",
+  "latitude": 23.256074,
+  "longitude": 116.588366,
+  "address": "广东省汕头市潮阳区城西三路双金园",
+  "description": "汕头市潮阳区潮剧保护研习中心是潮剧传承与发展的核心机构之一。作为国家级非遗项目潮剧的专业研习场所，它承担着剧目整理、人才培养和艺术研究的重要职能。该中心位于潮阳区，是公众了解与欣赏这一古老地方剧种的重要窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 126,
+  "name": "澄海潮剧团",
+  "category": "景点",
+  "latitude": 23.469479,
+  "longitude": 116.777567,
+  "address": "广东省汕头市澄海区凤翔街道华兴路澄海北秀中学西南侧约40米",
+  "description": "澄海潮剧团是潮汕地区重要的专业艺术表演团体，长期活跃于基层舞台。剧团致力于传承与演绎国家级非物质文化遗产——潮剧，为当地民众带来了丰富的文化生活。其演出保留了潮剧的传统韵味，是体验潮汕传统戏剧魅力的重要场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 127,
+  "name": "澄希艺术中心(潮剧)",
+  "category": "景点",
+  "latitude": 23.562666,
+  "longitude": 116.818159,
+  "address": "广东省汕头市澄海区文化路11栋",
+  "description": "澄希艺术中心是一个以潮剧为主题的文化艺术空间。它通过展览、教学或演出等形式，推广国家级非遗项目潮剧。该中心为潮剧爱好者提供了一个交流与学习的平台，有助于这一传统戏剧在现代社会中的传播与发展。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 128,
+  "name": "潮汕工夫茶",
+  "category": "茶文化",
+  "latitude": 23.359547,
+  "longitude": 116.692304,
+  "address": "广东省汕头市金平区春梅街与黄岗路交叉口正东方向11米左右",
+  "description": "此处是体验潮汕工夫茶文化的场所。潮州工夫茶艺是国家级非物质文化遗产，以其“和、敬、精、乐”的精神与二十一式冲泡程式闻名。在这里，游客可以亲身感受潮汕茶道中讲究的茶具、水质与冲泡技艺，品味深厚的民俗文化。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 129,
+  "name": "茶汕·新潮汕工夫茶(峡山店)",
+  "category": "茶文化",
+  "latitude": 23.255248,
+  "longitude": 116.417006,
+  "address": "广东省汕头市潮南区广祥路269号",
+  "description": "茶汕·新潮汕工夫茶是一家致力于推广潮汕茶文化的现代茶饮空间。它根植于国家级非遗“潮州工夫茶艺”的传统精髓，同时可能融入当代审美与消费习惯。在此处，顾客可以品尝到以传统技艺冲泡的香茗，感受工夫茶文化的传承与创新。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 130,
+  "name": "茶汕·新潮汕工夫茶(润街店)",
+  "category": "茶文化",
+  "latitude": 23.363648,
+  "longitude": 116.718681,
+  "address": "广东省汕头市龙湖区万象城幸福里雅居6栋114号",
+  "description": "茶汕·新潮汕工夫茶(润街店)是一家位于汕头市龙湖区的工夫茶文化体验场所。它以国家级非遗项目“潮州工夫茶艺”为核心，致力于在现代都市空间中传承和展示潮汕独特的饮茶习俗。顾客可在此品味传统工夫茶，感受“关公巡城”、“韩信点兵”等冲泡技艺的魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 131,
+  "name": "顺鲤·潮汕工夫茶店(万象城店)",
+  "category": "茶文化",
+  "latitude": 23.365471,
+  "longitude": 116.714619,
+  "address": "广东省汕头市金平区东方街道金环花园7栋104号",
+  "description": "顺鲤·潮汕工夫茶店(万象城店)是汕头金平区一家专注于潮州工夫茶艺的茶文化空间。该店以国家级非物质文化遗产“潮州工夫茶艺”为实践基础，为茶客提供地道的工夫茶品饮体验。其环境融合了传统茶道精神与现代生活美学，是了解潮汕茶俗的一处窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 132,
+  "name": "和德元工夫茶体验馆(金叶店)",
+  "category": "茶文化",
+  "latitude": 23.258751,
+  "longitude": 116.594371,
+  "address": "广东省汕头市潮阳区文光街道棉西大道金叶大厦首层沿街商铺",
+  "description": "和德元工夫茶体验馆(金叶店)位于汕头潮阳区，是一家提供工夫茶深度体验的场所。它以国家级非遗“潮州工夫茶艺”为文化内核，通过亲身冲泡与品鉴，让访客沉浸式学习潮汕工夫茶的器皿选用、冲泡流程与待客礼仪。这里是体验潮汕茶文化日常实践的好去处。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 133,
+  "name": "功夫茶",
+  "category": "茶文化",
+  "latitude": 23.359115,
+  "longitude": 116.694045,
+  "address": "广东省汕头市金平区中山中路与中山路交叉口东北方向45米左右",
+  "description": "“功夫茶”是一家位于汕头市金平区中山路附近的茶文化场所。其经营核心围绕国家级非物质文化遗产“潮州工夫茶艺”展开，旨在推广潮汕地区以“精、洁、和、思”为特点的传统饮茶方式。店铺为市民和游客提供了一个接触和体验这一民俗文化的便利空间。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 134,
+  "name": "汕头市潮汕工夫茶研究所",
+  "category": "茶文化",
+  "latitude": 23.376525,
+  "longitude": 116.754603,
+  "address": "广东省汕头市龙湖区新津街道泰山南路南方商贸广场B区40号",
+  "description": "汕头市潮汕工夫茶研究所是一所位于龙湖区的专业研究机构。它专注于国家级非遗项目“潮州工夫茶艺”的系统性研究、保护与传承工作。研究所通过学术探讨、技艺培训和文化推广，致力于挖掘和弘扬潮汕工夫茶深厚的历史文化内涵与当代价值。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 135,
+  "name": "大寮嵌瓷工艺社",
+  "category": "景点",
+  "latitude": 23.199897,
+  "longitude": 116.500395,
+  "address": "广东省汕头市潮阳区滨河路大寮小学校东侧约60米",
+  "description": "大寮嵌瓷工艺社是潮汕地区一处展示国家级非遗“嵌瓷”技艺的重要场所。嵌瓷俗称“贴饶”或“扣饶”，是一种以彩色瓷片剪裁镶嵌成图案的传统建筑装饰艺术。这里为公众提供了近距离了解这项独特工艺的平台。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "嵌瓷",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 136,
+  "name": "肖娟丽剪纸(府前庄店)",
+  "category": "景点",
+  "latitude": 23.262713,
+  "longitude": 116.601101,
+  "address": "广东省汕头市潮阳区文光街道府前庄南门旁",
+  "description": "肖娟丽剪纸（府前庄店）是潮阳地区一处展示国家级非遗“剪纸（广东剪纸）”的场所。潮阳剪纸风格细腻繁复，多用于民俗节庆与祭祀活动。该店为传承和推广这一传统美术提供了实体空间。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "剪纸（广东剪纸）",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 137,
+  "name": "木偶人",
+  "category": "景点",
+  "latitude": 23.343764,
+  "longitude": 116.419868,
+  "address": "广东省汕头市潮阳区谷贵路与饶中路交叉口正东方向256米左右",
+  "description": "“木偶人”是一处与国家级非遗“铁枝木偶戏”相关的景点。铁枝木偶戏是潮汕地区独特的传统戏剧形式，木偶由三根铁枝操纵，表演潮剧剧目。此处为游客接触这一古老艺术形式提供了机会。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "铁枝木偶戏",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 138,
+  "name": "木偶士多店",
+  "category": "景点",
+  "latitude": 23.233271,
+  "longitude": 116.387427,
+  "address": "广东省汕头市潮南区峡山街道金光南路与宏裕路交叉口西北480米",
+  "description": "木偶士多店是一处与国家级非遗“铁枝木偶戏”相关联的场所。铁枝木偶戏是潮汕传统戏剧的瑰宝，以其独特的操纵方式和潮剧唱腔闻名。该地点可能兼具展示与交流的功能。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "铁枝木偶戏",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 139,
+  "name": "老玉春香木偶剧团",
+  "category": "景点",
+  "latitude": 23.568309,
+  "longitude": 116.738296,
+  "address": "广东省汕头市澄海区隆都镇河墘东片横巷五号",
+  "description": "老玉春香木偶剧团是澄海区一家从事国家级非遗“铁枝木偶戏”表演与传承的剧团。铁枝木偶戏历史悠久，表演技艺精湛，是潮汕民俗文化的重要组成部分。该剧团为这一传统戏剧的活态传承做出了贡献。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "铁枝木偶戏",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 140,
+  "name": "老醉香园木偶团",
+  "category": "景点",
+  "latitude": 23.59341,
+  "longitude": 116.725303,
+  "address": "广东省汕头市澄海区侯邦华侨学校(潮汕环线高速南300米)",
+  "description": "老醉香园木偶团是澄海区一处展示国家级非遗“铁枝木偶戏”的场所。铁枝木偶戏是潮汕地区独特的传统戏剧形式，以铁枝操纵木偶进行表演，唱腔和剧目富有地方特色。这里是了解这一古老艺术的重要窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "铁枝木偶戏",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 142,
+  "name": "汕头抽纱(大悦花园店)",
+  "category": "景点",
+  "latitude": 23.381694,
+  "longitude": 116.729916,
+  "address": "广东省汕头市龙湖区紫茵东街与衡山路交叉口东北方向235米左右",
+  "description": "汕头抽纱（大悦花园店）是展示省级非遗“抽纱”工艺的场所。抽纱是一种在布料上抽去部分纱线，再以针线绣出精美图案的传统美术，以潮汕地区的技艺最为精湛。这里为公众提供了近距离欣赏这一精细工艺的机会。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "抽纱",
+      "type": "传统美术",
+      "status": "省级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 144,
+  "name": "小公园街道",
+  "category": "景点",
+  "latitude": 23.357574,
+  "longitude": 116.68374,
+  "address": "广东省汕头市金平区",
+  "description": "小公园街道是汕头老市区的核心区域，以放射状街道布局和骑楼建筑群闻名。这里是汕头开埠历史的见证，承载着丰富的城市记忆和浓厚的商业文化氛围。该片区是体验汕头近代城市风貌和市井生活的重要地标。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 145,
+  "name": "老妈宫戏台",
+  "category": "景点",
+  "latitude": 23.354618,
+  "longitude": 116.675303,
+  "address": "广东省汕头市金平区升平路与外马路交叉口正西方向59米左右",
+  "description": "老妈宫戏台位于汕头老城区，是依托于妈祖信仰（天后宫）而建的传统戏台。历史上，这里是酬神演戏、民众聚集娱乐的重要场所，反映了潮汕地区独特的民俗信仰与戏剧文化。如今它仍是举办文化活动的公共空间。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 146,
+  "name": "珠浦老妈宫",
+  "category": "景点",
+  "latitude": 23.295228,
+  "longitude": 116.694432,
+  "address": "广东省汕头市濠江区文化广场路与联泰路交叉口正北方向360米左右",
+  "description": "珠浦老妈宫是濠江区一处供奉妈祖的民间信仰场所。妈祖信仰在潮汕沿海地区极为普遍，宫庙是社区祭祀和节庆活动的中心。其建筑和民俗活动体现了地方的传统信仰与文化特色。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 147,
+  "name": "老妈宫",
+  "category": "景点",
+  "latitude": 23.408376,
+  "longitude": 116.708361,
+  "address": "广东省汕头市龙湖区南环东街与南环西街交叉口正南方向284米左右",
+  "description": "老妈宫是汕头一处重要的民间信仰场所，位于龙湖区。它承载着当地民众的民俗记忆与信仰传统，是了解潮汕地区民间信仰文化的一个窗口。其具体历史渊源与建筑特色，有待进一步考证。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 148,
+  "name": "西胪莲藕汤老妈宫粽球(亭脚路店)",
+  "category": "美食",
+  "latitude": 23.258854,
+  "longitude": 116.600736,
+  "address": "广东省汕头市潮阳区文光街道亭脚路罗汉松住宅区A2幢首层14号铺(工商银行隔壁)",
+  "description": "这是一家经营潮汕特色小吃的店铺，主打莲藕汤与粽球。粽球是潮汕地区的传统节庆美食，其制作技艺蕴含地方饮食文化。该店位于潮阳区，为食客提供了品尝地道风味的选择。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 149,
+  "name": "陈慈黉故居",
+  "category": "景点",
+  "latitude": 23.567625,
+  "longitude": 116.746167,
+  "address": "广东省汕头市澄海区隆都镇前美村竹宅路",
+  "description": "陈慈黉故居位于汕头澄海前美村，是著名的潮汕侨宅建筑群。故居规模宏大，建筑风格中西合璧，被誉为“岭南第一侨宅”。它生动展现了近代潮汕华侨的历史与文化，具有极高的建筑与人文价值。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 150,
+  "name": "林少潮非遗木雕馆",
+  "category": "景点",
+  "latitude": 23.536113,
+  "longitude": 116.353251,
+  "address": "广东省揭阳市榕城区思贤路27号林少潮木雕工作室",
+  "description": "林少潮非遗木雕馆位于揭阳榕城区，是展示国家级非遗“潮州木雕”的专题场馆。馆内陈列的木雕作品工艺精湛，题材丰富，体现了潮州木雕多层次镂空、金碧辉煌的艺术特色。这里是领略潮汕传统雕刻艺术的重要场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 151,
+  "name": "揭阳博物馆",
+  "category": "博物馆",
+  "latitude": 23.497103,
+  "longitude": 116.434366,
+  "address": "广东省揭阳市榕城区渔湖京冈文化广场内",
+  "description": "揭阳博物馆坐落于榕城区渔湖京冈文化广场内，是集中展示揭阳历史文化的综合性博物馆。馆内藏品涵盖地方历史、民俗、艺术等多个方面，是公众系统了解揭阳乃至潮汕地区文化发展脉络的重要平台。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 152,
+  "name": "百兰山馆-榕城区博物馆",
+  "category": "博物馆",
+  "latitude": 23.532761,
+  "longitude": 116.355257,
+  "address": "广东省揭阳市榕城区观音仔街百兰山馆内",
+  "description": "百兰山馆-榕城区博物馆位于揭阳市榕城区观音仔街，是榕城区重要的文化展示窗口。该馆依托历史建筑百兰山馆而建，主要收藏和展示与榕城地区相关的历史文物与民俗资料。目前已知其为一座地方性博物馆，具体馆藏特色与常设展览内容有待进一步了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 153,
+  "name": "普宁市博物馆",
+  "category": "博物馆",
+  "latitude": 23.294565,
+  "longitude": 116.157556,
+  "address": "广东省揭阳市普宁市流沙西街道培英园社区赵厝寮路",
+  "description": "普宁市博物馆坐落于普宁市流沙西街道，是展示普宁历史文化的重要机构。馆内收藏有丰富的本地文物，并特别关注与国家级非遗项目“潮剧”相关的资料。作为传统戏剧的潮剧，其历史、行头、剧本等元素可能在此得到呈现，是了解普宁文化的一扇窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 154,
+  "name": "普宁市庄世平博物馆",
+  "category": "博物馆",
+  "latitude": 23.296273,
+  "longitude": 116.140824,
+  "address": "广东省揭阳市普宁市流沙大道西普宁华侨中学内",
+  "description": "普宁市庄世平博物馆位于普宁华侨中学校园内，是一座以纪念著名爱国侨领庄世平先生为主题的专题博物馆。馆内主要通过文物、图片和文献，展示庄世平先生爱国爱乡、支持国家建设与教育事业的生平事迹。它是弘扬华侨精神与进行爱国主义教育的重要场所。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 155,
+  "name": "岐山学校艺术博物馆",
+  "category": "博物馆",
+  "latitude": 23.563662,
+  "longitude": 116.379495,
+  "address": "广东省揭阳市榕城区东升街道岐山学校附近",
+  "description": "岐山学校艺术博物馆位于揭阳市榕城区岐山学校附近，是一座与校园文化紧密结合的艺术类博物馆。其定位可能侧重于展示学生艺术作品、教学成果或相关艺术收藏，旨在营造校园美育环境。目前关于其具体馆藏与展览主题的详细信息有待补充。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 156,
+  "name": "广东省揭阳市钱坑木雕博物馆",
+  "category": "博物馆",
+  "latitude": 23.377592,
+  "longitude": 115.99641,
+  "address": "广东省揭阳市揭西县钱坑镇钱南小学东侧约40米",
+  "description": "广东省揭阳市钱坑木雕博物馆位于揭西县钱坑镇，是一座专注于展示国家级非物质文化遗产“潮州木雕”的专题博物馆。钱坑镇是潮州木雕的重要传承地之一，馆内很可能系统展示木雕的历史、工具、工艺流程以及代表作品。这里是领略潮汕传统雕刻艺术精湛技艺的绝佳去处。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 157,
+  "name": "惠来县博物馆",
+  "category": "博物馆",
+  "latitude": 23.024675,
+  "longitude": 116.29736,
+  "address": "广东省揭阳市惠来县文化广场内综合楼四楼",
+  "description": "惠来县博物馆位于惠来县文化广场内，是展示地方历史文化的重要窗口。馆内收藏有反映惠来地区历史沿革、民俗风情及海洋文化的各类文物。作为县级综合性博物馆，它为公众提供了了解惠来深厚文化底蕴的平台。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 159,
+  "name": "揭阳市揭东区博物馆",
+  "category": "博物馆",
+  "latitude": 23.579519,
+  "longitude": 116.428063,
+  "address": "广东省揭阳市揭东区丹凤路揭东区人民广场对面",
+  "description": "揭东区博物馆坐落于揭东区人民广场对面，是揭东区重要的公共文化设施。该馆致力于收藏、研究和展示揭东区的历史文物与地方文化遗产。通过常设与临时展览，系统地向观众呈现了揭东的历史脉络与社会发展。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 161,
+  "name": "利泰文化馆",
+  "category": "文化馆",
+  "latitude": 23.259529,
+  "longitude": 116.158187,
+  "address": "广东省揭阳市普宁市大南山街道利泰大道利泰飞鹅岭农业公园",
+  "description": "利泰文化馆位于普宁市利泰飞鹅岭农业公园内，是一个集文化展示与休闲体验于一体的场所。它依托农业公园的自然环境，可能融合了地方文化元素进行展示。其具体展览内容与特色需实地探访或查询官方信息进一步了解。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 162,
+  "name": "孙畔风雨圣者文化中心",
+  "category": "文化馆",
+  "latitude": 23.543285,
+  "longitude": 116.519227,
+  "address": "广东省揭阳市榕城区登岗镇孙畔大道南侧1号(S20东)",
+  "description": "孙畔风雨圣者文化中心位于榕城区登岗镇，其名称与潮汕地区民间信仰中的“风雨圣者”传说密切相关。该中心是展示和研究这一特定民俗文化的重要空间。它通过实物、图文等方式，传承和弘扬了这一富有地方特色的民间信仰文化。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 163,
+  "name": "溪洋村文化宫",
+  "category": "文化馆",
+  "latitude": 23.004275,
+  "longitude": 116.299974,
+  "address": "广东省揭阳市惠来县华湖镇南门大街玩玩幼儿园东南侧约260米",
+  "description": "溪洋村文化宫是惠来县华湖镇的一个村级文化场所，通常作为村民文化活动与聚会的重要空间。此类文化宫在潮汕乡村普遍存在，是传承乡村文化、举办民俗活动的基础设施。其具体功能与活动内容体现了当地社区的传统文化生活。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 167,
+  "name": "上寮老人文化中心",
+  "category": "文化馆",
+  "latitude": 23.303221,
+  "longitude": 116.142972,
+  "address": "广东省揭阳市普宁市池尾街道福宁路与长春路交叉路口往东约50米(池尾街道美德幼儿园西北侧约50米)",
+  "description": "上寮老人文化中心是位于普宁市池尾街道的一处社区文化设施。作为基层文化馆，它为周边居民，特别是老年人，提供了开展文化娱乐与交流活动的公共空间。其具体活动内容与历史沿革，有待进一步的信息补充。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 168,
+  "name": "员东文化中心",
+  "category": "文化馆",
+  "latitude": 23.406278,
+  "longitude": 115.898156,
+  "address": "广东省揭阳市揭西县坪上镇员埔大道",
+  "description": "员东文化中心坐落于揭西县坪上镇员埔大道，是服务于当地群众的文化活动场所。这类乡镇文化中心通常承担着组织文艺活动、丰富居民精神文化生活的重要功能。关于其更详细的文化特色与具体活动，目前信息有限。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 169,
+  "name": "埔田镇文化中心广场",
+  "category": "文化馆",
+  "latitude": 23.622809,
+  "longitude": 116.388636,
+  "address": "广东省揭阳市揭东区埔田镇埔田村党群服务中心西北",
+  "description": "埔田镇文化中心广场位于揭东区埔田村党群服务中心附近，是一个开放式的公共文化空间。广场为村民提供了集会、休闲与举办各类社区文化活动的场地，是基层公共文化服务体系的重要组成部分。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 170,
+  "name": "皇墩村文化中心",
+  "category": "文化馆",
+  "latitude": 23.460259,
+  "longitude": 115.829276,
+  "address": "广东省揭阳市揭西县河婆街道温泉北路与西门大坑路交叉口北60米",
+  "description": "皇墩村文化中心地处揭西县河婆街道，是村级文化服务设施。它旨在满足村民日常的文化需求，是传承乡土文化、促进社区凝聚力的重要节点。其具体的建筑特色与常设活动内容，需要更多资料来详细说明。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 171,
+  "name": "青潭岭文化中心",
+  "category": "文化馆",
+  "latitude": 23.453422,
+  "longitude": 116.025805,
+  "address": "广东省揭阳市揭西县文化路与环村路交叉口东南方向17米左右",
+  "description": "青潭岭文化中心位于揭西县，具体在文化路与环村路交叉口附近。作为村级文化馆，它服务于本村居民，是开展宣传教育、文体娱乐等活动的基层文化阵地。关于其建设背景与运营情况，已知信息较为简略。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 172,
+  "name": "揭阳市德宝斋展览馆",
+  "category": "文化馆",
+  "latitude": 23.534258,
+  "longitude": 116.355911,
+  "address": "广东省揭阳市榕城区中山街道学宫广场商铺东区前栋108、109、201-216号",
+  "description": "揭阳市德宝斋展览馆是一处位于榕城区学宫广场的文化场馆。其具体展览内容与功能定位，现有信息未作详细说明。该馆坐落于历史文化氛围浓厚的学宫区域，为公众提供了一个接触与了解地方文化的空间。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 173,
+  "name": "揭阳市文化馆",
+  "category": "文化馆",
+  "latitude": 23.494383,
+  "longitude": 116.433314,
+  "address": "广东省揭阳市榕城区吉祥路",
+  "description": "揭阳市文化馆是揭阳市重要的公共文化服务机构，位于榕城区吉祥路。作为群众文化活动的组织与辅导中心，它承担着开展社会宣传教育、公益文化服务等职能。该馆是市民进行文化艺术学习和交流的重要场所。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 175,
+  "name": "港文化馆",
+  "category": "文化馆",
+  "latitude": 23.608969,
+  "longitude": 116.300527,
+  "address": "广东省揭阳市揭东区新亨镇电子商务园N区N3-N4",
+  "description": "港文化馆位于揭东区新亨镇的电子商务园区内，是一处结合现代商贸环境的文化场馆。其具体展览或活动内容，现有信息未作详细说明。该馆的设立体现了文化设施与新兴业态相结合的发展思路。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 176,
+  "name": "揭阳市西湖美术馆",
+  "category": "工坊",
+  "latitude": 23.533741,
+  "longitude": 116.344836,
+  "address": "广东省揭阳市榕城区西环城路1号榕江西湖(东南角)",
+  "description": "揭阳市西湖美术馆坐落于风景秀丽的榕江西湖东南角，环境清幽。虽然类别标注为“工坊”，但其名称更倾向于美术展览空间。该馆可能兼具艺术展示与创作交流的功能，是欣赏美术作品、感受艺术氛围的佳处。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 177,
+  "name": "木雕茶具",
+  "category": "景点",
+  "latitude": 23.355268,
+  "longitude": 116.038234,
+  "address": "广东省揭阳市普宁市",
+  "description": "“木雕茶具”位于普宁市，是一处与国家级非遗“潮州木雕”密切相关的景点或展示点。潮州木雕以多层镂空、金碧辉煌著称，此地将传统木雕技艺与茶具实用器皿相结合，展现了非遗活态传承的创意。游客可在此领略精雕细琢的潮汕工艺之美。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 178,
+  "name": "林业木雕",
+  "category": "景点",
+  "latitude": 23.379668,
+  "longitude": 115.996568,
+  "address": "广东省揭阳市揭西县钱池路198号",
+  "description": "林业木雕是位于揭西县的一处展示潮州木雕艺术的景点。潮州木雕作为国家级非物质文化遗产，以其多层次镂空和贴金技艺闻名。该场所为公众提供了近距离欣赏这一传统美术精湛工艺的平台。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 179,
+  "name": "木雕日记",
+  "category": "景点",
+  "latitude": 23.004122,
+  "longitude": 116.279347,
+  "address": "广东省揭阳市惠来县寨外一巷1号",
+  "description": "木雕日记是惠来县一处与潮州木雕相关的景点。潮州木雕是国家级非遗项目，以金漆木雕和立体镂通雕为特色。该地点为游客了解这项传统美术的技艺与文化内涵提供了窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 180,
+  "name": "华杰木雕",
+  "category": "景点",
+  "latitude": 23.028416,
+  "longitude": 116.343234,
+  "address": "广东省揭阳市惠来县华湖镇G228标业玻璃西侧约210米",
+  "description": "华杰木雕位于惠来县华湖镇，是一处展示潮州木雕的场所。潮州木雕作为国家级非物质文化遗产，其雕刻题材广泛，工艺繁复精巧。这里为人们领略这项传统美术的魅力提供了实地体验的机会。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 181,
+  "name": "旺盛木雕文玩店",
+  "category": "景点",
+  "latitude": 23.337941,
+  "longitude": 116.099284,
+  "address": "广东省揭阳市普宁市梅塘镇238国道",
+  "description": "旺盛木雕文玩店是普宁市梅塘镇一处与潮州木雕相关的景点。潮州木雕是国家级非遗，以其细腻的雕刻和富丽的装饰风格著称。该店主要展示和经营木雕工艺品，是接触这一传统美术的实体空间。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 182,
+  "name": "缘木雕工艺坊",
+  "category": "景点",
+  "latitude": 23.289053,
+  "longitude": 116.183042,
+  "address": "广东省揭阳市普宁市后坛村老人活动中心(文竹南路东)",
+  "description": "缘木雕工艺坊位于普宁市后坛村，是一处与潮州木雕技艺相关的景点。潮州木雕作为国家级非物质文化遗产，融合了雕刻、漆艺和贴金等多种工艺。该工坊为传统木雕技艺的展示与传承提供了场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 183,
+  "name": "华丽美木雕工艺",
+  "category": "景点",
+  "latitude": 23.502445,
+  "longitude": 116.066103,
+  "address": "广东省揭阳市揭西县京溪园镇上陇京塔路中段",
+  "description": "华丽美木雕工艺是位于揭西县的一处展示潮州木雕技艺的景点。这里以展示和传承国家级非遗项目‘潮州木雕’为核心。游客可以在此欣赏到多层镂空、金漆装饰等传统木雕工艺的精美作品。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 184,
+  "name": "洪艺木雕",
+  "category": "景点",
+  "latitude": 23.29202,
+  "longitude": 116.204275,
+  "address": "广东省揭阳市普宁市普宁现代医院对面",
+  "description": "洪艺木雕是普宁市一处展示潮州木雕艺术的景点。该场所致力于呈现国家级非物质文化遗产‘潮州木雕’的传统技艺。它为公众提供了一个近距离观赏潮汕地区传统木雕工艺的窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 185,
+  "name": "陈泽铭木雕工作室",
+  "category": "工坊",
+  "latitude": 23.243271,
+  "longitude": 116.257703,
+  "address": "广东省揭阳市普宁市军埠镇新厝村普宁大道南侧250米",
+  "description": "陈泽铭木雕工作室是位于普宁市的一处传统工艺工坊。这里专注于国家级非遗‘潮州木雕’的创作与实践，是艺人进行雕刻、创作和传承的工作空间。工坊体现了潮州木雕从设计到成品的制作过程。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州木雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 186,
+  "name": "佳艺潮绣坊",
+  "category": "景点",
+  "latitude": 23.046866,
+  "longitude": 116.293163,
+  "address": "广东省揭阳市惠来县傍山路与坪新路交叉口正北方向125米左右",
+  "description": "佳艺潮绣坊是惠来县一处展示潮绣技艺的景点。这里以传承和展示国家级非物质文化遗产‘潮绣’为特色。游客可以在此领略到潮绣以金线、银线、绒线绣制而成的立体、饱满的独特艺术风格。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 187,
+  "name": "金盛兴潮绣",
+  "category": "景点",
+  "latitude": 23.527591,
+  "longitude": 116.502359,
+  "address": "广东省揭阳市榕城区",
+  "description": "金盛兴潮绣是位于揭阳市榕城区的一处潮绣展示点。该场所与国家级非遗项目‘潮绣’相关联，致力于展示这一传统美术的技艺与作品。它为人们了解潮绣的华丽精巧提供了便利的场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮绣",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 188,
+  "name": "石鸟头英歌室",
+  "category": "景点",
+  "latitude": 23.340316,
+  "longitude": 116.123401,
+  "address": "广东省揭阳市普宁市华德楼东北50米(侨光路北)",
+  "description": "石鸟头英歌室是普宁地区一处重要的英歌舞传承与活动场所。这里主要用于国家级非遗项目英歌舞的排练、教学与交流。作为潮汕传统舞蹈的实践基地，它承载着弘扬这一雄浑有力、富有阳刚之气的民间艺术的重要功能。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "英歌舞",
+      "type": "传统舞蹈",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 189,
+  "name": "武视相馆·潮剧曲谱联络点",
+  "category": "景点",
+  "latitude": 23.498676,
+  "longitude": 116.348496,
+  "address": "广东省揭阳市榕城区仙马路与篮兜商业街交叉口东340米",
+  "description": "武视相馆·潮剧曲谱联络点是一个与潮剧艺术紧密相关的特色地点。它作为曲谱联络点，很可能在潮剧音乐的传播、乐谱交流或爱好者联络中扮演着特殊角色。这里是国家级非遗潮剧在民间网络中的一个具体节点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 190,
+  "name": "广东省揭阳市潮剧一团",
+  "category": "景点",
+  "latitude": 23.514938,
+  "longitude": 116.361456,
+  "address": "广东省揭阳市榕城区仙桥街道榕池路龙康桥9号",
+  "description": "广东省揭阳市潮剧一团是揭阳地区专业的潮剧表演团体。作为国家级非物质文化遗产潮剧的重要传承和演出单位，剧团长期致力于经典剧目的排演与新创。其驻地是潮剧艺术生产、演员培养和向公众展示的核心场所之一。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 191,
+  "name": "潮剧唱唸培训",
+  "category": "景点",
+  "latitude": 23.554462,
+  "longitude": 116.382489,
+  "address": "广东省揭阳市榕城区东升街道新河路东东雅园b区7栋61号",
+  "description": "潮剧唱唸培训是一处专注于潮剧演唱与念白技艺传授的场所。这里针对潮剧这一国家级非遗项目的核心声腔艺术进行教学，旨在培养和提升学员的演唱功底。它是潮剧艺术在民间进行专业化传承的实践点之一。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 192,
+  "name": "揭阳市潮剧团",
+  "category": "景点",
+  "latitude": 23.536793,
+  "longitude": 116.360598,
+  "address": "广东省揭阳市榕城区榕华街道新兴北路榕江公园西侧约30米",
+  "description": "揭阳市潮剧团是揭阳市级的专业潮剧表演机构，是传承与发展国家级非遗潮剧的主力军。剧团负责创作、排演剧目，并承担着重要的演出任务。其存在对保护潮剧这一古老地方剧种、满足群众文化需求具有重要意义。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 193,
+  "name": "广东小梨花潮剧团",
+  "category": "景点",
+  "latitude": 23.523682,
+  "longitude": 116.440185,
+  "address": "广东省揭阳市榕城区渔湖街道望江北路7号",
+  "description": "广东小梨花潮剧团是揭阳市榕城区一处重要的潮剧演出与传承场所。作为国家级非遗项目潮剧的实践基地，这里定期进行排练与演出，展现了潮剧独特的唱腔和表演艺术。其存在为当地民众和戏剧爱好者提供了近距离接触这一传统戏剧的平台。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 194,
+  "name": "揭阳市潮剧文化促进会",
+  "category": "景点",
+  "latitude": 23.536866,
+  "longitude": 116.398375,
+  "address": "广东省揭阳市榕城区进贤门大道南围十巷46号",
+  "description": "揭阳市潮剧文化促进会是致力于潮剧保护、研究与推广的专业机构。该会依托国家级非遗项目潮剧，通过组织学术交流、艺术培训等活动，积极推动潮剧文化的传承与发展。其位于榕城区的会址是潮剧艺术交流的重要节点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 195,
+  "name": "惠来县馨韵潮剧演出有限公司",
+  "category": "景点",
+  "latitude": 23.028427,
+  "longitude": 116.287834,
+  "address": "广东省揭阳市惠来县惠城镇南门西路156号(电器厂旁)",
+  "description": "惠来县馨韵潮剧演出有限公司是惠来县一家专业的潮剧演出团体。该公司以传承和展演国家级非遗潮剧为核心业务，为当地及周边地区的节庆活动提供演出服务。它的运营有助于保持潮剧在基层社区的活态传承与艺术生命力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮剧",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 196,
+  "name": "茶榆·潮汕工夫茶驿站",
+  "category": "茶文化",
+  "latitude": 23.5388,
+  "longitude": 116.524417,
+  "address": "广东省揭阳市榕城区登岗镇登峰路桥头3号",
+  "description": "茶榆·潮汕工夫茶驿站是体验潮汕工夫茶文化的特色空间。这里以国家级非遗“潮州工夫茶艺”为核心，为访客提供沉浸式的茶艺展示与品鉴体验。驿站通过具体的茶事活动，传递潮汕工夫茶“和、敬、精、乐”的文化内涵。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 197,
+  "name": "潮汕工夫茶",
+  "category": "茶文化",
+  "latitude": 23.020316,
+  "longitude": 116.282504,
+  "address": "广东省揭阳市惠来县南环一路与庆平路交叉口正南方向143米左右",
+  "description": "此处是位于惠来县的一处与潮汕工夫茶文化相关的场所。其关联的非遗项目为国家级非物质文化遗产“潮州工夫茶艺”。该场所的具体功能与活动形式，现有信息不足以进行详细描述。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 198,
+  "name": "念茶记工夫茶(滨江尚都店)",
+  "category": "茶文化",
+  "latitude": 23.556408,
+  "longitude": 116.389224,
+  "address": "广东省揭阳市榕城区东升街道东升路与临江北路交叉口滨江尚都停车场出入口17号铺",
+  "description": "念茶记工夫茶是一家专注于潮州工夫茶艺的茶文化体验场所。作为国家级非遗项目‘潮州工夫茶艺’的实践与传播点，这里不仅提供品饮，也承载着展示潮汕茶道精神的功能。其选址于榕城区滨江尚都，便于市民与游客近距离感受这一传统民俗的魅力。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 199,
+  "name": "工夫茶行(惠来周田杭美乡综合市场店)",
+  "category": "茶文化",
+  "latitude": 22.980334,
+  "longitude": 116.471221,
+  "address": "广东省揭阳市惠来县周田镇杭美综合市场大门右侧",
+  "description": "工夫茶行是惠来县周田镇一处经营潮州工夫茶艺的店铺。它扎根于乡镇综合市场，是国家级非遗‘潮州工夫茶艺’在基层社区的生动体现。这类场所对于维持工夫茶在日常生活中的活力，以及向本地居民普及茶文化具有重要作用。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "潮州工夫茶艺",
+      "type": "民俗",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 200,
+  "name": "赤华园嵌瓷艺术",
+  "category": "景点",
+  "latitude": 23.292677,
+  "longitude": 116.161287,
+  "address": "广东省揭阳市普宁市河滨南路与赤华南路交叉口正东方向134米左右",
+  "description": "赤华园嵌瓷艺术是一处以展示国家级非遗‘嵌瓷’技艺为核心的景点。嵌瓷是潮汕地区独特的传统建筑装饰艺术，以彩色瓷片剪贴镶嵌成各种图案。该地点可能陈列有精美的嵌瓷作品，供公众欣赏这一绚丽夺目的传统美术。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "嵌瓷",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 201,
+  "name": "金艺木偶服饰工艺制作中心",
+  "category": "景点",
+  "latitude": 23.537979,
+  "longitude": 116.459865,
+  "address": "广东省揭阳市榕城区炮台镇揭东大道西南侧",
+  "description": "金艺木偶服饰工艺制作中心是揭阳一处与铁枝木偶戏相关的工艺景点。铁枝木偶戏是国家级非物质文化遗产，其木偶制作及服饰工艺极为考究。该中心很可能专注于木偶戏服、道具或木偶本体的制作与展示，是了解这一传统戏剧幕后技艺的重要窗口。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "铁枝木偶戏",
+      "type": "传统戏剧",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 211,
+  "name": "揭阳楼广场",
+  "category": "景点",
+  "latitude": 23.56591,
+  "longitude": 116.393011,
+  "address": "广东省揭阳市榕城区沿江中路193号正东方向190米",
+  "description": "揭阳楼广场是揭阳市榕城区一处重要的城市地标与公共活动空间。它毗邻沿江中路，环境开阔，常作为市民休闲、集会和举办文化活动的场所。虽然资料未显示其直接关联特定的非遗项目，但此类城市广场往往是展示地方文化与现代生活交融的平台。",
+  "images": [],
+  "heritageItems": []
+},
+  {
+  "id": 219,
+  "name": "阳美玉都",
+  "category": "景点",
+  "latitude": 23.558775,
+  "longitude": 116.318612,
+  "address": "广东省揭阳市揭东区阳美路",
+  "description": "阳美玉都是揭阳乃至全国闻名的翡翠玉器加工与贸易集散地。这里汇聚了众多玉雕工坊与商家，是国家级非遗项目‘阳美翡翠玉雕’的核心传承区域。游客在此可近距离感受潮汕玉雕技艺的精湛与玉器市场的繁荣景象。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "阳美翡翠玉雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 220,
+  "name": "镛汇·阳美玉都广场",
+  "category": "景点",
+  "latitude": 23.559215,
+  "longitude": 116.314556,
+  "address": "广东省揭阳市揭东区玉都广场路与玉龙街交叉口正西方向209米左右",
+  "description": "镛汇·阳美玉都广场是阳美玉都片区内的一个现代化商业综合体。它同样承载着展示与推广国家级非遗‘阳美翡翠玉雕’文化的功能。广场内商铺林立，为游客提供了集中选购和欣赏高端翡翠玉雕作品的便利场所。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "阳美翡翠玉雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 222,
+  "name": "阳美玉都老玉街",
+  "category": "景点",
+  "latitude": 23.560852,
+  "longitude": 116.318287,
+  "address": "广东省揭阳市揭东区普宁水果店(老玉街)",
+  "description": "阳美玉都老玉街是玉都内富有历史底蕴的传统街区，见证了当地玉雕产业的发展和传承。街道两旁遍布老字号玉器店铺与工坊，是体验原汁原味的‘阳美翡翠玉雕’非遗技艺和交易氛围的重要地点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "阳美翡翠玉雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 224,
+  "name": "阳美玉都-大门",
+  "category": "景点",
+  "latitude": 23.558396,
+  "longitude": 116.319624,
+  "address": "广东省揭阳市揭东区阳美玉都旅游景区",
+  "description": "阳美玉都-大门是进入阳美玉都旅游景区的主要标志性入口。其建筑风格通常融合了玉文化元素，象征着这片区域作为‘阳美翡翠玉雕’这一国家级非遗项目重要承载地的身份，迎接八方来客。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "阳美翡翠玉雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+},
+  {
+  "id": 226,
+  "name": "阳美玉都景区游客中心",
+  "category": "景点",
+  "latitude": 23.554394,
+  "longitude": 116.311176,
+  "address": "广东省揭阳市揭东区磐兴大道与西关路交叉口正北方向395米左右",
+  "description": "阳美玉都景区游客中心是为来访者提供旅游咨询、导览服务的核心设施。中心通常会介绍景区概况及国家级非遗‘阳美翡翠玉雕’的相关知识，是游客系统了解阳美玉文化和规划行程的理想起点。",
+  "images": [],
+  "heritageItems": [
+    {
+      "name": "阳美翡翠玉雕",
+      "type": "传统美术",
+      "status": "国家级非物质文化遗产",
+      "content": ""
+    }
+  ]
+}
 ];
-  }
-})

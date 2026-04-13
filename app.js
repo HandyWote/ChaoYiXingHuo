@@ -990,24 +990,6 @@ App({
     ]
   },
   {
-    "id": 63,
-    "name": "新安街抽纱宿舍",
-    "category": "景点",
-    "latitude": 23.662197,
-    "longitude": 116.634258,
-    "address": "广东省潮州市湘桥区新乐园(新安街)",
-    "description": "新安街抽纱宿舍是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
     "id": 64,
     "name": "砂锅粥(原小公园)",
     "category": "美食",
@@ -1017,94 +999,7 @@ App({
     "description": "砂锅粥(原小公园)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
     "images": [],
     "heritageItems": []
-  },
-  {
-    "id": 65,
-    "name": "联饶镇洋东村小公园",
-    "category": "景点",
-    "latitude": 23.736117,
-    "longitude": 116.992765,
-    "address": "广东省潮州市饶平县洋东村小公园",
-    "description": "联饶镇洋东村小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 66,
-    "name": "光明小公园",
-    "category": "景点",
-    "latitude": 23.662452,
-    "longitude": 116.629768,
-    "address": "广东省潮州市湘桥区城西街道光明街潮枫楼西侧",
-    "description": "光明小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 67,
-    "name": "廖厝村墩后小公园",
-    "category": "景点",
-    "latitude": 23.516752,
-    "longitude": 116.627382,
-    "address": "广东省潮州市潮安区金石镇上官路快乐幼儿北侧约90米",
-    "description": "廖厝村墩后小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 68,
-    "name": "溁东小公园",
-    "category": "景点",
-    "latitude": 24.037125,
-    "longitude": 116.851541,
-    "address": "广东省潮州市饶平县新丰大道与金丰路交叉口正北方向151米左右",
-    "description": "溁东小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 69,
-    "name": "和平聚宝宫小公园",
-    "category": "景点",
-    "latitude": 23.51067,
-    "longitude": 116.639982,
-    "address": "广东省潮州市潮安区大路顶路与宫前外路交叉口正南方向141米左右",
-    "description": "和平聚宝宫小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 70,
-    "name": "谢渡小公园",
-    "category": "景点",
-    "latitude": 23.550838,
-    "longitude": 116.677912,
-    "address": "广东省潮州市潮安区江东镇纯香饼食南侧190米",
-    "description": "谢渡小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 71,
-    "name": "神墨教育(小公园校区)",
-    "category": "景点",
-    "latitude": 23.668989,
-    "longitude": 117.002331,
-    "address": "广东省潮州市饶平县中山路与大衙路交叉口正北方向87米左右",
-    "description": "神墨教育(小公园校区)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 72,
-    "name": "乔林小公园",
-    "category": "景点",
-    "latitude": 23.451693,
-    "longitude": 116.693527,
-    "address": "广东省潮州市潮安区庵埠镇乔林新兴路2-1号",
-    "description": "乔林小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
+
   },
   {
     "id": 73,
@@ -1158,28 +1053,6 @@ App({
     "heritageItems": []
   },
   {
-    "id": 77,
-    "name": "南澳总兵博物馆",
-    "category": "博物馆",
-    "latitude": 23.452128,
-    "longitude": 117.10201,
-    "address": "广东省汕头市南澳县深澳镇南澳岛生态旅游区(东北角)",
-    "description": "南澳总兵博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 78,
-    "name": "南澳县海防史博物馆",
-    "category": "博物馆",
-    "latitude": 23.425053,
-    "longitude": 117.023941,
-    "address": "广东省汕头市南澳县瑞祥路与中兴路交叉路口西南侧(汕头南澳岛旅游区)",
-    "description": "南澳县海防史博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
     "id": 79,
     "name": "潮汕华侨历史博物馆",
     "category": "博物馆",
@@ -1187,28 +1060,6 @@ App({
     "longitude": 116.715636,
     "address": "广东省汕头市濠江区礐石街道南滨路潮汕历史文化博览中心3-4层",
     "description": "潮汕华侨历史博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 80,
-    "name": "郑正秋蔡楚生电影博物馆",
-    "category": "博物馆",
-    "latitude": 23.354296,
-    "longitude": 116.673058,
-    "address": "广东省汕头市金平区潮籍电影名人史迹馆",
-    "description": "郑正秋蔡楚生电影博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 81,
-    "name": "汕头工业博物馆",
-    "category": "博物馆",
-    "latitude": 23.394268,
-    "longitude": 116.695499,
-    "address": "广东省汕头市金平区护堤路168号公元厂科研楼一层",
-    "description": "汕头工业博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
     "images": [],
     "heritageItems": []
   },
@@ -1333,17 +1184,6 @@ App({
     "longitude": 116.72993,
     "address": "广东省汕头市龙湖区嵩山北路潮人创客创意园B幢7楼",
     "description": "清雅文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 92,
-    "name": "华联体育文化中心",
-    "category": "文化馆",
-    "latitude": 23.444156,
-    "longitude": 116.793822,
-    "address": "广东省汕头市澄海区莱美路白沙片5号",
-    "description": "华联体育文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
     "images": [],
     "heritageItems": []
   },
@@ -2210,24 +2050,6 @@ App({
     ]
   },
   {
-    "id": 141,
-    "name": "抽纱大厦",
-    "category": "景点",
-    "latitude": 23.351678,
-    "longitude": 116.695557,
-    "address": "广东省汕头市金平区石炮台街道海滨路16号",
-    "description": "抽纱大厦是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
     "id": 142,
     "name": "汕头抽纱(大悦花园店)",
     "category": "景点",
@@ -2235,24 +2057,6 @@ App({
     "longitude": 116.729916,
     "address": "广东省汕头市龙湖区紫茵东街与衡山路交叉口东北方向235米左右",
     "description": "汕头抽纱(大悦花园店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 143,
-    "name": "花咖",
-    "category": "景点",
-    "latitude": 23.378792,
-    "longitude": 116.729104,
-    "address": "广东省汕头市龙湖区抽纱公寓(长江路北)",
-    "description": "花咖是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
     "images": [],
     "heritageItems": [
       {
@@ -2439,17 +2243,6 @@ App({
     "heritageItems": []
   },
   {
-    "id": 158,
-    "name": "聚鲶工业博物馆",
-    "category": "博物馆",
-    "latitude": 23.612586,
-    "longitude": 116.502793,
-    "address": "广东省揭阳市揭东区中德金属生态城创新A区5栋",
-    "description": "聚鲶工业博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
     "id": 159,
     "name": "揭阳市揭东区博物馆",
     "category": "博物馆",
@@ -2457,17 +2250,6 @@ App({
     "longitude": 116.428063,
     "address": "广东省揭阳市揭东区丹凤路揭东区人民广场对面",
     "description": "揭阳市揭东区博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 160,
-    "name": "仙美文化广场-蔡翘院士博物馆",
-    "category": "博物馆",
-    "latitude": 23.61473,
-    "longitude": 116.299815,
-    "address": "广东省揭阳市揭东区G206与X115交叉口正南方向33米左右",
-    "description": "仙美文化广场-蔡翘院士博物馆是展示潮汕地区历史文化与非物质文化遗产的重要场所。",
     "images": [],
     "heritageItems": []
   },
@@ -2501,39 +2283,6 @@ App({
     "longitude": 116.299974,
     "address": "广东省揭阳市惠来县华湖镇南门大街玩玩幼儿园东南侧约260米",
     "description": "溪洋村文化宫是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 164,
-    "name": "优生活羊乳品牌文化馆",
-    "category": "文化馆",
-    "latitude": 23.542143,
-    "longitude": 116.38114,
-    "address": "广东省揭阳市榕城区榕华街道东三路星河城小区111号",
-    "description": "优生活羊乳品牌文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 165,
-    "name": "普宁青梅文化中心",
-    "category": "文化馆",
-    "latitude": 23.278992,
-    "longitude": 116.16351,
-    "address": "广东省揭阳市普宁市流沙西街道普宁大道与玉华南路交叉口西南角",
-    "description": "普宁青梅文化中心是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 166,
-    "name": "周恩来同志革命活动展览馆",
-    "category": "文化馆",
-    "latitude": 23.535629,
-    "longitude": 116.355935,
-    "address": "广东省揭阳市榕城区韩祠路7号",
-    "description": "周恩来同志革命活动展览馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
     "images": [],
     "heritageItems": []
   },
@@ -2611,17 +2360,6 @@ App({
     "longitude": 116.433314,
     "address": "广东省揭阳市榕城区吉祥路",
     "description": "揭阳市文化馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 174,
-    "name": "大南山革命斗争历史展览馆",
-    "category": "文化馆",
-    "latitude": 23.265582,
-    "longitude": 116.165901,
-    "address": "广东省揭阳市普宁市大南山街道陂沟村向东片0001号",
-    "description": "大南山革命斗争历史展览馆是当地群众文化活动的重要阵地，常年举办非遗展演和传承活动。",
     "images": [],
     "heritageItems": []
   },
@@ -3098,119 +2836,6 @@ App({
     ]
   },
   {
-    "id": 202,
-    "name": "抽纱宿舍",
-    "category": "景点",
-    "latitude": 23.535161,
-    "longitude": 116.36885,
-    "address": "广东省揭阳市榕城区巷畔大道揭阳市中医院北侧约90米",
-    "description": "抽纱宿舍是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 203,
-    "name": "刘厝抽纱后一巷",
-    "category": "景点",
-    "latitude": 23.540859,
-    "longitude": 116.460925,
-    "address": "广东省揭阳市榕城区",
-    "description": "刘厝抽纱后一巷是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及抽纱等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "抽纱",
-        "type": "传统美术",
-        "status": "省级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 204,
-    "name": "潮下小公园",
-    "category": "景点",
-    "latitude": 23.519227,
-    "longitude": 116.32766,
-    "address": "广东省揭阳市榕城区分渠路与潮兴里一巷交叉口东南方向89米左右",
-    "description": "潮下小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 205,
-    "name": "小洋四小公园",
-    "category": "景点",
-    "latitude": 23.528046,
-    "longitude": 116.523346,
-    "address": "广东省揭阳市榕城区大洋南路与大洋新乡南路交叉口正东方向398米左右",
-    "description": "小洋四小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 206,
-    "name": "新寨村小公园",
-    "category": "景点",
-    "latitude": 23.596243,
-    "longitude": 116.515156,
-    "address": "广东省揭阳市揭东区新寨村",
-    "description": "新寨村小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 207,
-    "name": "桂岭鸟围凤林小公园",
-    "category": "景点",
-    "latitude": 23.593561,
-    "longitude": 116.261374,
-    "address": "广东省揭阳市揭东区桂岭镇鸟围村天主堂西北侧190米",
-    "description": "桂岭鸟围凤林小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 208,
-    "name": "湿地小公园",
-    "category": "景点",
-    "latitude": 23.297667,
-    "longitude": 116.282828,
-    "address": "广东省揭阳市普宁市占陇镇南德楼西北侧260米",
-    "description": "湿地小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 209,
-    "name": "古寨小公园",
-    "category": "景点",
-    "latitude": 23.527288,
-    "longitude": 116.34639,
-    "address": "广东省揭阳市榕城区望江南路南",
-    "description": "古寨小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 210,
-    "name": "新永安里小公园",
-    "category": "景点",
-    "latitude": 23.554491,
-    "longitude": 116.200273,
-    "address": "广东省揭阳市揭东区塔瑞路与玉塔路交叉口正西方向107米左右",
-    "description": "新永安里小公园是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
     "id": 211,
     "name": "揭阳楼广场",
     "category": "景点",
@@ -3218,83 +2843,6 @@ App({
     "longitude": 116.393011,
     "address": "广东省揭阳市榕城区沿江中路193号正东方向190米",
     "description": "揭阳楼广场是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 212,
-    "name": "DM COFFEE(揭阳楼店)",
-    "category": "景点",
-    "latitude": 23.554679,
-    "longitude": 116.390041,
-    "address": "广东省揭阳市榕城区东升街道临江北路丽枫酒店附近",
-    "description": "DM COFFEE(揭阳楼店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 213,
-    "name": "揭阳楼广场跑步路线",
-    "category": "景点",
-    "latitude": 23.564598,
-    "longitude": 116.393241,
-    "address": "广东省揭阳市榕城区(起点所在区县)",
-    "description": "揭阳楼广场跑步路线是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 214,
-    "name": "进贤门大桥",
-    "category": "景点",
-    "latitude": 23.559456,
-    "longitude": 116.425049,
-    "address": "广东省揭阳市榕城区",
-    "description": "进贤门大桥是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 215,
-    "name": "榕华大道进贤门市场西场",
-    "category": "景点",
-    "latitude": 23.533401,
-    "longitude": 116.363495,
-    "address": "广东省揭阳市榕城区义和路与榕华大道交叉口正北方向107米左右",
-    "description": "榕华大道进贤门市场西场是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 216,
-    "name": "进贤门派出所",
-    "category": "景点",
-    "latitude": 23.53754,
-    "longitude": 116.357351,
-    "address": "广东省揭阳市榕城区东环城路30号",
-    "description": "进贤门派出所是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 217,
-    "name": "进贤门市场主座",
-    "category": "景点",
-    "latitude": 23.53422,
-    "longitude": 116.364727,
-    "address": "广东省揭阳市榕城区新兴南路22-23号",
-    "description": "进贤门市场主座是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
-    "id": 218,
-    "name": "米西米西寿司(进贤门店)",
-    "category": "景点",
-    "latitude": 23.535319,
-    "longitude": 116.359643,
-    "address": "广东省揭阳市榕城区榕华街道新兴北路口揭阳市区糖业烟酒有限公司办公楼一楼南面",
-    "description": "米西米西寿司(进贤门店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
     "images": [],
     "heritageItems": []
   },
@@ -3335,17 +2883,6 @@ App({
     ]
   },
   {
-    "id": 221,
-    "name": "阳美玉·都壹号",
-    "category": "景点",
-    "latitude": 23.556059,
-    "longitude": 116.311745,
-    "address": "广东省揭阳市揭东区磐东街道酒店路富豪公寓",
-    "description": "阳美玉·都壹号是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。",
-    "images": [],
-    "heritageItems": []
-  },
-  {
     "id": 222,
     "name": "阳美玉都老玉街",
     "category": "景点",
@@ -3364,24 +2901,6 @@ App({
     ]
   },
   {
-    "id": 223,
-    "name": "揭阳泊屿美宿(揭阳阳美玉都店)",
-    "category": "景点",
-    "latitude": 23.546366,
-    "longitude": 116.304783,
-    "address": "广东省揭阳市揭东区磐东街道河中村江华路前沟桥头南侧1号一至五层",
-    "description": "揭阳泊屿美宿(揭阳阳美玉都店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "阳美翡翠玉雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
     "id": 224,
     "name": "阳美玉都-大门",
     "category": "景点",
@@ -3389,24 +2908,6 @@ App({
     "longitude": 116.319624,
     "address": "广东省揭阳市揭东区阳美玉都旅游景区",
     "description": "阳美玉都-大门是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
-    "images": [],
-    "heritageItems": [
-      {
-        "name": "阳美翡翠玉雕",
-        "type": "传统美术",
-        "status": "国家级非物质文化遗产",
-        "content": ""
-      }
-    ]
-  },
-  {
-    "id": 225,
-    "name": "栖海·美宿(揭东阳美玉都店)",
-    "category": "景点",
-    "latitude": 23.544234,
-    "longitude": 116.30645,
-    "address": "广东省揭阳市揭东区磐东街道镇南路北东段2号",
-    "description": "栖海·美宿(揭东阳美玉都店)是潮汕地区具有深厚文化底蕴的历史名胜，承载着丰富的非遗文化记忆。涉及阳美翡翠玉雕等非遗项目。",
     "images": [],
     "heritageItems": [
       {

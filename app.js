@@ -1,4 +1,42 @@
-this.globalData.heritagePoints = [
+App({
+  globalData: {
+    heritagePoints: []
+  },
+
+  onLaunch() {
+    // 初始化云开发
+    if (wx.cloud) {
+      wx.cloud.init({ traceUser: true })
+    }
+
+    this.loadDefaultHeritageData();
+
+    // 获取用户位置权限
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success: () => {
+              // 用户已经同意小程序使用位置功能
+            }
+          })
+        }
+      }
+    })
+  },
+
+  onShow() {
+    // 小程序显示时的逻辑
+  },
+
+  onHide() {
+    // 小程序隐藏时的逻辑
+  },
+
+  // 加载默认的非遗数据
+  loadDefaultHeritageData() {
+    this.globalData.heritagePoints = [
   {
   "id": 1,
   "name": "华夏历史博物馆",
@@ -2909,4 +2947,6 @@ this.globalData.heritagePoints = [
     }
   ]
 }
-];
+  ];
+  }
+})
